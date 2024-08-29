@@ -1,0 +1,52 @@
+<!-- Editar arquivo index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Adicionar cdn de ícones bootstrap (veja na descrição) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Adicionar arquivo style.css -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- Adicionar arquivo _scriptStrings.js -->
+  <script src='_scriptStrings.js' type='text/javascript' defer></script>
+  <!-- Adicionar arquivo _scriptColors.js -->
+  <script src='_scriptColors.js' type='text/javascript' defer></script>
+  <!-- Adicionar arquivo scriptCookie.js -->
+  <script src='scriptCookie.js' type='text/javascript' defer></script>
+  <!-- Adicionar arquivo scriptTheme.js -->
+  <script src='scriptTheme.js' type='text/javascript' defer></script>
+  <!-- Adicionar arquivo scriptAction.js -->
+  <script src="scriptAction.js" type="text/javascript" defer></script>
+  <title>Modelo 1</title>
+</head>
+
+<body>
+  <header id="myHeader"> <!-- cabeçalho -->
+    <button id="buttonMenuLeft" type="button" title="Menu left"> <!-- botão para retrair ou expandir o menu esquerdo-->
+      <i class="bi bi-list"></i> <!-- ícone importado do bootstrap -->
+    </button>
+    <button id="buttonHome" type="button" title="bHome">
+      <i class="bi bi-house"></i>
+    </button>
+    <p id='pHeader'></p>
+    <button id="buttonTheme" type='button' title='bTheme'> <!-- Botão que fará a mudança de tema -->
+      <i class="bi bi-circle-half"></i> <!-- ícone importado do bootstrap -->
+    </button>
+    <button id="buttonMenuRight" type="button" title="Menu right"> <!-- botão para retrair ou expandir o menu direito-->
+      <i class="bi bi-three-dots-vertical"></i> <!-- ícone importado do bootstrap -->
+    </button>
+  </header>
+  <div id="myDivContainer"> <!-- Container que receberá os menus e a área de conteúdo -->
+    <div id="myDivLeft" class="divMenu"> <!-- menu esquerdo -->
+    </div>
+    <div id="myDivCenter"><!-- área de conteúdo -->
+    </div>
+    <div id="myDivRight" class="divMenu"><!-- menu direito -->
+    </div>
+  </div>
+  <footer id="myFooter">Projeto de desenvolvimento de site responsivo</footer> <!-- rodapé -->
+</body>
+
+</html>
