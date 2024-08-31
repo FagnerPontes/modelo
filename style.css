@@ -60,7 +60,6 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: calc(100vh - env(safe-area-inset-bottom));
 }
 
 /* cabeçalho */
@@ -69,9 +68,6 @@ body {
   height: var(--headerHeigth); /*altura igual à variável temática*/
   background-color: var(--backColor1); /*cor de fundo igual à variável temática*/
   align-items: center;
-  /* background-image: var(--backgroundImageHeader);
-  background-position: center;
-  background-size: cover;  */
 }
 
 /* parágrafo no cabeçalho */

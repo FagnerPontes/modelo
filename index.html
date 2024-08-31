@@ -22,7 +22,19 @@
  <title>Modelo 1</title>
 </head>
 
-<body>
+<body id="body">
+ <script>
+  var isMobile = false;
+  if (navigator.userAgentData && navigator.userAgentData.mobile) {
+   isMobile = true;
+  } else if (/Mobi|Android/i.test(navigator.userAgent)) {
+   isMobile = true;
+  }
+  if (isMobile)
+   document.getElementById('body').style.setProperty('height', `${window.innerHeight}px`);
+  else
+   document.getElementById('body').style.setProperty('height', `100vh`);
+ </script>
  <header id="myHeader"> <!-- cabeçalho -->
   <!-- botão para retrair ou expandir o menu esquerdo-->
   <button id="buttonMenuLeft" type="button" title="Menu left">
@@ -33,7 +45,6 @@
   <!-- Botão para criar perfil -->
   <button id="buttonCreateProfile" class='buttonHeader' type='button' title='Create Profile'
    onclick="location.href='registro.html';">
-
    <i class="bi bi-person-plus"></i><!-- ícone importado do bootstrap -->
    <span>Inscrever</span>
   </button>
