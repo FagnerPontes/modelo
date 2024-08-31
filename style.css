@@ -173,6 +173,7 @@ body {
 /* container que abriga os menus e a área de conteúdo */
 #myDivContainer {
   flex: 1;
+  padding-bottom: calc(var(--footerHeigth) + env(safe-area-inset-bottom));
   border-top: var(--border3); /*borda superior igual à variável temática*/
   border-bottom: var(--border3); /*borda inferior igual à variável temática*/
   overflow: auto; /*fixar tamanho e exibir scrollbar se elemento filho for maior*/
