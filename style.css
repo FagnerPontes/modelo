@@ -60,7 +60,7 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
+  height: calc(100vh - env(safe-area-inset-bottom));
 }
 
 /* cabeçalho */
