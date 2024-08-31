@@ -6,6 +6,22 @@ const buttonMenuRight = document.getElementById('buttonMenuRight');
 const myDivLeft = document.getElementById('myDivLeft');
 const myDivRight = document.getElementById('myDivRight');
 const pHeader = document.getElementById('pHeader')
+const buttonHedaer_DR_Child = document.getElementById('buttonHedaer_DR_Child');
+const i_DR_Child = document.getElementById("i_DR_Child");
+
+
+var isMobile = false;
+if (navigator.userAgentData && navigator.userAgentData.mobile) {
+  isMobile = true;
+} else if (/Mobi|Android/i.test(navigator.userAgent)) {
+  isMobile = true;
+}
+if (isMobile) {
+  document.getElementById('body').style.setProperty('height', `${window.innerHeight}px`);
+  myDivRight.classList.add('openMyDivRight');
+}
+else
+  document.getElementById('body').style.setProperty('height', `100vh`);
 
 //caso a largura da janela seja maior que 800px (monitor) -> iniciar menu aberto.
 if (window.innerWidth >= 800) {
@@ -15,8 +31,10 @@ if (window.innerWidth >= 800) {
 }
 //caso a largura da janela seja menor que 800px (mobile)) -> iniciar menu fechado
 else {
+  isMobile = true;
+  myDivRight.classList.add('openMyDivRight');
   myDivLeft.classList.add('close'); //adicionar classe (.close) ao menu esquerdo
-  myDivRight.classList.add('close'); //adicionar classe (.close) ao menu direito
+  myDivRight.classList.add('open'); //adicionar classe (.close) ao menu direito
   document.documentElement.style.setProperty('--menuWidth', '100%'); //variável css (--menuWidth):
 }
 
@@ -24,12 +42,17 @@ else {
 onresize = (event) => {
   //caso a largura da janela seja menor que 800px (mobile) -> fechar os menus
   if (event.target.innerWidth < 800) {
+    isMobile = true;
+    myDivRight.classList.add('openMyDivRight');
     myDivLeft.classList.replace('open', 'close'); //substituir .open por .close
-    myDivRight.classList.replace('open', 'close'); //substituir .open por .close
     document.documentElement.style.setProperty('--menuWidth', '100%'); //variável css (--menuWidth):
   }
   //caso a largura da janela seja maoir que 800px (monitor) -> abrir os menus
   else {
+    if (i_DR_Child.classList.contains('rotated'))
+      i_DR_Child.classList.remove('rotated');
+    if (myDivRight.classList.contains('closeMyDivRight'))
+      myDivRight.classList.remove('closeMyDivRight');
     myDivLeft.classList.replace('close', 'open'); //substituir .close por .open
     myDivRight.classList.replace('close', 'open'); //substituir .close por .open
     document.documentElement.style.setProperty('--menuWidth', '18rem'); //variável css (--menuWidth):
@@ -46,7 +69,6 @@ function AnimationEnd(myDivMenu, myButton) {
   (myDivMenu.classList.contains('open')) ?
     myDivMenu.classList.replace('open', 'close') :
     myDivMenu.classList.replace('close', 'open');
-
   myButton.disabled = false; //ativando o botão;
 }
 
@@ -57,10 +79,10 @@ function SliceMenu(myDivMenu1, myDivMenu2) {
     myDivMenu1.classList.add('closeDivMenu') :
     myDivMenu1.classList.add('openDivMenu');
 
-  if (window.innerWidth < 800) {//se for mobile
-    if (myDivMenu2.classList.contains('open')) //verifique se o outro menu está aberto
-      myDivMenu2.classList.add('closeDivMenu'); //feche o outro menu
-  }
+  // if (window.innerWidth < 800) {//se for mobile
+  //   if (myDivMenu2.classList.contains('open')) //verifique se o outro menu está aberto
+  //     myDivMenu2.classList.add('closeDivMenu'); //feche o outro menu
+  // }
 }
 
 //eventos de animação para o menu esquerdo:
@@ -91,6 +113,13 @@ buttonMenuRight.addEventListener('click', () => {
   SliceMenu(myDivRight, myDivLeft); //executar SliceMenu()
 })
 
+buttonHedaer_DR_Child.addEventListener('click', () => {
+  i_DR_Child.classList.toggle('rotated');
+  (myDivRight.classList.contains('openMyDivRight')) ?
+    myDivRight.classList.replace('openMyDivRight', 'closeMyDivRight') :
+    myDivRight.classList.replace('closeMyDivRight', 'openMyDivRight')
+})
+
 
 //---------------------------------------------------------
 // Configurar demais elementos que irão compor a página:
@@ -105,7 +134,15 @@ const menuIncos = [
   'bi bi-person-hearts', //Seja nosso parceiro
   'bi bi-envelope-arrow-up', //Entre em contato
   'bi bi-gear', //Configurações
-]
+];
+
+const painelsIds = [
+  'servicos',
+  'planos',
+  'parceiros',
+  'contato',
+  'config'
+];
 
 var buttonsLeftMenu = new Array();
 var icons = new Array();
@@ -132,8 +169,15 @@ for (var i = 0; i < menuIncos.length; i++) {
   icons[i].setAttribute('class', menuIncos[i]);
   spans[i].innerText = buttonsName[i];
   divChildTop[i].setAttribute('class', "divChildTop"); //adicionar a classe .divChildTop
+  divCenterContent[i].setAttribute('id', painelsIds[i])
   divCenterContent[i].setAttribute('class', "divCenterContent"); //adicionar a classe .divCenterContent
 }
+
+var servicos = divCenterContent[0];
+var planos = divCenterContent[1];
+var parceiros = divCenterContent[2];
+var contato = divCenterContent[3];
+var config = divCenterContent[4];
 
 // Atribuir aos elementos os seus respectivos nós:
 for (var i = 0; i < menuIncos.length; i++) {
@@ -196,6 +240,29 @@ buttonsLeftMenu.forEach(element => {
   })
 });
 
+var myConfigForm = document.createElement('form');
+myConfigForm.setAttribute('id', myConfigForm);
+myConfigForm.innerText = 'Escolha seu tema:'
+config.append(myConfigForm);
+/* Adicionar chekbox às divChildCenter*/
+myThemes.forEach(theme => {
+  myConfigForm.innerHTML += `
+  <label>
+    <input type="radio" name="options" value=${theme}>
+    ${theme}
+  </label>
+  `;
+});
+
+
+// // Adiciona um ouvinte de evento a todos os radio buttons
+// const radioButtons = document.querySelectorAll('input[name="options"]');
+// radioButtons.forEach(radio => {
+//   radio.addEventListener('click', function () {
+//     alert("Valor selecionado: " + this.value);
+//   });
+// });
+
 
 /*texto no parágrafo do cabeçalho*/
 pHeader.innerText = texto_pHeader;
@@ -203,7 +270,7 @@ pHeader.innerText = texto_pHeader;
 /*Preenchendo divRigth*/
 myDivRight.append(document.createElement('h1'));
 myDivRight.append(document.createElement('p'));
-myDivRight.querySelector('h1').innerText = tituloDivRight;
-myDivRight.querySelector('p').innerText = `${Informacoes}`;
+// myDivRight.querySelector('p').innerText += tituloDivRight;
+// myDivRight.querySelector('p').innerText = `${Informacoes}`;
 
 activeContentArea(divCenterContent[divCenterContent.length - 1]);

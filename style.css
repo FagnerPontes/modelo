@@ -187,7 +187,7 @@ body {
 #myDivLeft{
   border-right: var(--border3); /*borda direita igual à variável temática*/
   padding-top: 1rem;
-  z-index: 100; /*nivel de visibilidade no eixo z (profundidade - eixo frontal)*/
+  z-index: 2; /*nivel de visibilidade no eixo z (profundidade - eixo frontal)*/
   overflow-x: hidden; /*fixar tamanho e ocultar elemento filho se for maior*/
   overflow-y: auto; /*fixar tamanho e exibir scrollbar se elemento filho for maior*/
   display: flex; /*modo flexível para organização dos elementos filhos*/
@@ -246,24 +246,21 @@ body {
   flex: 1; /*ocupar todo espaço disponível*/
   padding: .5rem; /*afastamento interno = metade da fonte*/
   overflow: auto; /*fixar tamanho e exibir scrollbar se elemento filho for maior*/
-  border: var(--border2);
 }
 
 #myDivCenter .divCenterContent{
   flex: 1;
   background-color: var(--backColor1); /*cor de fundo = --backColor1*/
-  z-index: 99; /*nivel de visibilidade no eixo z (profundidade - eixo frontal)*/
   overflow: auto; /*fixar tamanho e exibir scrollbar se elemento filho for maior*/
   border-radius: 6px; /*arredondamento da borda = 6 pixels*/
-  flex-direction: row; /*direção do container no sentido column (vertical)*/
   display: flex;
+  border-bottom: var(--border3); /*borda inferior = --border1*/
 }
 
 .divCenterContent .divChildTop{
-  min-width: calc(100% - 2rem); /*largura mínima = 100% do elemento pai*/
-  margin: 1rem; /*margem inferior = tamanho da fonte padrão*/
-  border-bottom: var(--border3); /*borda inferior = --border1*/
-  min-height: 10rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-top: 1rem; /*margem inferior = tamanho da fonte padrão*/
 }
 
 .divCenterContent .divChildTop h1{
@@ -275,28 +272,58 @@ body {
 
 #myDivRight{
   border-left: var(--border3); /*borda esquerda igual à variável temática*/
-  z-index: 100; /*nivel de visibilidade no eixo z (profundidade - eixo frontal)*/
+  z-index: 1; /*nivel de visibilidade no eixo z (profundidade - eixo frontal)*/
   overflow-x: hidden; /*fixar tamanho e ocultar elemento filho se for maior*/
   overflow-y: auto; /*fixar tamanho e exibir scrollbar se elemento filho for maior*/
   display: flex; /*modo flexível para organização dos elementos filhos*/
   flex-direction: column; /*alinhar elementos um sobre o outro*/
   align-items: center; /*alinhamanto vertical central*/
+  background-color: var(--backColor2);
   /*width: -> largura será manipulada pelo scriptMenuAnimation.js*/
 }
 
-#myDivRight h1{
-  margin-top: 1rem; /*margem superior = 1 x tamanho da fonte padrão*/
-  margin-bottom: 1rem; /*margem inferior = 1 x tamanho da fonte padrão*/
-  text-align: center; /*alinhamento do texto centralizado*/
-  font-size: 1.5rem; /*tamanh da fonte = 1.5 x tamanho da fonte padrão*/
+#myDivRight #pHeader_DivRight_Child{
+  display: flex;
+  height: 2rem;
+  font-size: .8rem; /*tamanh da fonte = 0.8 x tamanho da fonte padrão*/
+  margin-top: .5rem; /*margem superior = 1 x tamanho da fonte padrão*/
+  text-align: left; /*texto alinhado à esquerda*/
+  line-height: 2rem; /*altura da linha = 1.2 x tamanho da fonte padrão*/
 }
 
-#myDivRight p{
-  font-size: .8rem; /*tamanh da fonte = 0.8 x tamanho da fonte padrão*/
-  margin-top: 1rem; /*margem superior = 1 x tamanho da fonte padrão*/
-  margin-bottom: 1rem; /*margem inferior = 1 x tamanho da fonte padrão*/
-  text-align: left; /*texto alinhado à esquerda*/
-  line-height: 1.2rem; /*altura da linha = 1.2 x tamanho da fonte padrão*/
+#buttonHedaer_DR_Child {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 2px solid var(--backColor8);
+  background-color: var(--backColor8); /*cor de fundo igual à variável temática*/
+  color: var(--fontColor1); /*cor da fonte = --fonteColor1*/
+  border-radius: 6px; /*arredondamento da borda igual à 6 pixels*/
+}
+
+#buttonHedaer_DR_Child i{
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  transition: transform 0.2s ease-in-out;
+  font-size: .8rem;
+}
+
+.rotated{
+  transform: rotate(180deg); /* Mantém a rotação em 180 graus */
+}
+
+/* botões no menu esquerdo ao passar o mouse*/
+#buttonHedaer_DR_Child:hover {
+  border: var(--border2);
+  background-color: var(--backColor6); /*cor de fundo = à variável temática*/
+  color: var(--fontColor2); /*cor da fonte igual à variável temática*/
+}
+
+/* botões no menu esquerdo ao clicar */
+#buttonHedaer_DR_Child:active {
+  background-color: var(--buttonColor3); /*cor de fundo = à variável temática*/
+  color: var(--fontColor3); /*cor da fonte igual à variável temática*/
 }
 
 #divFormParent{
@@ -318,6 +345,7 @@ body {
   border-radius: 10px;
   overflow-y: auto;
   background-color: var(--backColor1);
+  max-height: 90%;
 }
 
 #divFormParent form h1{
@@ -380,9 +408,7 @@ body {
 
 #divFormParent form input{
  width: 100%;
- height: 2rem;
  flex: 1;
- line-height: 2rem;
  margin-bottom: .8rem;
  border-radius: 6px;
  padding-left: .5rem;
@@ -432,6 +458,14 @@ body {
 
 /*tela mobile (menores que 799px)*/
 @media only screen and (max-width: 799px) {
+  #buttonMenuRight{
+    display: none;
+  }
+
+  #buttonHedaer_DR_Child{
+    display: block;
+  }
+
   #myDivContainer {
    display: flex;
    position: relative;
@@ -441,25 +475,25 @@ body {
   #myDivLeft {
    position: absolute;
    top: 0;
-   left: 0; /*fixado na posição left (esquerda) = 0*/
+   left: 0;
    bottom: 0;
    background-color: var(--backColor9);
 	}
 
   #myDivCenter {
-   position: absolute;
-   top: 0;
-   left: 0;
-   right: 0;
-   bottom: 0;
+   flex: 1;
   }
 
   #myDivRight {
-   position: absolute;
-   top: 0;
-   right: 0; /*fixado na posição right (direita) = 0*/
-   bottom: 0;
-   background-color: var(--backColor9);
+   transition: min-height .3s;
+  }
+
+  .openMyDivRight{
+    min-height: 25%;
+  }
+
+  .closeMyDivRight {
+    min-height: 3.5rem;
   }
 
   /*qualquer elemento filho de .divMenu*/
@@ -474,18 +508,29 @@ body {
 
   #divFormParent form{
     width: 100%;
-    max-height: 100%;
+  }
+
+  #divFormParent form input{
+    height: 3rem;
+    line-height: 3rem;
   }
 }
 
 /*tela monitor (maiores que 800px)*/
 @media only screen and (min-width: 800px) {
+  #buttonMenuRight{
+    display: block;
+  }
+
+  #buttonHedaer_DR_Child{
+    display: none;
+  }
+
   #myDivContainer {
     flex-direction: row; /*Direção dos elementos filhos*/
   }
 
-  #myDivLeft,
-  #myDivRight{
+  #myDivLeft{
     background-color: var(--backColor2);
   }
 
@@ -497,7 +542,11 @@ body {
   #divFormParent form{
    width: 25rem;
    border: var(--border1);
-   max-height: 90%;
+  }
+
+  #divFormParent form input{
+    height: 2rem;
+    line-height: 2rem;
   }
 }
 
@@ -549,4 +598,22 @@ body {
   to {/*fim da animação*/
     width: 0;
   }
+}
+
+/* ------------------------------------- */
+/* elemento criados por js */
+/* ------------------------------------- */
+
+#config{
+  flex-direction: column;
+}
+
+#config form{
+  margin-top: .5rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  display: flex;
+  flex-direction: column;
+  line-height: 2rem;
+  border-bottom: var(--border3);
 }
