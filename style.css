@@ -141,20 +141,22 @@ body {
 
 #myHeader > .buttonHeader {
   display: flex;
-  width: 8rem;
-  height: 4rem;
+  flex-direction: column;
+  align-items: center;
 }
 
 #myHeader > .buttonHeader i{
- font-size: 1.5rem;
+ font-size: 2rem;
  width: 3rem;
+ height: rem;
+ line-height: 2.5rem;
 }
 
 #myHeader > .buttonHeader span{
   flex: 1;
-  height: 4rem;
+  height: 1rem;
   font-size: .8rem;
-  line-height: 4rem;
+  line-height: 1rem;
   text-align: right;
 }
 
