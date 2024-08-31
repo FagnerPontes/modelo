@@ -1,5 +1,5 @@
 //Textos (nomes) dos boões dentro do container
-const texto_pHeader = 'Sempre ao seu lado';
+const texto_pHeader = '';
 
 const buttonsName = [
  'Nossos serviços',

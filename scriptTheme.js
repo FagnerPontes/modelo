@@ -11,6 +11,7 @@ function darkTheme() {
  document.documentElement.style.setProperty('--backColor6', backColor6_Dark);
  document.documentElement.style.setProperty('--backColor7', backColor7_Dark);
  document.documentElement.style.setProperty('--backColor8', backColor8_Dark);
+ document.documentElement.style.setProperty('--backColor9', backColor9_Dark);
  document.documentElement.style.setProperty('--buttonColor1', buttonColor1_Dark);
  document.documentElement.style.setProperty('--buttonColor2', buttonColor2_Dark);
  document.documentElement.style.setProperty('--buttonColor3', buttonColor3_Dark);
@@ -33,6 +34,7 @@ function lightTheme() {
  document.documentElement.style.setProperty('--backColor6', backColor6_Light);
  document.documentElement.style.setProperty('--backColor7', backColor7_Light);
  document.documentElement.style.setProperty('--backColor8', backColor8_Light);
+ document.documentElement.style.setProperty('--backColor9', backColor9_Light);
  document.documentElement.style.setProperty('--buttonColor1', buttonColor1_Light);
  document.documentElement.style.setProperty('--buttonColor2', buttonColor2_Light);
  document.documentElement.style.setProperty('--buttonColor3', buttonColor3_Light);
