@@ -16,9 +16,12 @@ if (navigator.userAgentData && navigator.userAgentData.mobile) {
 } else if (/Mobi|Android/i.test(navigator.userAgent)) {
   isMobile = true;
 }
+
+// comentar aqui
 if (isMobile) {
   document.getElementById('body').style.setProperty('height', `${window.innerHeight}px`);
   myDivRight.classList.add('openMyDivRight');
+  checkOrientation();
 }
 else
   document.getElementById('body').style.setProperty('height', `100vh`);
@@ -37,6 +40,19 @@ else {
   myDivRight.classList.add('open'); //adicionar classe (.close) ao menu direito
   document.documentElement.style.setProperty('--menuWidth', '100vw'); //variável css (--menuWidth):
 }
+
+function checkOrientation() {
+  document.getElementById('body').style.setProperty('height', `${window.innerHeight}px`);
+  // if (window.innerWidth > window.innerHeight) {
+  //   console.log('Landscape mode (Horizontal)');
+  //   // Fazer algo para a orientação horizontal
+  // } else {
+  //   console.log('Portrait mode (Vertical)');
+  //   // Fazer algo para a orientação vertical
+  // }
+}
+
+window.addEventListener('orientationchange', checkOrientation);
 
 // Modificar layout da página caso seja redimencionada -> evento(resize)
 onresize = (event) => {
@@ -255,22 +271,11 @@ myThemes.forEach(theme => {
 });
 
 
-// // Adiciona um ouvinte de evento a todos os radio buttons
-// const radioButtons = document.querySelectorAll('input[name="options"]');
-// radioButtons.forEach(radio => {
-//   radio.addEventListener('click', function () {
-//     alert("Valor selecionado: " + this.value);
-//   });
-// });
-
-
 /*texto no parágrafo do cabeçalho*/
 pHeader.innerText = texto_pHeader;
 
 /*Preenchendo divRigth*/
 myDivRight.append(document.createElement('h1'));
 myDivRight.append(document.createElement('p'));
-// myDivRight.querySelector('p').innerText += tituloDivRight;
-// myDivRight.querySelector('p').innerText = `${Informacoes}`;
 
 activeContentArea(divCenterContent[divCenterContent.length - 1]);
