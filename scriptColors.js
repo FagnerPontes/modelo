@@ -3,6 +3,8 @@
 var myThemes = [
  'dark',
  'light',
+ 'solid_dark',
+ 'solid_light'
 ];
 
 var backColor1 = ''; //EEF1F6
@@ -10,8 +12,8 @@ var backColor2 = ''; //DEE2E8
 var backColor3 = ''; //D1D6DD
 var backColor4 = ''; //C6CBD2
 var backColor6 = ''; //
-var backColor7 = '';
-var backColor8 = '';
+var backColor1t = '';
+var backColor1t = '';
 var backColor9 = ''; //
 var buttonColor1 = ''; //hover
 var buttonColor2 = ''; //enable
@@ -31,8 +33,8 @@ var dark = () => {
  backColor3 = '#161b22'; //D1D6DD
  backColor4 = '#21262d'; //C6CBD2
  backColor6 = '#010409'; //
- backColor7 = '#00000000';
- backColor8 = '#00000000';
+ backColor1t = '#00000000';
+ backColor2t = '#00000000';
  backColor9 = '#0d1117'; //
  buttonColor1 = '#05090d'; //hover
  buttonColor2 = '#313439'; //enable
@@ -54,8 +56,8 @@ var light = () => {
  backColor3 = '#d1d6dd'; //D1D6DD
  backColor4 = '#c6cbd2'; //C6CBD2
  backColor6 = '#eef1f6'; //
- backColor7 = '#00000000';
- backColor8 = '#00000000';
+ backColor1t = '#00000000';
+ backColor2t = '#00000000';
  backColor9 = '#dee2e8'; //
  buttonColor1 = '#eaeeef'; //hover
  buttonColor2 = '#bec1c6'; //enable
@@ -71,6 +73,51 @@ var light = () => {
  return 'light';
 }
 
+var solidDark = () => {
+ backColor1 = '#010409'; //EEF1F6
+ backColor2 = '#0d1117'; //DEE2E8
+ backColor3 = '#161b22'; //D1D6DD
+ backColor4 = '#21262d'; //C6CBD2
+ backColor6 = '#010409'; //
+ backColor1t = '#010409';
+ backColor2t = '#0d1117';
+ backColor9 = '#0d1117'; //
+ buttonColor1 = '#05090d'; //hover
+ buttonColor2 = '#313439'; //enable
+ buttonColor3 = '#818489'; //active
+ fontColor1 = '#f1f4ff';
+ fontColor2 = '#ffffff';
+ fontColor3 = '#010409';
+ aColor = '#aa99ff'; //
+ border1 = '2px solid #41464d'; //
+ border2 = '2px solid #717479'; //
+ border3 = '1px solid #41464d';
+ backgroundImage = "url('Imagens/Arvore_Original.jpg')";
+ return 'solid_dark';
+}
+
+var solidLight = () => {
+ backColor1 = '#eef1f6'; //EEF1F6
+ backColor2 = '#dee2e8'; //DEE2E8
+ backColor3 = '#d1d6dd'; //D1D6DD
+ backColor4 = '#c6cbd2'; //C6CBD2
+ backColor6 = '#eef1f6'; //
+ backColor1t = '#eef1f6';
+ backColor2t = '#dee2e8';
+ backColor9 = '#dee2e8'; //
+ buttonColor1 = '#eaeeef'; //hover
+ buttonColor2 = '#bec1c6'; //enable
+ buttonColor3 = '#6e7176'; //active
+ fontColor1 = '#000016';
+ fontColor2 = '#000000';
+ fontColor3 = '#eef1f6';
+ aColor = '#2211ff'; //
+ border1 = '2px solid #a6abb2'; //
+ border2 = '2px solid #7E8186'; //
+ border3 = '1px solid #61667d';
+ backgroundImage = "url('Imagens/Arvore_Original.jpg')";
+ return 'solid_light';
+}
 
 //Tema claro:
 var backColor1_Light = '#eef1f690'; //

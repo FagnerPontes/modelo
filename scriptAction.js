@@ -35,7 +35,7 @@ else {
   myDivRight.classList.add('openMyDivRight');
   myDivLeft.classList.add('close'); //adicionar classe (.close) ao menu esquerdo
   myDivRight.classList.add('open'); //adicionar classe (.close) ao menu direito
-  document.documentElement.style.setProperty('--menuWidth', '100%'); //variável css (--menuWidth):
+  document.documentElement.style.setProperty('--menuWidth', '100vw'); //variável css (--menuWidth):
 }
 
 // Modificar layout da página caso seja redimencionada -> evento(resize)
