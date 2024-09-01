@@ -67,6 +67,20 @@ const registerUser = (email, password, emailError, passwordError, userData) => {
 
 // Usando o serviço ipapi para obter o código do país
 // Deve ser usado apartir de um servidor
+
+var isMobile = false;
+if (navigator.userAgentData && navigator.userAgentData.mobile) {
+  isMobile = true;
+} else if (/Mobi|Android/i.test(navigator.userAgent)) {
+  isMobile = true;
+}
+if (isMobile) {
+  document.getElementById('body').style.setProperty('height', `${window.innerHeight}px`);
+  myDivRight.classList.add('openMyDivRight');
+}
+else
+  document.getElementById('body').style.setProperty('height', `100vh`);
+
 var countryCode = '';
 fetch('https://ipapi.co/json/')
   .then(response => response.json())
