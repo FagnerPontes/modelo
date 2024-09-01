@@ -178,38 +178,26 @@ body {
   /*flex-direction: será definido no @media (Responsividade)*/
 }
 
-/* qualquer elemento filho de .divMenu*/
-
-.divMenu{
-  padding-bottom: 1rem;
-}
-
-.divMenu *{
-  font-size: 1rem; /*tamanho da fonte igual ao tamanho da fonte padrão*/
-  /*width: -> largura será manipulada pelo @media (Responsividade)*/
-}
-
 #myDivLeft{
-  border-right: var(--border3); /*borda direita igual à variável temática*/
-  padding-top: 1rem;
   z-index: 2; /*nivel de visibilidade no eixo z (profundidade - eixo frontal)*/
   overflow-x: hidden; /*fixar tamanho e ocultar elemento filho se for maior*/
   overflow-y: auto; /*fixar tamanho e exibir scrollbar se elemento filho for maior*/
   display: flex; /*modo flexível para organização dos elementos filhos*/
   flex-direction: column; /*alinhar elementos um sobre o outro*/
   align-items: center; /*alinhamanto vertical central*/
+  font-size: 1rem; /*tamanho da fonte igual ao tamanho da fonte padrão*/
   /*width: -> largura será manipulada pelo scriptMenuAnimation.js*/
 }
 
 /* botões no menu esquerdo */
 #myDivLeft button {
-  height: var(--menuButtonHeight); /*altura mínima do botão igual à variável temática*/
   display: flex; /*display flexível para posicionamento dos elementos filhos*/
   align-items: center; /*(eixo transversal) alinhamento vertical centralizado*/ 
   margin-top: .25rem; /*margem superior = 0.25 x tamnho da fonte*/
-  border: 2px solid var(--backColor2t);
-  background-color: var(--backColor2t); /*cor de fundo igual à variável temática*/
+  height: var(--menuButtonHeight); /*altura mínima do botão igual à variável temática*/
   color: var(--fontColor1); /*cor da fonte = --fonteColor1*/
+  background-color: var(--backColor2t); /*cor de fundo igual à variável temática*/
+  border: 2px solid var(--backColor2t);
   border-radius: 6px; /*arredondamento da borda igual à 6 pixels*/
 }
 
@@ -233,7 +221,6 @@ body {
   justify-content: left; /*(eixo principal) alinhamento horizontal centralizado*/
   text-align: left;
   padding-left: .5rem;
-  padding-right: .5rem;
 }
 
 #myDivLeft button i{
@@ -247,9 +234,7 @@ body {
 /* área de conteúdo */
 #myDivCenter {
   display: flex; /*display flexível para posicionar elementos filhos*/
-  background-color: var(--backColor1); /*cor de fundo igual à variável temática*/
   flex: 1; /*ocupar todo espaço disponível*/
-  padding: .5rem; /*afastamento interno = metade da fonte*/
   overflow: auto; /*fixar tamanho e exibir scrollbar se elemento filho for maior*/
   color: var(--fontColor1);
 }
@@ -257,9 +242,7 @@ body {
 #myDivCenter .divCenterContent{
   flex: 1;
   overflow: auto; /*fixar tamanho e exibir scrollbar se elemento filho for maior*/
-  border-radius: 6px; /*arredondamento da borda = 6 pixels*/
   display: flex;
-  background-color: var(--backColor1t); /*cor de fundo igual à variável temática*/
 }
 
 .divCenterContent .divChildTop{
@@ -276,12 +259,12 @@ body {
 }
 
 #myDivRight{
-  border-left: var(--border3); /*borda esquerda igual à variável temática*/
   z-index: 1; /*nivel de visibilidade no eixo z (profundidade - eixo frontal)*/
   overflow-x: hidden; /*fixar tamanho e ocultar elemento filho se for maior*/
   overflow-y: auto; /*fixar tamanho e exibir scrollbar se elemento filho for maior*/
   display: flex; /*modo flexível para organização dos elementos filhos*/
   flex-direction: column; /*alinhar elementos um sobre o outro*/
+  font-size: 1rem; /*tamanho da fonte igual ao tamanho da fonte padrão*/
   align-items: center; /*alinhamanto vertical central*/
   color: var(--fontColor1);
   /*width: -> largura será manipulada pelo scriptMenuAnimation.js*/
@@ -290,54 +273,20 @@ body {
 #myDivRight #pHeader_DivRight_Child{
   display: flex;
   height: 2.5rem;
-  font-size: .8rem;
-  margin-top: .5rem;
-  padding-left: .5rem;
-  text-align: left;
   line-height: 2.5rem;
+  font-size: 1rem;
 }
 
-#buttonHedaer_DR_Child {
-  display: block;
-  width: 2.5rem;
-  height: 2.5rem;
-  border: 2px solid var(--backColor2);
-  background-color: var(--backColor2); /*cor de fundo igual à variável temática*/
-  color: var(--fontColor1); /*cor da fonte = --fonteColor1*/
-  border-radius: 50%; /*arredondamento da borda igual à 6 pixels*/
-}
-
-#buttonHedaer_DR_Child i{
-  display: block;
-  width: 2rem;
-  height: 2rem;
-  line-height: 2rem;
-  transition: transform 0.2s ease-in-out;
-  font-size: .8rem;
+#myDivRight #pHeader_DivRight_Child span{
+  flex: 1;
 }
 
 #publicidade{
   flex: 1;
-  background-color: var(--backColor3);
-  margin: 0;
-  border-radius: 6px;
 }
 
 .rotated{
   transform: rotate(180deg); /* Mantém a rotação em 180 graus */
-}
-
-/* botões no menu esquerdo ao passar o mouse*/
-#buttonHedaer_DR_Child:hover {
-  border: var(--border2);
-  background-color: var(--backColor6); /*cor de fundo = à variável temática*/
-  color: var(--fontColor2); /*cor da fonte igual à variável temática*/
-}
-
-/* botões no menu esquerdo ao clicar */
-#buttonHedaer_DR_Child:active {
-  background-color: var(--buttonColor3); /*cor de fundo = à variável temática*/
-  color: var(--fontColor3); /*cor da fonte igual à variável temática*/
 }
 
 #divFormParent{
@@ -484,24 +433,81 @@ body {
 	}
 
   #myDivLeft {
-   position: absolute;
-   top: 0;
-   left: 0;
-   bottom: 0;
-   background-color: var(--backColor9);
+    position: absolute;
+    border-right: var(--border3); /*borda direita igual à variável temática*/
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: var(--backColor9);
 	}
 
+  #myDivLeft button{
+    width: calc(100vw - 2rem); /*largura igual à 100% da largura da janela - 2rem*/
+  }
+
+
   #myDivCenter {
-   flex: 1;
+    background-color: var(--backColor1); /*cor de fundo igual à variável temática*/
+    padding-left: 1rem; /*afastamento interno = metade da fonte*/
+    padding-top: 1rem;
+    padding-right: 1rem;
+  }
+
+  #myDivCenter .divCenterContent{
+    height: 100%; /*altura = 100% do elemento pai*/
+    min-width: 100%; /*largura mínima = 18 vezes o tamanho da fonte*/
+    background-color: var(--backColor1); /*cor de fundo igual à variável temática*/
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
   }
 
   #myDivRight {
-   transition: min-height .3s;
-   background-color: var(--backColor1);
+    padding-bottom: 1rem;
+    transition: min-height .3s;
+    background-color: var(--backColor1);
   }
 
-  #pHeader_DivRight_Child{
-    background-color: var(--backColor1t);
+  #myDivRight #pHeader_DivRight_Child{
+    width: calc(100vw - 2rem); /*largura igual à 100% da largura da janela - 2rem*/
+    background-color: var(--backColor1);
+    padding-left: .5rem;
+  }
+
+  #myDivRight #pHeader_DivRight_Child #buttonHedaer_DR_Child {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 2px solid var(--backColor2);
+    background-color: var(--backColor2); /*cor de fundo igual à variável temática*/
+    color: var(--fontColor1); /*cor da fonte = --fonteColor1*/
+    border-radius: 50%; /*arredondamento da borda igual à 6 pixels*/
+  }
+
+  /* botões no menu esquerdo ao passar o mouse*/
+  #myDivRight #pHeader_DivRight_Child #buttonHedaer_DR_Child:hover {
+    border: var(--border2);
+    background-color: var(--backColor6); /*cor de fundo = à variável temática*/
+    color: var(--fontColor2); /*cor da fonte igual à variável temática*/
+  }
+
+  /* botões no menu esquerdo ao clicar */
+  #myDivRight #pHeader_DivRight_Child #buttonHedaer_DR_Child:active {
+    background-color: var(--buttonColor3); /*cor de fundo = à variável temática*/
+    color: var(--fontColor3); /*cor da fonte igual à variável temática*/
+  }
+
+  #myDivRight #pHeader_DivRight_Child #buttonHedaer_DR_Child i{
+    display: block;
+    transition: transform 0.2s ease-in-out;
+    font-size: .8rem;
+  }
+
+  #myDivRight #publicidade{
+    width: calc(100vw - 2rem); /*largura igual à 100% da largura da janela - 2rem*/
+    background-color: var(--backColor1);
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
   }
 
   .openMyDivRight{
@@ -510,16 +516,6 @@ body {
 
   .closeMyDivRight {
     min-height: 3.5rem;
-  }
-
-  /*qualquer elemento filho de .divMenu*/
-  .divMenu *{
-    width: calc(100vw - 2rem); /*largura igual à 100% da largura da janela - 2rem*/
-	}
-
- .divCenterContent{
-    height: 100%; /*altura = 100% do elemento pai*/
-    min-width: 100%; /*largura mínima = 18 vezes o tamanho da fonte*/
   }
 
   #divFormParent form{
@@ -538,29 +534,53 @@ body {
     display: block;
   }
 
-  #buttonHedaer_DR_Child{
-    display: none;
-  }
-
   #myDivContainer {
     flex-direction: row; /*Direção dos elementos filhos*/
   }
 
   #myDivLeft{
+    border-right: var(--border3); /*borda direita igual à variável temática*/
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     background-color: var(--backColor2);
   }
 
-  #pHeader_DivRight_Child{
-    background-color: var(--backColor2t);
+  #myDivLeft button{
+    width: calc(var(--menuWidth) - 2rem); /*largura igual à 16 vezes o tamanho da fonte padrão*/
+  }
+
+  #myDivCenter{
+    background-color: var(--backColor1); /*cor de fundo igual à variável temática*/
+    padding: .5rem; /*afastamento interno = metade da fonte*/
+  }
+
+  #myDivCenter .divCenterContent{
+    height: 100%; /*altura = 100% do elemento pai*/
+    min-width: 100%; /*largura mínima = 18 vezes o tamanho da fonte*/
+    background-color: var(--backColor1); /*cor de fundo igual à variável temática*/
+    border-radius: 6px; /*arredondamento da borda = 6 pixels*/
   }
 
   #myDivRight{
+    padding-bottom: 1rem;
     background-color: var(--backColor2);
+    border-left: var(--border3); /*borda esquerda igual à variável temática*/
   }
 
-  /*qualquer elemento filho de .divMenu*/
-  .divMenu *{
+  #myDivRight #pHeader_DivRight_Child{
     width: calc(var(--menuWidth) - 2rem); /*largura igual à 16 vezes o tamanho da fonte padrão*/
+    margin-top: .5rem;
+    padding-left: .5rem;
+  }
+
+  #myDivRight #pHeader_DivRight_Child #buttonHedaer_DR_Child{
+    display: none;
+  }
+
+  #myDivRight #publicidade{
+    width: calc(var(--menuWidth) - 2rem); /*largura igual à 16 vezes o tamanho da fonte padrão*/
+    background-color: var(--backColor2t);
+    border-radius: 6px;
   }
 
   #divFormParent form{
