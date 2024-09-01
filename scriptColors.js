@@ -61,7 +61,7 @@ var light = () => {
  buttonColor2 = '#bec1c6'; //enable
  buttonColor3 = '#6e7176'; //active
  fontColor1 = '#000016';
- fontColor2 = '#ffffff';
+ fontColor2 = '#000000';
  fontColor3 = '#eef1f6';
  aColor = '#2211ff'; //
  border1 = '2px solid #a6abb2'; //
