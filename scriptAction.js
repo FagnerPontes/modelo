@@ -1,4 +1,4 @@
-/*Editar arquivo scriptAcrion.js*/
+/*Editar scriptAcrion.js*/
 
 //elementos maniplados:
 const buttonMenuLeft = document.getElementById('buttonMenuLeft');

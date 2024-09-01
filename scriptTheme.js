@@ -1,3 +1,4 @@
+// Editar scriptTheme.js
 const buttonTheme = document.getElementById('buttonTheme');
 
 /*Variável que armazenará o estilo do tema*/

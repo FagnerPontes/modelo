@@ -1,3 +1,5 @@
+// Editar scriptRegistro.js
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
 import { createUserWithEmailAndPassword, getAuth } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
 import { getDatabase } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";

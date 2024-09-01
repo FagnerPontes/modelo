@@ -1,3 +1,5 @@
+// Editar scriptColors.js
+
 var myThemes = [
  'dark',
  'light',

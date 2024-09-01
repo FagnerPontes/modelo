@@ -1,3 +1,4 @@
+// Editar scriptString.js
 //Textos (nomes) dos boões dentro do container
 const texto_pHeader = '';
 
