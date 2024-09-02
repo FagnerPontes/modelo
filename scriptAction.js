@@ -56,6 +56,9 @@ window.addEventListener('orientationchange', checkOrientation);
 
 // Modificar layout da página caso seja redimencionada -> evento(resize)
 onresize = (event) => {
+  alert(`width: ${event.target.innerWidth}, height: ${event.target.innerHeight}`);
+  if (isMobile)
+    checkOrientation();
   //caso a largura da janela seja menor que 800px (mobile) -> fechar os menus
   if (event.target.innerWidth < 800) {
     isMobile = true;
