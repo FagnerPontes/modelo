@@ -245,9 +245,8 @@ body {
   display: flex;
 }
 
-.divCenterContent .divChildTop{
-  margin-left: 2rem;
-  margin-right: 2rem;
+#myDivCenter .divCenterContent .divChildTop{
+  width: 100%;
   margin-top: 1rem; /*margem inferior = tamanho da fonte padrão*/
 }
 
@@ -656,10 +655,13 @@ body {
 
 #config form{
   margin-top: .5rem;
-  margin-left: 2rem;
-  margin-right: 2rem;
+  padding: .5rem;
   display: flex;
   flex-direction: column;
   line-height: 2rem;
-  border-bottom: var(--border3);
+  border-radius: 6px
+}
+
+#config form input{
+  margin-left: 1rem;
 }

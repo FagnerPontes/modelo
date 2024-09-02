@@ -52,8 +52,6 @@ function getTheme() {
  }
 }
 
-
-
 // Adiciona um ouvinte de evento a todos os radio buttons
 const radioButtons = document.querySelectorAll('input[name="options"]');
 radioButtons.forEach(radio => {
