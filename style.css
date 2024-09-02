@@ -421,7 +421,7 @@ body {
 /*----------------------------------*/
 
 /*tela mobile (menores que 599)*/
-@media only screen and (max-width: 799px) {
+@media only screen and (max-width: 599) {
   #buttonMenuRight{
     display: none;
   }
