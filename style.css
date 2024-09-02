@@ -272,7 +272,8 @@ body {
 
 #myDivRight #pHeader_DivRight_Child{
   display: flex;
-  height: 1.5rem;
+  padding: .5rem;
+  height: 2.5rem;
   line-height: 1.5rem;
   font-size: 1rem;
 }
@@ -281,7 +282,7 @@ body {
   flex: 1;
 }
 
-#publicidade{
+#myDivRight #publicidade{
   flex: 1;
 }
 
@@ -465,18 +466,16 @@ body {
   }
 
   #myDivRight {
-    padding-top:  .5rem;
     padding-bottom: .5rem;
     transition: min-height .3s;
     background-color: var(--backColor1);
-    border-top: var(--border3);
     width: 100vw;
   }
 
   #myDivRight #pHeader_DivRight_Child{
     width: calc(100vw - 2rem); /*largura igual à 100% da largura da janela - 2rem*/
     background-color: var(--backColor1);
-    padding-left: .5rem;
+    border-top: var(--border3);
   }
 
   #myDivRight #pHeader_DivRight_Child #buttonHedaer_DR_Child {
@@ -509,18 +508,17 @@ body {
 
   #myDivRight #publicidade{
     width: calc(100vw - 2rem); /*largura igual à 100% da largura da janela - 2rem*/
-    background-color: var(--backColor1);
+    background-color: var(--backColor3);
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
   }
 
   .openMyDivRight{
     min-height: 250px;
-
   }
 
   .closeMyDivRight {
-    min-height: 3.5rem;
+    min-height: 2.5rem;
   }
 
   #divFormParent form{
@@ -575,8 +573,6 @@ body {
 
   #myDivRight #pHeader_DivRight_Child{
     width: calc(var(--menuWidth) - 2rem); /*largura igual à 16 vezes o tamanho da fonte padrão*/
-    margin-top: .5rem;
-    padding-left: .5rem;
   }
 
   #myDivRight #pHeader_DivRight_Child #buttonHedaer_DR_Child{

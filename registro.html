@@ -16,7 +16,6 @@
  <script src="scriptRegistro.js" type="module" defer></script>
  <script src='scriptCookie.js' type='text/javascript' defer></script>
  <script src='scriptTheme.js' type='text/javascript' defer></script>
-
  <title>Meu Aplicativo</title>
 </head>
 
@@ -29,7 +28,7 @@
    <p>Email:<span id="emailError"></span></p>
    <input type="email" id="email" placeholder="Email" required>
    <p>Telefone:<span id="phoneError"></span></p>
-   <input type="text" id="phone" placeholder="Digite seu telefone" required>
+   <input type="tel" id="phone" placeholder="Digite seu telefone" required>
    <p>Senha: <span id="passwordError"></span></p>
    <input type="password" id="password" placeholder="Senha com 6 dígitos" required>
    <p>Repita sua senha: </p>
@@ -37,7 +36,7 @@
    <p>Nome:</p>
    <input type="text" id="name" placeholder="Nome" required>
    <p>Data de nascimento:</p>
-   <input type="text" id="birthdate" placeholder="Data de nascimento" required>
+   <input type="date" id="birthdate" placeholder="Data de nascimento" required>
    <button type="submit" id="registerButton">Registrar</button>
   </form>
   <div id="divConcluido" style='display: none'>

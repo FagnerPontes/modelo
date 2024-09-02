@@ -26,13 +26,15 @@ if (isMobile) {
 else
   document.getElementById('body').style.setProperty('height', `100vh`);
 
-//caso a largura da janela seja maior que 800px (monitor) -> iniciar menu aberto.
+//caso a largura da janela seja maior que 600px (monitor) -> iniciar menu aberto.
 if (window.innerWidth >= 600) {
   myDivLeft.classList.add('open');
   myDivRight.classList.add('open');
   document.documentElement.style.setProperty('--menuWidth', '18rem');
 }
-//caso a largura da janela seja menor que 800px (mobile)) -> iniciar menu fechado
+
+
+//caso a largura da janela seja menor que 600px (mobile)) -> iniciar menu fechado
 else {
   isMobile = true;
   myDivRight.classList.add('openMyDivRight');
