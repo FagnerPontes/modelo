@@ -272,8 +272,8 @@ body {
 
 #myDivRight #pHeader_DivRight_Child{
   display: flex;
-  height: 2.5rem;
-  line-height: 2.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
   font-size: 1rem;
 }
 
@@ -421,7 +421,7 @@ body {
 /*----------------------------------*/
 
 /*tela mobile (menores que 599)*/
-@media only screen and (max-width: 599) {
+@media only screen and (max-width: 599px) {
   #buttonMenuRight{
     display: none;
   }
@@ -453,6 +453,7 @@ body {
     padding-left: 1rem; /*afastamento interno = metade da fonte*/
     padding-top: 1rem;
     padding-right: 1rem;
+    width: 100vw;
   }
 
   #myDivCenter .divCenterContent{
@@ -464,9 +465,12 @@ body {
   }
 
   #myDivRight {
-    padding-bottom: 1rem;
+    padding-top:  .5rem;
+    padding-bottom: .5rem;
     transition: min-height .3s;
     background-color: var(--backColor1);
+    border-top: var(--border3);
+    width: 100vw;
   }
 
   #myDivRight #pHeader_DivRight_Child{
@@ -476,8 +480,8 @@ body {
   }
 
   #myDivRight #pHeader_DivRight_Child #buttonHedaer_DR_Child {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
     border: 2px solid var(--backColor2);
     background-color: var(--backColor2); /*cor de fundo igual à variável temática*/
     color: var(--fontColor1); /*cor da fonte = --fonteColor1*/
@@ -500,7 +504,7 @@ body {
   #myDivRight #pHeader_DivRight_Child #buttonHedaer_DR_Child i{
     display: block;
     transition: transform 0.2s ease-in-out;
-    font-size: .8rem;
+    font-size: .6rem;
   }
 
   #myDivRight #publicidade{
@@ -512,6 +516,7 @@ body {
 
   .openMyDivRight{
     min-height: 250px;
+
   }
 
   .closeMyDivRight {
@@ -529,7 +534,7 @@ body {
 }
 
 /*tela monitor (maiores que 600)*/
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 600px) {
   #buttonMenuRight{
     display: block;
   }
@@ -552,6 +557,7 @@ body {
   #myDivCenter{
     background-color: var(--backColor1); /*cor de fundo igual à variável temática*/
     padding: .5rem; /*afastamento interno = metade da fonte*/
+    min-width: var(--menuWidth);
   }
 
   #myDivCenter .divCenterContent{

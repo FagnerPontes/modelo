@@ -43,28 +43,30 @@ else {
 
 function checkOrientation() {
   document.getElementById('body').style.setProperty('height', `${window.innerHeight}px`);
-  // if (window.innerWidth > window.innerHeight) {
-  //   console.log('Landscape mode (Horizontal)');
-  //   // Fazer algo para a orientação horizontal
-  // } else {
-  //   console.log('Portrait mode (Vertical)');
-  //   // Fazer algo para a orientação vertical
-  // }
 }
 
 window.addEventListener('orientationchange', checkOrientation);
 
 // Modificar layout da página caso seja redimencionada -> evento(resize)
 onresize = (event) => {
-  alert(`width: ${event.target.innerWidth}, height: ${event.target.innerHeight}`);
   if (isMobile)
     checkOrientation();
   //caso a largura da janela seja menor que 800px (mobile) -> fechar os menus
   if (event.target.innerWidth < 600) {
-    isMobile = true;
+    if (myDivRight.classList.contains('closeMyDivRight'))
+      myDivRight.classList.remove('closeMyDivRight');
     myDivRight.classList.add('openMyDivRight');
     myDivLeft.classList.replace('open', 'close'); //substituir .open por .close
-    document.documentElement.style.setProperty('--menuWidth', '100%'); //variável css (--menuWidth):
+    document.documentElement.style.setProperty('--menuWidth', '100vw'); //variável css (--menuWidth):
+  }
+  else if (event.target.innerWidth < 900) {
+    if (i_DR_Child.classList.contains('rotated'))
+      i_DR_Child.classList.remove('rotated');
+    if (myDivRight.classList.contains('closeMyDivRight'))
+      myDivRight.classList.remove('closeMyDivRight');
+    myDivLeft.classList.replace('open', 'close'); //substituir .close por .open
+    myDivRight.classList.replace('close', 'open'); //substituir .close por .open
+    document.documentElement.style.setProperty('--menuWidth', '18rem'); //variável css (--menuWidth):
   }
   //caso a largura da janela seja maoir que 800px (monitor) -> abrir os menus
   else {
