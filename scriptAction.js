@@ -27,7 +27,7 @@ else
   document.getElementById('body').style.setProperty('height', `100vh`);
 
 //caso a largura da janela seja maior que 800px (monitor) -> iniciar menu aberto.
-if (window.innerWidth >= 800) {
+if (window.innerWidth >= 600) {
   myDivLeft.classList.add('open');
   myDivRight.classList.add('open');
   document.documentElement.style.setProperty('--menuWidth', '18rem');
@@ -60,7 +60,7 @@ onresize = (event) => {
   if (isMobile)
     checkOrientation();
   //caso a largura da janela seja menor que 800px (mobile) -> fechar os menus
-  if (event.target.innerWidth < 800) {
+  if (event.target.innerWidth < 600) {
     isMobile = true;
     myDivRight.classList.add('openMyDivRight');
     myDivLeft.classList.replace('open', 'close'); //substituir .open por .close

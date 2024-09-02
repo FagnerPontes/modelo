@@ -420,7 +420,7 @@ body {
 /*((((((((((RESPONSIVIDADE))))))))))*/
 /*----------------------------------*/
 
-/*tela mobile (menores que 799px)*/
+/*tela mobile (menores que 599)*/
 @media only screen and (max-width: 799px) {
   #buttonMenuRight{
     display: none;
@@ -528,7 +528,7 @@ body {
   }
 }
 
-/*tela monitor (maiores que 800px)*/
+/*tela monitor (maiores que 600)*/
 @media only screen and (min-width: 800px) {
   #buttonMenuRight{
     display: block;
