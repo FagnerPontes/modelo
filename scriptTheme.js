@@ -12,7 +12,7 @@ function setTheme() {
  document.documentElement.style.setProperty('--backColor6', backColor6);
  document.documentElement.style.setProperty('--backColor1t', backColor1t);
  document.documentElement.style.setProperty('--backColor2t', backColor2t);
- document.documentElement.style.setProperty('--backColor9', backColor9);
+ document.documentElement.style.setProperty('--backColor2s', backColor2s);
  document.documentElement.style.setProperty('--buttonColor1', buttonColor1);
  document.documentElement.style.setProperty('--buttonColor2', buttonColor2);
  document.documentElement.style.setProperty('--buttonColor3', buttonColor3);
