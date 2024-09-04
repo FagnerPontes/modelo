@@ -1,7 +1,7 @@
 // Editar scriptRegistro.js
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
-import { createUserWithEmailAndPassword, getAuth } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
+import { createUserWithEmailAndPassword, getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
 import { getDatabase } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
 import { doc, getFirestore, setDoc } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
 
@@ -19,10 +19,17 @@ const firebaseConfig = {
 // Inicializar o Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app); // Inicializa a autenticação
-const database = getDatabase(app);
 const db = getFirestore(app); // Corrigido para passar o app
 // Função para registrar um novo usuário
 var confirm = true;
+
+function sig_out(auth) {
+  signOut(auth).then(() => {
+    alert('Sessão encerrada!');
+  }).catch((error) => {
+    alert(`Erro: ${error}`);
+  });
+}
 
 const registerUser = (email, password, emailError, passwordError, userData) => {
   var logErros = new Array();
@@ -37,6 +44,7 @@ const registerUser = (email, password, emailError, passwordError, userData) => {
           const formRegistro = document.getElementById("formRegistro");
           divConcluido.style.setProperty('display', 'block');
           formRegistro.style.setProperty('display', 'none');
+          sig_out(auth);
         })
         .catch((error) => {
           const errorCodeData = error.code; // Código do erro

@@ -1,7 +1,6 @@
 // Importações do Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
-import { GoogleAuthProvider, fetchSignInMethodsForEmail, getAuth, signInWithEmailAndPassword, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
 
 // Configuração do Firebase
 const firebaseConfig = {
@@ -18,46 +17,13 @@ const firebaseConfig = {
 // Inicializar o Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-const db = getFirestore(app);
-
-// Provedor de autenticação do Google
-const provider = new GoogleAuthProvider();
-
-// Função para verificar se o email já está registrado e fazer login
-function loginWithGoogle() {
-  signInWithPopup(auth, provider)
-    .then((result) => {
-      const user = result.user;
-      const email = user.email;
-
-      // Verifica se o email já está registrado
-      return fetchSignInMethodsForEmail(auth, email);
-    })
-    .then((signInMethods) => {
-      if (signInMethods.length > 0) {
-        alert("Métodos de login associados ao email:", signInMethods);
-
-        if (signInMethods.includes("google.com")) {
-          alert("Usuário já está registrado com uma conta Google.");
-          // Login concluído com sucesso
-        } else {
-          alert("Este email já está associado a outra forma de login. Use o método correspondente.");
-        }
-      } else {
-        alertg("Nenhuma conta encontrada para este email. Prossiga com o registro.");
-      }
-    })
-    .catch((error) => {
-      alert("Erro ao fazer login com Google:", error.message);
-    });
-}
 
 // Função para login com email e senha
 function loginWithEmailAndPassword(email, password) {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-      console.log("Login bem-sucedido:", user);
+      alert("Login bem-sucedido:");
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -74,7 +40,6 @@ function loginWithEmailAndPassword(email, password) {
 }
 
 // Exemplo de uso com botões de login
-document.getElementById("loginGoogleButton").addEventListener("click", loginWithGoogle);
 document.getElementById("loginEmailButton").addEventListener("click", () => {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
