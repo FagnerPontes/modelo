@@ -7,9 +7,9 @@
   --backColor2: none;
   --backColor3: none;
   --backColor4: none;
-  --backColor6: none;
   --backColor1t: none;
   --backColor2t: none;
+  --backColor1s: none;
   --backColor2s: none;
   --buttonColor1: none;
   --buttonColor2: none;
@@ -17,10 +17,8 @@
   --fontColor1: none;
   --fontColor2: none;
   --fontColor3: none;
+  --fontColor4: none;
   --aColor: none;
-  --border1:none;
-  --border2: none;
-  --border3: none;
   --backgroundImage: none;
   --backgroundImageHeader: none;
 
@@ -65,19 +63,25 @@ body {
 }
 
 button{
-  border: var(--border1);
+  border: 1px solid var(--backColor2t);
   background-color: var(--backColor2t);
   color: var(--fontColor1);
 }
 
 button:hover {
-  border: var(--border2);
-  background-color: var(--backColor6);
+  border: 1px solid var(--fontColor4);
+  background-color: var(--backColor1s);
   color: var(--fontColor2);
 }
 
 button:active {
-  border: var(--border3);
+  border: 1px solid var(--fontColor4);
+  background-color: var(--buttonColor3);
+  color: var(--fontColor3);
+}
+
+button:disabled {
+  border: 1px solid var(--fontColor4);
   background-color: var(--buttonColor3);
   color: var(--fontColor3);
 }
@@ -135,8 +139,8 @@ button:active {
 }
 
 #myHeader button:hover {
-  background-color: var(--backColor6);
-  border: var(--border2);
+  background-color: var(--backColor1s);
+  border: 1px solid var(--fontColor4);
   color: var(--fontColor2);
 }
 
@@ -150,6 +154,7 @@ button:active {
   color: var(--fontColor3);
 }
 
+/* |- Botões Entrar e Inscrever */
 #myHeader > .buttonHeader {
   display: flex;
   flex-direction: column;
@@ -185,8 +190,8 @@ button:active {
 /* |-myDivContainer */
 #myDivContainer {
   flex: 1;
-  border-top: var(--border3);
-  border-bottom: var(--border3);
+  border-top: 1px solid var(--fontColor4);
+  border-bottom: 1px solid var(--fontColor4);
   overflow: auto;
   display: flex;
   /*flex-direction: será definido no @media (Responsividade)*/
@@ -249,7 +254,7 @@ button:active {
   display: flex;
   flex-direction: row;
   padding-right: 1rem; 
-  border-bottom: var(--border3);
+  border-bottom: 1px solid var(--fontColor4);
 }
 
 .divCenterContent .divChildTop h1{
@@ -356,7 +361,7 @@ button:active {
  border-radius: 6px;
  padding-left: .5rem;
  background-color: var(--backColor4);
- border: var(--border3);
+ border: 1px solid var(--fontColor4);
  color: var(--fontColor2)
 }
 
@@ -367,22 +372,26 @@ button:active {
   flex: 1;
   margin-bottom: 1rem;
   border-radius: 6px;
-  border: var(--border1);
+  border: 1px solid var(--backColor2t);
   background-color: var(--buttonColor2);
   color: var(--fontColor1);
   font-size: 2rem;
 }
 
 #divFormParent form > button:hover {
-  border: var(--border2);
+  border: 1px solid var(--fontColor4);
   background-color: var(--buttonColor1);
   color: var(--fontColor2);
 }
 
 #divFormParent form > button:active {
-  border: var(--border3);
+  border: 1px solid var(--fontColor4);
   background-color: var(--buttonColor3);
   color: var(--fontColor3);
+}
+
+#divFormParent form > #loginGoogleButton {
+  margin-bottom: 2rem;
 }
 
 #divFormParent form p a{
@@ -415,7 +424,6 @@ button:active {
   /* |- - - myDivLeft */
   #myDivLeft {
     position: absolute;
-    border-right: var(--border3);
     padding-top: 1rem;
     padding-bottom: 1rem;
     top: 0;
@@ -456,7 +464,7 @@ button:active {
   #myDivRight #pHeader_DivRight_Child{
     width: calc(100vw - 2rem);
     background-color: var(--backColor1);
-    border-top: var(--border3);
+    border-top: 1px solid var(--fontColor4);
   }
 
   #myDivRight #pHeader_DivRight_Child #buttonHedaer_DR_Child {
@@ -511,7 +519,7 @@ button:active {
 
    /* |- - - myDivLeft */
   #myDivLeft{
-    border-right: var(--border3);
+    border-right: 1px solid var(--fontColor4);
     padding-top: 1rem;
     padding-bottom: 1rem;
     background-color: var(--backColor2);
@@ -525,7 +533,7 @@ button:active {
   #myDivCenter{
     background-color: var(--backColor1);
     padding: .5rem;
-    min-width: var(--menuWidth);
+    min-width: 0rem;
   }
 
   #myDivCenter .divCenterContent{
@@ -539,7 +547,7 @@ button:active {
   #myDivRight{
     padding-bottom: 1rem;
     background-color: var(--backColor2);
-    border-left: var(--border3);
+    border-left: 1px solid var(--fontColor4);
   }
 
   #myDivRight #pHeader_DivRight_Child{
@@ -559,7 +567,7 @@ button:active {
    /* |- - - divFormParent */
   #divFormParent form{
    width: 25rem;
-   border: var(--border1);
+   border: 1px solid var(--backColor2t);
   }
 
   #divFormParent form input{

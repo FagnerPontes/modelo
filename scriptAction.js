@@ -1,5 +1,6 @@
 /*Editar scriptAcrion.js*/
 
+// |- Manipulação do layout
 //elementos maniplados:
 const buttonMenuLeft = document.getElementById('buttonMenuLeft');
 const buttonMenuRight = document.getElementById('buttonMenuRight');
@@ -10,6 +11,7 @@ const buttonHedaer_DR_Child = document.getElementById('buttonHedaer_DR_Child');
 const i_DR_Child = document.getElementById("i_DR_Child");
 
 
+// |- - isMobile
 var isMobile = false;
 if (navigator.userAgentData && navigator.userAgentData.mobile) {
   isMobile = true;
@@ -17,7 +19,6 @@ if (navigator.userAgentData && navigator.userAgentData.mobile) {
   isMobile = true;
 }
 
-// comentar aqui
 if (isMobile) {
   document.getElementById('body').style.setProperty('height', `${window.innerHeight}px`);
   myDivRight.classList.add('openMyDivRight');
@@ -26,21 +27,22 @@ if (isMobile) {
 else
   document.getElementById('body').style.setProperty('height', `100vh`);
 
-//caso a largura da janela seja maior que 600px (monitor) -> iniciar menu aberto.
-if (window.innerWidth >= 600) {
-  myDivLeft.classList.add('open');
+// |- - Layout inicial
+if (window.innerWidth < 600) {
+  myDivRight.classList.add('openMyDivRight');
+  myDivLeft.classList.add('close');
+  myDivRight.classList.add('open');
+  document.documentElement.style.setProperty('--menuWidth', '100vw');
+}
+else if (window.innerWidth < 800) {
+  myDivLeft.classList.add('close');
   myDivRight.classList.add('open');
   document.documentElement.style.setProperty('--menuWidth', '18rem');
 }
-
-
-//caso a largura da janela seja menor que 600px (mobile)) -> iniciar menu fechado
 else {
-  isMobile = true;
-  myDivRight.classList.add('openMyDivRight');
-  myDivLeft.classList.add('close'); //adicionar classe (.close) ao menu esquerdo
-  myDivRight.classList.add('open'); //adicionar classe (.close) ao menu direito
-  document.documentElement.style.setProperty('--menuWidth', '100vw'); //variável css (--menuWidth):
+  myDivLeft.classList.add('open');
+  myDivRight.classList.add('open');
+  document.documentElement.style.setProperty('--menuWidth', '18rem');
 }
 
 function checkOrientation() {
