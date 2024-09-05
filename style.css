@@ -1,0 +1,650 @@
+/* Editar style.css */
+
+/* |-VARIÁVEIS*/
+:root {
+  /*propriedades editadas no scriptTheme*/
+  --backColor1: none;
+  --backColor2: none;
+  --backColor3: none;
+  --backColor4: none;
+  --backColor1t: none;
+  --backColor2t: none;
+  --backColor1s: none;
+  --backColor2s: none;
+  --buttonColor1: none;
+  --buttonColor2: none;
+  --buttonColor3: none;
+  --fontColor1: none;
+  --fontColor2: none;
+  --fontColor3: none;
+  --fontColor4: none;
+  --aColor: none;
+  --backgroundImage: none;
+  --backgroundImageHeader: none;
+
+  /*propriedades NÃO editadas no scriptTheme*/
+  --fontSizeRoot1: 16px;
+  --headerHeigth: 6rem;
+  --footerHeigth: 2rem;
+  --menuButtonHeight: 4rem;
+  --iconSize: 3.5rem;
+
+  /*propriedade para animação dos menus*/
+  --menuWidth: 18rem;
+}
+
+/* |-Reset */
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: Helvetica, sans-serif;
+}
+
+html {
+  font-size: var(--fontSizeRoot1);
+  color: #212429;
+  background-color: #212429;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #212429;
+  background-image: var(--backgroundImage);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+button{
+  border: 1px solid var(--backColor2t);
+  background-color: var(--backColor2t);
+  color: var(--fontColor1);
+}
+
+button:hover {
+  border: 1px solid var(--fontColor4);
+  background-color: var(--backColor1s);
+  color: var(--fontColor2);
+}
+
+button:active {
+  border: 1px solid var(--fontColor4);
+  background-color: var(--buttonColor3);
+  color: var(--fontColor3);
+}
+
+button:disabled {
+  border: 1px solid var(--fontColor4);
+  background-color: var(--buttonColor3);
+  color: var(--fontColor3);
+}
+
+/* |-myHeader */
+#myHeader {
+  display: flex;
+  height: var(--headerHeigth);
+  background-color: var(--backColor1);
+  align-items: center;
+  padding-left: .5rem;
+  padding-right: .5rem;
+}
+
+#myHeader p {
+  margin-left: 1rem;
+  font-size: 1rem;
+  display: flex;
+  flex: 1;
+  align-items: flex-end;
+  height: 2rem;
+  color: var(--fontColor1);
+}
+
+#myHeader > #buttonHome {
+  width: 7.5rem;
+  height: 4rem;
+  border: 2px solid var(--backColor1t);
+  background-color: var(--backColor1t);
+  font-size: 2rem;
+  color: var(--fontColor1);
+  border-radius: 10px;
+  cursor: pointer;
+  margin: .1rem;
+  line-height: 4rem;
+  transition: background-color 0.3s;
+}
+
+#myHeader > #buttonHome:hover{
+ color: var(--fontColor2);
+}
+
+#myHeader button {
+  width: 4rem;
+  height: 4rem;
+  font-size: 2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: .1rem;
+  line-height: 4rem;
+  transition: background-color 0.3s;
+  border: 1px solid var(--backColor1t);
+  background-color: var(--backColor1t);
+  color: var(--fontColor1);
+}
+
+#myHeader button:hover {
+  background-color: var(--backColor1s);
+  border: 1px solid var(--fontColor4);
+  color: var(--fontColor2);
+}
+
+#myHeader button:active {
+  background-color: var(--buttonColor3);
+  color: var(--fontColor3);
+}
+
+#myHeader button:disabled {
+  background-color: var(--buttonColor3);
+  color: var(--fontColor3);
+}
+
+/* |- Botões Entrar e Inscrever */
+#myHeader > .buttonHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#myHeader > .buttonHeader i{
+ font-size: 2rem;
+ width: 3rem;
+ height: rem;
+ line-height: 2.5rem;
+}
+
+#myHeader > .buttonHeader span{
+  flex: 1;
+  height: 1rem;
+  font-size: .8rem;
+  line-height: 1rem;
+  text-align: right;
+}
+
+/* |-myFooter */
+#myFooter {
+  height: calc(var(--footerHeigth) + env(safe-area-inset-bottom));
+  background-color: var(--backColor1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: .8rem;
+  color: var(--fontColor1);
+}
+
+/* |-myDivContainer */
+#myDivContainer {
+  flex: 1;
+  border-top: 1px solid var(--fontColor4);
+  border-bottom: 1px solid var(--fontColor4);
+  overflow: auto;
+  display: flex;
+  /*flex-direction: será definido no @media (Responsividade)*/
+}
+
+/* |-myDivLeft */
+#myDivLeft{
+  z-index: 2;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1rem;
+  /*width: -> largura será manipulada pelo scriptMenuAnimation.js*/
+}
+
+#myDivLeft button {
+  display: flex;
+  align-items: center;
+  margin-top: .25rem;
+  height: var(--menuButtonHeight);
+  border-radius: 6px;
+}
+
+#myDivLeft button span{
+  display: flex;
+  flex: 1;
+  justify-content: left;
+  text-align: left;
+  padding-left: .5rem;
+}
+
+#myDivLeft button i{
+  line-height: var(--iconSize);
+  width: var(--iconSize);
+  height: var(--iconSize);
+  border-radius: 4px;
+  font-size: 1.5rem;
+}
+
+/* |-MyDivCenter */
+#myDivCenter {
+  display: flex;
+  flex: 1;
+  overflow: auto;
+  color: var(--fontColor1);
+}
+
+#myDivCenter .divCenterContent{
+  flex: 1;
+  overflow: auto;
+  display: flex;
+}
+
+#myDivCenter .divCenterContent .divChildTop{
+  width: 100%;
+  height: 3rem;
+  line-height: 3rem;
+  display: flex;
+  flex-direction: row;
+  padding-right: 1rem; 
+  border-bottom: 1px solid var(--fontColor4);
+}
+
+.divCenterContent .divChildTop h1{
+  text-align: center;
+  font-size: 1.5rem;
+  flex: 1;
+}
+
+.divCenterContent .divChildTop button{
+  font-size: 1.5rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  margin-top: .5rem;
+}
+
+/* |-myDivRight */
+#myDivRight{
+  z-index: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  align-items: center;
+  color: var(--fontColor1);
+  /*width: -> largura será manipulada pelo scriptMenuAnimation.js*/
+}
+
+#myDivRight #pHeader_DivRight_Child{
+  display: flex;
+  padding: .5rem;
+  height: 2.5rem;
+  line-height: 1.5rem;
+  font-size: 1rem;
+}
+
+#myDivRight #pHeader_DivRight_Child span{
+  flex: 1;
+}
+
+#myDivRight #publicidade{
+  flex: 1;
+}
+
+.rotated{
+  transform: rotate(180deg);
+}
+
+/* |-divFormParent */
+#divFormParent{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--backColor2);
+  color: var(--fontColor1);
+}
+
+#divFormParent form{
+  position: relative;
+  display: block;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-left: .5rem;
+  padding-right: .5rem;
+  border-radius: 10px;
+  overflow-y: auto;
+  background-color: var(--backColor1);
+  max-height: 90%;
+}
+
+#divFormParent form h1{
+ display: flex;
+ font-size: 2rem;
+ align-items: center;
+ height: var(--headerHeigth);
+ margin-bottom: .5rem;
+}
+
+#divFormParent form h1 span{
+ flex: 1;
+}
+
+#divFormParent form p{
+ width: 100%;
+ height: 1.8rem;
+ flex: 1;
+ line-height: 1.8rem;
+ display: flex;
+}
+
+#divFormParent form p span{
+ flex: 1;
+ text-align: right;
+ color: var(--fontColor2);
+}
+
+#divFormParent form input{
+ width: 100%;
+ flex: 1;
+ margin-bottom: .8rem;
+ border-radius: 6px;
+ padding-left: .5rem;
+ background-color: var(--backColor4);
+ border: 1px solid var(--fontColor4);
+ color: var(--fontColor2)
+}
+
+#divFormParent form > button{
+  margin-top: 1rem;
+  width: 100%;
+  height: 3rem;
+  flex: 1;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  border: 1px solid var(--backColor2t);
+  background-color: var(--buttonColor2);
+  color: var(--fontColor1);
+  font-size: 2rem;
+}
+
+#divFormParent form > button:hover {
+  border: 1px solid var(--fontColor4);
+  background-color: var(--buttonColor1);
+  color: var(--fontColor2);
+}
+
+#divFormParent form > button:active {
+  border: 1px solid var(--fontColor4);
+  background-color: var(--buttonColor3);
+  color: var(--fontColor3);
+}
+
+#divFormParent form > #loginGoogleButton {
+  margin-bottom: 2rem;
+}
+
+#divFormParent form p a{
+  text-decoration: none;
+  color: var(--aColor);
+}
+
+#divFormParent form p a:hover{
+  text-decoration: underline;
+}
+
+/*----------------------------------*/
+/*|-RESPONSIVIDADE*/
+/*----------------------------------*/
+
+/*|- - MOBILE (width < 600)*/
+@media only screen and (max-width: 599px) {
+  /* |- - - buttonMenuRight */
+  #buttonMenuRight{
+    display: none;
+  }
+
+  /* |- - - myDivContainer */
+  #myDivContainer {
+   display: flex;
+   position: relative;
+   flex-direction:column;
+	}
+
+  /* |- - - myDivLeft */
+  #myDivLeft {
+    position: absolute;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: var(--backColor2s);
+	}
+
+  #myDivLeft button{
+    width: calc(100vw - 2rem);
+  }
+
+  /* |- - - myDivCenter */
+  #myDivCenter {
+    background-color: var(--backColor1);
+    padding-left: 1rem;
+    padding-top: 1rem;
+    padding-right: 1rem;
+    width: 100vw;
+  }
+
+  #myDivCenter .divCenterContent{
+    height: 100%;
+    min-width: 100%;
+    background-color: var(--backColor1);
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+  }
+
+  /* |- - - myDivRight */
+  #myDivRight {
+    padding-bottom: .5rem;
+    transition: min-height .3s;
+    background-color: var(--backColor1);
+    width: 100vw;
+  }
+
+  #myDivRight #pHeader_DivRight_Child{
+    width: calc(100vw - 2rem);
+    background-color: var(--backColor1);
+    border-top: 1px solid var(--fontColor4);
+  }
+
+  #myDivRight #pHeader_DivRight_Child #buttonHedaer_DR_Child {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+  }
+
+  #myDivRight #pHeader_DivRight_Child #buttonHedaer_DR_Child i{
+    display: block;
+    transition: transform 0.2s ease-in-out;
+    font-size: .6rem;
+  }
+
+  #myDivRight #publicidade{
+    width: calc(100vw - 2rem);
+    background-color: var(--backColor3);
+    border-radius: 6px;
+  }
+
+
+  .openMyDivRight{
+    min-height: 250px;
+  }
+
+  .closeMyDivRight {
+    min-height: 2.5rem;
+  }
+
+  /* |- - - divFormParent */
+  #divFormParent form{
+    width: 100%;
+  }
+
+  #divFormParent form input{
+    height: 3rem;
+    line-height: 3rem;
+  }
+}
+
+/* |- - MONITOR (width > 600)*/
+@media only screen and (min-width: 600px) {
+  /* |- - - buttonMenuRight */
+  #buttonMenuRight{
+    display: block;
+  }
+
+   /* |- - - myDivContainer */
+  #myDivContainer {
+    flex-direction: row;
+  }
+
+   /* |- - - myDivLeft */
+  #myDivLeft{
+    border-right: 1px solid var(--fontColor4);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: var(--backColor2);
+  }
+
+  #myDivLeft button{
+    width: calc(var(--menuWidth) - 2rem);
+  }
+
+   /* |- - - myDivCenter */
+  #myDivCenter{
+    background-color: var(--backColor1);
+    padding: .5rem;
+    min-width: 0rem;
+  }
+
+  #myDivCenter .divCenterContent{
+    height: 100%;
+    min-width: 100%;
+    background-color: var(--backColor1);
+    border-radius: 6px;
+  }
+
+   /* |- - - myDivRight */
+  #myDivRight{
+    padding-bottom: 1rem;
+    background-color: var(--backColor2);
+    border-left: 1px solid var(--fontColor4);
+  }
+
+  #myDivRight #pHeader_DivRight_Child{
+    width: calc(var(--menuWidth) - 2rem);
+  }
+
+  #myDivRight #pHeader_DivRight_Child #buttonHedaer_DR_Child{
+    display: none;
+  }
+
+  #myDivRight #publicidade{
+    width: calc(var(--menuWidth) - 2rem);
+    background-color: var(--backColor2t);
+    border-radius: 6px;
+  }
+
+   /* |- - - divFormParent */
+  #divFormParent form{
+   width: 25rem;
+   border: 1px solid var(--backColor2t);
+  }
+
+  #divFormParent form input{
+    height: 2rem;
+    line-height: 2rem;
+  }
+}
+
+/*---------------------------------*/
+/*|- ANIMAÇÃO DOS MENUS.css*/
+/*---------------------------------*/
+
+/*largura para quando o menu for aberto*/
+.open {
+  width: var(--menuWidth);
+}
+
+/*largura para quando o menu for fechado*/
+.close {
+  width: 0;
+}
+
+/*propriedades da animação para quando o menu for aberto*/
+.openDivMenu {
+  animation-name: slideInMenu;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+}
+
+/*propriedades da animação para quando o menu for fechado*/
+.closeDivMenu {
+  animation-name: slideOutMenu;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+}
+
+/*animação para abrir o menu*/
+@keyframes slideInMenu {
+  0% {/*início da animação*/
+    width: 0;
+	}
+
+  100% {/*fim da animação*/
+    width: var(--menuWidth);
+  }
+}
+
+/*animação para fechar o menu*/
+@keyframes slideOutMenu {
+  from {/*início da animação*/
+    width: var(--menuWidth);
+  }
+
+  to {/*fim da animação*/
+    width: 0;
+  }
+}
+
+/* ------------------------------------------ */
+/* |- ELEMENTOS CRIADOS POR JS*/
+/* ------------------------------------------ */
+
+/* |- Painel: config */
+/* variação de .divCenterContent */
+#config{
+  flex-direction: column;
+}
+
+#config form{
+  margin-top: .5rem;
+  padding: .5rem;
+  display: flex;
+  flex-direction: column;
+  line-height: 2rem;
+  border-radius: 6px
+}
+
+#config form input{
+  margin-left: 1rem;
+}
