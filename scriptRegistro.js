@@ -2,7 +2,6 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
 import { createUserWithEmailAndPassword, getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
-import { getDatabase } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
 import { doc, getFirestore, setDoc } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
 
 // Deve ser usado apartir de um servidor
@@ -25,7 +24,7 @@ var confirm = true;
 
 function sig_out(auth) {
   signOut(auth).then(() => {
-    alert('Sessão encerrada!');
+    location.href = 'index.html';
   }).catch((error) => {
     alert(`Erro: ${error}`);
   });

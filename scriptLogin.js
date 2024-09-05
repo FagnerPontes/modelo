@@ -17,35 +17,23 @@ const firebaseConfig = {
 // Inicializar o Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-
-// Função para login com email e senha
-function loginWithEmailAndPassword(email, password) {
-  signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      alert("Login bem-sucedido:");
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-
-      if (errorCode === 'auth/wrong-password') {
-        alert("Senha incorreta. Tente novamente.");
-      } else if (errorCode === 'auth/user-not-found') {
-        alert("Usuário não encontrado. Verifique o email e tente novamente.");
-      } else {
-        alert(`Erro: ${errorMessage}`);
-      }
-    });
-}
+const db = getFirestore(app);
 
 // Exemplo de uso com botões de login
 document.getElementById("loginEmailButton").addEventListener("click", () => {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
-  loginWithEmailAndPassword(email, password);
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      location.href = 'page.html';
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert(`Erro: ${errorCode}, ${errorMessage}`);
+    });
 });
-
 
 /* |- Configuração de layouts */
 var isMobile = false;

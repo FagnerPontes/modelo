@@ -1,4 +1,4 @@
-<!-- Editar page.html -->
+<!-- Editar index.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -11,31 +11,30 @@
   <link rel="stylesheet" type="text/css" href="style.css">
   <!-- Adicionar arquivo _scriptStrings.js -->
   <script src='scriptStrings.js' type='text/javascript' defer></script>
-  <!-- Adicionar arquivo _scriptColors.js -->
   <script src='scriptColors.js' type='text/javascript' defer></script>
-  <!-- Adicionar arquivo scriptCookie.js -->
-  <script src='scriptCookie.js' type='text/javascript' defer></script>
-  <!-- Adicionar arquivo scriptTheme.js -->
-  <script src='scriptTheme.js' type='text/javascript' defer></script>
-  <!-- Adicionar arquivo scriptAction.js -->
   <script src="scriptAction.js" type="text/javascript" defer></script>
-  <title>Modelo 1</title>
+  <script src="scriptPage.js" type="module" defer></script>
+  <script src='scriptCookie.js' type='text/javascript' defer></script>
+  <script src='scriptTheme.js' type='text/javascript' defer></script>
+  <title>User page</title>
 </head>
 
-<body>
+<body id="body" class="body">
   <header id="myHeader"> <!-- cabeçalho -->
-    <button id="buttonMenuLeft" type="button" title="Menu left"> <!-- botão para retrair ou expandir o menu esquerdo-->
-      <i class="bi bi-list"></i> <!-- ícone importado do bootstrap -->
+    <!-- botão para retrair ou expandir o menu esquerdo-->
+    <button id="buttonMenuLeft" class='button' type="button" title="Menu left">
+      <i class="bi bi-layout-sidebar-inset"></i> <!-- ícone importado do bootstrap -->
     </button>
-    <button id="buttonHome" type="button" title="bHome">
-      <i class="bi bi-house"></i>
-    </button>
+    <button id="buttonHome" type="button" title="bHome">Forbys.</button>
     <p id='pHeader'></p>
-    <button id="buttonTheme" type='button' title='bTheme'> <!-- Botão que fará a mudança de tema -->
-      <i class="bi bi-circle-half"></i> <!-- ícone importado do bootstrap -->
+    <!-- Botão para sair do perfil -->
+    <button id="buttonSair" class='buttonHeader' type='button' title='Sair'">
+      <i class=" bi bi-person-down"></i>
+      <span>Sair</span>
     </button>
-    <button id="buttonMenuRight" type="button" title="Menu right"> <!-- botão para retrair ou expandir o menu direito-->
-      <i class="bi bi-three-dots-vertical"></i> <!-- ícone importado do bootstrap -->
+    <!-- botão para retrair ou expandir o menu direito-->
+    <button id="buttonMenuRight" type="button" title="Menu right">
+      <i class="bi bi-layout-sidebar-inset-reverse"></i>
     </button>
   </header>
   <div id="myDivContainer"> <!-- Container que receberá os menus e a área de conteúdo -->
@@ -44,9 +43,17 @@
     <div id="myDivCenter"><!-- área de conteúdo -->
     </div>
     <div id="myDivRight" class="divMenu"><!-- menu direito -->
+      <p id='pHeader_DivRight_Child'>
+        <span>Apoiadores</span>
+        <button id="buttonHedaer_DR_Child" type="button" title="Menu right">
+          <i id="i_DR_Child" class="bi bi-chevron-down"></i>
+        </button>
+      </p>
+      <div id="publicidade"></div>
+      <div id="divContent_DivRight_Child"></div>
     </div>
   </div>
-  <footer id="myFooter">Projeto de desenvolvimento de site responsivo</footer> <!-- rodapé -->
+  <footer id="myFooter">&copy Amigos Lisos, uma empresa do grupo Sem Grana</footer> <!-- rodapé -->
 </body>
 
 </html>
