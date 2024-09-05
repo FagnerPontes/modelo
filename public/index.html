@@ -1,89 +1,64 @@
+<!-- Editar index.html -->
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="pt-BR">
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/10.13.1/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/10.13.1/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/10.13.1/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/10.13.1/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/10.13.1/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/10.13.1/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/10.13.1/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/10.13.1/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/10.13.1/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/10.13.1/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Adicionar cdn de ícones bootstrap (veja na descrição) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Adicionar arquivo style.css -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- Adicionar arquivo _scriptStrings.js -->
+  <script src='scriptStrings.js' type='text/javascript' defer></script>
+  <script src='scriptColors.js' type='text/javascript' defer></script>
+  <script src="scriptAction.js" type="text/javascript" defer></script>
+  <script src='scriptCookie.js' type='text/javascript' defer></script>
+  <script src='scriptTheme.js' type='text/javascript' defer></script>
+  <title>Página inicial</title>
+</head>
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+<body id="body" class="body">
+  <header id="myHeader"> <!-- cabeçalho -->
+    <!-- botão para retrair ou expandir o menu esquerdo-->
+    <button id="buttonMenuLeft" class='button' type="button" title="Menu left">
+      <i class="bi bi-layout-sidebar-inset"></i> <!-- ícone importado do bootstrap -->
+    </button>
+    <button id="buttonHome" type="button" title="bHome">Forbys.</button>
+    <p id='pHeader'></p>
+    <!-- Botão para criar perfil -->
+    <button id="buttonCreateProfile" class='buttonHeader' type='button' title='Create Profile'
+      onclick="location.href='registro.html';">
+      <i class="bi bi-person-plus"></i><!-- ícone importado do bootstrap -->
+      <span>Inscrever</span>
+    </button>
+    <!-- Botão para entrar no perfil -->
+    <button id="buttonLogin" class='buttonHeader' type='button' title='Entrar' onclick="location.href='login.html';">
+      <i class="bi bi-person-up"></i><!-- ícone importado do bootstrap -->
+      <span>Entrar</span>
+    </button>
+    <!-- botão para retrair ou expandir o menu direito-->
+    <button id="buttonMenuRight" type="button" title="Menu right">
+      <i class="bi bi-layout-sidebar-inset-reverse"></i>
+    </button>
+  </header>
+  <div id="myDivContainer"> <!-- Container que receberá os menus e a área de conteúdo -->
+    <div id="myDivLeft" class="divMenu"> <!-- menu esquerdo -->
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+    <div id="myDivCenter"><!-- área de conteúdo -->
+    </div>
+    <div id="myDivRight" class="divMenu"><!-- menu direito -->
+      <p id='pHeader_DivRight_Child'>
+        <span>Apoiadores</span>
+        <button id="buttonHedaer_DR_Child" type="button" title="Menu right">
+          <i id="i_DR_Child" class="bi bi-chevron-down"></i>
+        </button>
+      </p>
+      <div id="publicidade"></div>
+      <div id="divContent_DivRight_Child"></div>
+    </div>
+  </div>
+  <footer id="myFooter">&copy Amigos Lisos, uma empresa do grupo Sem Grana</footer> <!-- rodapé -->
+</body>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
 </html>
