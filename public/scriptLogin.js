@@ -1,8 +1,11 @@
 // Importações do Firebase
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-analytics.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Configuração do Firebase
+
 const firebaseConfig = {
   apiKey: "AIzaSyBSk4FZXPVedVdBhDvo8UzYGhqiaDILlL0",
   authDomain: "forbys-d2e7f.firebaseapp.com",
@@ -14,10 +17,10 @@ const firebaseConfig = {
   measurementId: "G-GG8FXC09LL"
 };
 
-// Inicializar o Firebase
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 const auth = getAuth(app);
-const db = getFirestore(app);
 
 // Exemplo de uso com botões de login
 document.getElementById("loginEmailButton").addEventListener("click", () => {
@@ -26,7 +29,7 @@ document.getElementById("loginEmailButton").addEventListener("click", () => {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-      location.href = 'page.html';
+      window.location.href = "page.html";
     })
     .catch((error) => {
       const errorCode = error.code;
