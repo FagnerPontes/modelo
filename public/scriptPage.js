@@ -1,7 +1,7 @@
 // Editar scriptRegistro.js
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
-import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
 
 // Deve ser usado apartir de um servidor
 const firebaseConfig = {
@@ -14,15 +14,25 @@ const firebaseConfig = {
   appId: "1:826739439374:web:0b8bc26953a717c25ec95f",
   measurementId: "G-GG8FXC09LL"
 };
+
 // Inicializar o Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app); // Inicializa a autenticação
+const auth = getAuth(app);
+const user = auth.currentUser;
 
-var buttonSair = document.getElementById('buttonSair');
-buttonSair.addEventListener('click', () => {
-  signOut(auth).then(() => {
-    location.href = 'index.html';
-  }).catch((error) => {
-    alert(`Erro: ${error}`);
-  });
-})
+//|- Verificar login
+//Se usuário estiver logado
+if (user) {
+  var buttonSair = document.getElementById('buttonSair');
+  buttonSair.addEventListener('click', () => {
+    signOut(auth).then(() => {
+      location.href = 'index.html';
+    }).catch((error) => {
+      alert(`Erro: ${error}`);
+    });
+  })
+}
+//Se usuário NÂO estiver logado
+else {
+  window.location.href = 'index.html';
+}
