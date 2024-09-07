@@ -102,10 +102,11 @@ const applyUserData = async () => {
 
       if (docSnap.exists()) {
         const userData = docSnap.data(); // Obtém os dados do documento
-
         // Aplicar os dados na página
-        if (userData.background) {
+        try {
           document.documentElement.style.setProperty('--backColor1', userData.background);
+        } catch (error) {
+          console.log('Erro ao aplicar o background: ' + error.message);
         }
 
         // if (userData.profilePictureUrl) {
