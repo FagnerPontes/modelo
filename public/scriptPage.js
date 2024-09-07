@@ -76,6 +76,7 @@ buttonSair.addEventListener('click', async () => {
   try {
     await signOut(auth);
     console.log("Usuário deslogado com sucesso.");
+    window.location.href = 'index.html';
   } catch (error) {
     console.error("Erro ao deslogar usuário:", error);
   }
