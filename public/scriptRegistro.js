@@ -1,3 +1,5 @@
+import * as scriptTheme from './scriptTheme.js';
+
 // Editar scriptRegistro.js
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
@@ -171,7 +173,6 @@ function validarCampos(email, password, passwordConfirm, userData) {
 
 
 // |- Layout
-
 var isMobile = false;
 if (navigator.userAgentData && navigator.userAgentData.mobile) {
   isMobile = true;
@@ -183,3 +184,6 @@ if (isMobile) {
 }
 else
   document.getElementById('body').style.setProperty('height', `100vh`);
+
+
+scriptTheme.getTheme();

@@ -1,4 +1,4 @@
-/*Editar scriptAcrion.js*/
+import * as scriptTheme from './scriptTheme.js';
 
 // |- Manipulação do layout
 //elementos maniplados:
@@ -287,3 +287,32 @@ divChildTop_btClose.forEach(element => {
 
 //iniciar com painel home aberto:
 activeContentArea(divCenterContent[divCenterContent.length - 1]);
+
+// Ação dos botões de mudança de tema:
+const radioButtons = document.querySelectorAll('input[name="options"]');
+radioButtons.forEach(radio => {
+  radio.addEventListener('click', function () {
+    if (this.value) {
+      switch (this.value) {
+        case 'dark': {
+          scriptTheme.setMyTheme(dark(), 'dark');
+          break;
+        }
+        case 'light': {
+          scriptTheme.setMyTheme(light(), 'light');
+          break;
+        }
+        case 'solid_dark': {
+          scriptTheme.setMyTheme(solidDark(), 'solid_dark');
+          break;
+        }
+        case 'solid_light': {
+          scriptTheme.setMyTheme(solidLight(), 'solid_light');
+          break;
+        }
+      }
+    }
+  });
+});
+
+scriptTheme.getTheme();

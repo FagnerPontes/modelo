@@ -1,13 +1,14 @@
+import * as scriptTheme from './scriptTheme.js';
+
 // Importações do Firebase
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-analytics.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyBSk4FZXPVedVdBhDvo8UzYGhqiaDILlL0",
   authDomain: "forbys-d2e7f.firebaseapp.com",
@@ -31,9 +32,14 @@ document.getElementById("loginEmailButton").addEventListener("click", (e) => {
   const password = document.getElementById("password").value;
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      const user = userCredential.user;
-      console.log('User signed in:', user);
-      location.href = 'page.html';
+      var user = userCredential.user;
+      var uid = user.uid;
+      /*
+      página dinâmica: window.location.href = `page.html?uid=${uid}`;
+      page.html?uid=${uid}, resulta em uma nova página html apenas no lado do cliente
+      baseada no arquivo page.html mas personalizada pelo parâmetro ?uid=${uid}?
+      */
+      window.location.href = `page.html?uid=${uid}`;
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -54,3 +60,6 @@ if (isMobile) {
 }
 else
   document.getElementById('body').style.setProperty('height', `100vh`);
+
+// Aplicação de tema:
+scriptTheme.getTheme();
