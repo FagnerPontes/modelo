@@ -96,15 +96,15 @@ const applyUserData = async () => {
   if (uid) {
     try {
       // Obtenha a referência do documento do usuário
-      const docRef = db.collection('users').doc(uid);
-      const doc = await docRef.get();
+      const docRef = doc(db, 'users', uid); // Correção: use doc() para acessar o documento
+      const docSnap = await getDoc(docRef); // Correção: use getDoc() para obter os dados do documento
 
-      if (doc.exists) {
-        const userData = doc.data(); // Obtém os dados do documento
+      if (docSnap.exists()) {
+        const userData = docSnap.data(); // Obtém os dados do documento
 
         // Aplicar os dados na página
         if (userData.background) {
-          document.documentElement.style.setProperty('--backColor1', backColor1);
+          document.documentElement.style.setProperty('--backColor1', userData.background);
         }
 
         // if (userData.profilePictureUrl) {
