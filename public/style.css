@@ -154,6 +154,10 @@ button:disabled {
   color: var(--fontColor3);
 }
 
+#myHeader > #buttonUser{
+  border-radius: 50%;
+}
+
 /* |- Botões Entrar e Inscrever */
 #myHeader > .buttonHeader {
   display: flex;
@@ -258,7 +262,7 @@ button:disabled {
 }
 
 .divCenterContent .divChildTop h1{
-  text-align: center;
+  text-align: left;
   font-size: 1.5rem;
   flex: 1;
 }
@@ -632,11 +636,11 @@ button:disabled {
 
 /* |- Painel: config */
 /* variação de .divCenterContent */
-#config{
+#panel5{
   flex-direction: column;
 }
 
-#config form{
+#panel5 form{
   margin-top: .5rem;
   padding: .5rem;
   display: flex;
@@ -645,6 +649,58 @@ button:disabled {
   border-radius: 6px
 }
 
-#config form input{
+#panel5 form input{
   margin-left: 1rem;
 }
+
+#panel6{
+  flex-direction: column;
+  align-items: center;
+}
+
+#panel6 form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: .5rem;
+  padding: .5rem;
+  display: flex;
+  line-height: 2rem;
+  border-radius: 6px;
+}
+
+#panel6 form img{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 8px solid var(--backColor3);
+}
+
+#panel6 form label{
+  margin-top: .5rem;
+}
+
+#panel6 form label:hover{
+  text-decoration: underline;
+}
+
+#panel6 form input{
+  display: none;
+}
+
+#panel6 form button{
+  margin-top: .5rem;
+  width: 8rem;
+  height: 2rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 2px solid var(--backColor4);
+}
+
+#buttonUser img{
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  border: 2px solid var(--backColor3);
+}
+

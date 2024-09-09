@@ -10,10 +10,8 @@
   <!-- Adicionar arquivo style.css -->
   <link rel="stylesheet" type="text/css" href="style.css">
   <!-- Adicionar arquivo _scriptStrings.js -->
-  <script src='scriptStrings.js' type='text/javascript' defer></script>
   <script src='scriptColors.js' type='text/javascript' defer></script>
   <script src='scriptTheme.js' type='module' defer></script>
-  <script src="scriptAction.js" type="module" defer></script>
   <script src="scriptPage.js" type="module" defer></script>
   <title>User page</title>
 </head>
@@ -21,8 +19,8 @@
 <body id="body" class="body">
   <header id="myHeader"> <!-- cabeçalho -->
     <!-- botão para retrair ou expandir o menu esquerdo-->
-    <button id="buttonMenuLeft" class='button' type="button" title="Menu left">
-      <i class="bi bi-layout-sidebar-inset"></i> <!-- ícone importado do bootstrap -->
+    <button id="buttonUser" class='button' type="button" title="User menu">
+      <img id="imgUser" src="/Imagens/Arvore_user.jpg" />
     </button>
     <button id="buttonHome" type="button" title="bHome">Forbys.</button>
     <p id='pHeader'></p>
@@ -38,8 +36,68 @@
   </header>
   <div id="myDivContainer"> <!-- Container que receberá os menus e a área de conteúdo -->
     <div id="myDivLeft" class="divMenu"> <!-- menu esquerdo -->
+      <button id="btPanel6"><i class="bi bi-person-check"></i><span>Perfil</span></button>
+      <button id="btPanel1"><i class="bi bi-paperclip"></i><span>Nossos serviços</span></button>
+      <button id="btPanel2"><i class="bi bi-bag-check"></i><span>Nossos Planos</span></button>
+      <button id="btPanel3"><i class="bi bi-person-hearts"></i><span>Seja um parceiro</span></button>
+      <button id="btPanel4"><i class="bi bi-envelope-arrow-up"></i><span>Entre em contato</span></button>
+      <button id="btPanel5"><i class="bi bi-gear"></i><span>Configuraçõeso</span></button>
     </div>
     <div id="myDivCenter"><!-- área de conteúdo -->
+      <div id="panelHome" class="divCenterContent">
+        <div class="divChildTop">
+          <h1>Apresentação</h1>
+        </div>
+      </div>
+      <div id="panel6" class="divCenterContent">
+        <div class="divChildTop">
+          <h1>Perfil</h1>
+          <button id="btColse6"><i class="bi bi-x"></i></button>
+        </div>
+        <form id="formUploadImage">
+          <img id="imgUpload" src="/Imagens/Arvore_user.jpg" />
+          <label for="inputUploadImage" class="custom-button">Escolher arquivo</label>
+          <input type="file" id="inputUploadImage" accept="image/*">
+          <button id='btUploadImage'>Enviar Imagem</button>
+        </form>
+      </div>
+      <div id="panel1" class="divCenterContent">
+        <div class="divChildTop">
+          <h1>Nossos serviços</h1>
+          <button id="btColse1"><i class="bi bi-x"></i></button>
+        </div>
+      </div>
+      <div id="panel2" class="divCenterContent">
+        <div class="divChildTop">
+          <h1>Nossos Planos</h1>
+          <button id="btColse2"><i class="bi bi-x"></i></button>
+        </div>
+      </div>
+      <div id="panel3" class="divCenterContent">
+        <div class="divChildTop">
+          <h1>Seja um parceiro</h1>
+          <button id="btColse3"><i class="bi bi-x"></i></button>
+        </div>
+      </div>
+      <div id="panel4" class="divCenterContent">
+        <div class="divChildTop">
+          <h1>Entre em contato</h1>
+          <button id="btColse4"><i class="bi bi-x"></i></button>
+        </div>
+      </div>
+      <div id="panel5" class="divCenterContent">
+        <div class="divChildTop">
+          <h1>Configurações</h1>
+          <button id="btColse5"><i class="bi bi-x"></i></button>
+        </div>
+        <form id="myConfigForm">
+          <p>Escolha seu tema:</p>
+          <label><input type="radio" name="options" value="dark"> Dark</label>
+          <label><input type="radio" name="options" value="light"> Light</label>
+          <label><input type="radio" name="options" value="solid_dark"> Solid dark</label>
+          <label><input type="radio" name="options" value="solid_light"> Solid Light</label>
+        </form>
+      </div>
     </div>
     <div id="myDivRight" class="divMenu"><!-- menu direito -->
       <p id='pHeader_DivRight_Child'>

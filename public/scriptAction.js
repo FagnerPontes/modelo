@@ -6,7 +6,6 @@ const buttonMenuLeft = document.getElementById('buttonMenuLeft');
 const buttonMenuRight = document.getElementById('buttonMenuRight');
 const myDivLeft = document.getElementById('myDivLeft');
 const myDivRight = document.getElementById('myDivRight');
-const pHeader = document.getElementById('pHeader')
 const buttonHedaer_DR_Child = document.getElementById('buttonHedaer_DR_Child');
 const i_DR_Child = document.getElementById("i_DR_Child");
 
@@ -140,91 +139,34 @@ buttonHedaer_DR_Child.addEventListener('click', () => {
     myDivRight.classList.replace('closeMyDivRight', 'openMyDivRight')
 })
 
-
 //---------------------------------------------------------
 // Configurar demais elementos que irão compor a página:
 //---------------------------------------------------------
-const divCenter = document.getElementById('myDivCenter');
 const buttonHome = document.getElementById('buttonHome');
-const pHome = document.createElement('p');
-
-// stings para criação de novos botões no menu esquerdo e paineis no conteiner central
-const menuIncos = [
-  'bi bi-paperclip', //----------Nossos serviços
-  'bi bi-bag-check', //----------Nossos planos
-  'bi bi-person-hearts', //------Seja nosso parceiro
-  'bi bi-envelope-arrow-up', //--Entre em contato
-  'bi bi-gear', //---------------Configurações
-];
-
-const painelsIds = [
-  'servicos',
-  'planos',
-  'parceiros',
-  'contato',
-  'config'
-];
 
 var buttonsLeftMenu = new Array();
-var icons = new Array();
-var spans = new Array();
 var divCenterContent = new Array();
-var divChildTop = new Array();
-var divChildTop_h1 = new Array();
-var divChildTop_btClose = new Array();
+var btClosePanel = new Array();
 
+buttonsLeftMenu.push(document.getElementById('btPanel1'));
+buttonsLeftMenu.push(document.getElementById('btPanel2'));
+buttonsLeftMenu.push(document.getElementById('btPanel3'));
+buttonsLeftMenu.push(document.getElementById('btPanel4'));
+buttonsLeftMenu.push(document.getElementById('btPanel5'));
+buttonsLeftMenu.push(document.getElementById('buttonHome'));
 
-/*criar elementos que serão utilizados na página*/
-for (var i = 0; i < menuIncos.length; i++) {
-  buttonsLeftMenu.push(document.createElement('button'));
-  icons.push(document.createElement('i'));
-  spans.push(document.createElement('span'));
-  divCenterContent.push(document.createElement('div'));
-  divChildTop.push(document.createElement('div'));
-  divChildTop_h1.push(document.createElement('h1'));
-  divChildTop_btClose.push(document.createElement('button'));
-}
+divCenterContent.push(document.getElementById('panel1'));
+divCenterContent.push(document.getElementById('panel2'));
+divCenterContent.push(document.getElementById('panel3'));
+divCenterContent.push(document.getElementById('panel4'));
+divCenterContent.push(document.getElementById('panel5'));
+divCenterContent.push(document.getElementById('panelHome'));
 
-// Adicionar propriedades, atributos e conteúdo ao elementos criados:
-for (var i = 0; i < menuIncos.length; i++) {
-  icons[i].setAttribute('class', menuIncos[i]);
-  spans[i].innerText = buttonsName[i];
-  divChildTop_h1[i].innerText = buttonsName[i];
-  divChildTop_btClose[i].innerHTML = '<i class="bi bi-x"></i>';
-  divChildTop[i].setAttribute('class', "divChildTop"); //adicionar a classe .divChildTop
-  divCenterContent[i].setAttribute('id', painelsIds[i])
-  divCenterContent[i].setAttribute('class', "divCenterContent"); //adicionar a classe .divCenterContent
-}
-
-// Atribuir aos elementos os seus respectivos nós:
-for (var i = 0; i < menuIncos.length; i++) {
-  buttonsLeftMenu[i].append(icons[i]);
-  buttonsLeftMenu[i].append(spans[i]);
-  myDivLeft.append(buttonsLeftMenu[i]);
-  divChildTop[i].append(divChildTop_h1[i]);
-  divChildTop[i].append(divChildTop_btClose[i]);
-  divCenterContent[i].append(divChildTop[i]);
-  divCenter.append(divCenterContent[i]);
-}
-
-// ----Criar elementos para o painel inicial (home)---
-// Criar elementos para o painel inicial (home)
-buttonsLeftMenu.push(buttonHome);
-divChildTop.push(document.createElement('div'));
-divChildTop_h1.push(document.createElement('h1'));
-divCenterContent.push(document.createElement('div'));
-
-// Adicionar propriedades, atributos e conteúdo ao elementos criados:
-divChildTop_h1[divChildTop_h1.length - 1].innerText = titulo_Home;
-divChildTop[divChildTop.length - 1].setAttribute('class', "divChildTop"); //adicionar a classe .divChildTop
-divCenterContent[divCenterContent.length - 1].setAttribute('id', 'home')
-divCenterContent[divCenterContent.length - 1].setAttribute('class', "divCenterContent"); //adicionar a classe .divCenterContent
-divCenterContent[divChildTop.length - 1].setAttribute('class', "divCenterContent");
-
-// Atribuir aos elementos os seus respectivos nós:
-divChildTop[divChildTop.length - 1].append(divChildTop_h1[divChildTop_h1.length - 1]);
-divCenterContent[divChildTop.length - 1].append(divChildTop[divChildTop.length - 1]);
-divCenter.append(divCenterContent[divChildTop.length - 1]);
+btClosePanel.push(document.getElementById('btColse1'));
+btClosePanel.push(document.getElementById('btColse2'));
+btClosePanel.push(document.getElementById('btColse3'));
+btClosePanel.push(document.getElementById('btColse4'));
+btClosePanel.push(document.getElementById('btColse5'));
 
 /*função responsável por ativar painel relacionado ao botão clicado*/
 function activeContentArea(myContentArea) {
@@ -253,44 +195,29 @@ buttonsLeftMenu.forEach(element => {
 
 //-----manipulação individual dos paineis centrais-----
 //pegar variáveis individualmente para manipulação:
-var home = divCenterContent[5];
+var panelHome = divCenterContent[5];
 var servicos = divCenterContent[0];
 var planos = divCenterContent[1];
 var parceiros = divCenterContent[2];
 var contato = divCenterContent[3];
-var config = divCenterContent[4];
+var panelConfig = divCenterContent[4];
 
-//Painel de configurações: id='config'
-var myConfigForm = document.createElement('form');
-myConfigForm.setAttribute('id', myConfigForm);
-myConfigForm.innerText = 'Escolha seu tema:'
-config.append(myConfigForm);
-/* Adicionar chekbox às divChildCenter*/
-myThemes.forEach(theme => {
-  myConfigForm.innerHTML += `
-  <label>
-    <input type="radio" name="options" value=${theme}>
-    ${theme}
-  </label>
-  `;
-});
 
 /*Ações dos botões divChildTop_btClose*/
-divChildTop_btClose.forEach(element => {
+btClosePanel.forEach(element => {
   element.addEventListener('click', () => {
-    var i = divChildTop_btClose.indexOf(element);
+    var i = btClosePanel.indexOf(element);
     divCenterContent[i].style.setProperty('display', 'none');
-    divCenterContent[divCenterContent.length - 1].style.setProperty('display', 'flex');
+    panelHome.style.setProperty('display', 'flex');
   })
 });
 
-
 //iniciar com painel home aberto:
-activeContentArea(divCenterContent[divCenterContent.length - 1]);
+activeContentArea(panelHome);
 
 // Ação dos botões de mudança de tema:
-const radioButtons = document.querySelectorAll('input[name="options"]');
-radioButtons.forEach(radio => {
+const radioButtonsThemes = document.querySelectorAll('input[name="options"]');
+radioButtonsThemes.forEach(radio => {
   radio.addEventListener('click', function () {
     if (this.value) {
       switch (this.value) {
