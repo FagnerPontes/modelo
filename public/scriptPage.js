@@ -1,4 +1,6 @@
+import * as scriptFirebase from './scriptFirebase.js';
 import * as scriptTheme from './scriptTheme.js';
+
 // |- Elementos html:
 // |- 1. Manipulação do layout
 //elementos maniplados:
@@ -8,6 +10,13 @@ const myDivLeft = document.getElementById('myDivLeft');
 const myDivRight = document.getElementById('myDivRight');
 const buttonHedaer_DR_Child = document.getElementById('buttonHedaer_DR_Child');
 const i_DR_Child = document.getElementById("i_DR_Child");
+const buttonSair = document.getElementById('buttonSair');
+
+buttonSair.addEventListener('click', () => {
+  if (scriptFirebase.logout) {
+    window.location.href = 'index.html';
+  }
+});
 
 // |- - isMobile
 const getMobile = () => {
@@ -257,21 +266,23 @@ radioButtonsThemes.forEach(radio => {
 
 scriptTheme.getTheme();
 
-
 const inputUploadImage = document.getElementById('inputUploadImage');
 const btUploadImage = document.getElementById('btUploadImage');
 const imgUpload = document.getElementById('imgUpload');
 
-inputUploadImage.addEventListener('change', () => { previewImage(); });
-btUploadImage.addEventListener('click', (e) => {
-  e.preventDefault();
-  uploadImage();
+inputUploadImage.addEventListener('change', () => {
+  let file = inputUploadImage.files[0];
+  previewImage(file);
 });
 
-function previewImage() {
-  var oFReader = new FileReader();
-  var file = inputUploadImage.files[0];
+btUploadImage.addEventListener('click', (e) => {
+  let file = inputUploadImage.files[0];
+  e.preventDefault();
+  scriptFirebase.uploadImage(file);
+});
 
+function previewImage(file) {
+  var oFReader = new FileReader();
   // Verifica se um arquivo foi selecionado
   if (file) {
     oFReader.readAsDataURL(file);
@@ -282,26 +293,5 @@ function previewImage() {
   } else {
     // Limpa o preview se nenhum arquivo estiver selecionado
     imgUpload.src = "";
-  }
-}
-
-// Função para fazer upload da imagem
-async function uploadImage() {
-  const file = inputUploadImage.files[0];
-  if (file) {
-    const userId = auth.currentUser.uid; // Obtém o UID do usuário logado
-    const storageRef = ref(storage, `user_images/${userId}/${file.name}`);
-
-    try {
-      await uploadBytes(storageRef, file);
-      const downloadURL = await getDownloadURL(storageRef);
-      console.log('File available at', downloadURL);
-      alert('Upload realizado com sucesso!');
-    } catch (error) {
-      console.error('Error uploading file:', error);
-      alert('Erro ao realizar o upload.');
-    }
-  } else {
-    alert('Por favor, selecione um arquivo.');
   }
 }

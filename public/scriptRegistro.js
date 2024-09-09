@@ -1,82 +1,7 @@
+import * as scriptFirebase from './scriptFirebase.js';
 import * as scriptTheme from './scriptTheme.js';
 
-// Editar scriptRegistro.js
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
-import { createUserWithEmailAndPassword, getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
-import { doc, getFirestore, setDoc } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
-
-// Deve ser usado apartir de um servidor
-const firebaseConfig = {
-  apiKey: "AIzaSyBSk4FZXPVedVdBhDvo8UzYGhqiaDILlL0",
-  authDomain: "forbys-d2e7f.firebaseapp.com",
-  databaseURL: "https://forbys-d2e7f-default-rtdb.firebaseio.com",
-  projectId: "forbys-d2e7f",
-  storageBucket: "forbys-d2e7f.appspot.com",
-  messagingSenderId: "826739439374",
-  appId: "1:826739439374:web:0b8bc26953a717c25ec95f",
-  measurementId: "G-GG8FXC09LL"
-};
-// Inicializar o Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app); // Inicializa a autenticação
-const db = getFirestore(app); // Corrigido para passar o app
-// Função para registrar um novo usuário
-var confirm = true;
-
-function sig_out(auth) {
-  signOut(auth).then(() => {
-    location.href = 'index.html';
-  }).catch((error) => {
-    alert(`Erro: ${error}`);
-  });
-}
-
-const registerUser = (email, password, emailError, passwordError, userData) => {
-  var logErros = new Array();
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;// registro de usuário
-      const userId = user.uid; // ID único do usuário gerado pelo Firebase Authentication
-      // Salvando os dados no Firestore
-      setDoc(doc(db, "users", userId), userData)
-        .then(() => {
-          const divConcluido = document.getElementById("divConcluido");
-          const formRegistro = document.getElementById("formRegistro");
-          divConcluido.style.setProperty('display', 'block');
-          formRegistro.style.setProperty('display', 'none');
-          sig_out(auth);
-        })
-        .catch((error) => {
-          const errorCodeData = error.code; // Código do erro
-          const errorMessageData = error.message; // Mensagem do erro
-          logErros.push(errorCodeData);
-          logErros.push(errorMessageData);
-          alert(`Erro: ${logErros[0]}, ${logErros[1]}`);
-        });
-    })
-    .catch((error) => {
-      // Tratamento de erro
-      const errorCodeUser = error.code; // Código do erro
-      const errorMessageUser = error.message; // Mensagem do erro
-      logErros.push(errorCodeUser);
-      logErros.push(errorMessageUser);
-      // Exibir uma mensagem de erro no console
-      if (errorCodeUser === 'auth/email-already-in-use') {
-        emailError.innerText = ("Este email já está em uso. Tente outro.");
-      } else if (errorCodeUser === 'auth/invalid-email') {
-        emailError.innerText = ("O email fornecido é inválido.");
-      } else if (errorCodeUser === 'auth/weak-password') {
-        passwordError.innerText = ("A senha deve ter pelo menos 6 caracteres.");
-      } else {
-        alert(`Erro: ${logErros[0]}, ${logErros[1]}`);
-      }
-    });
-};
-
-// Usando o serviço ipapi para obter o código do país
-// Deve ser usado apartir de um servidor
-
+// |- Mascara para input phone
 var countryCode = '';
 fetch('https://ipapi.co/json/')
   .then(response => response.json())
@@ -95,38 +20,33 @@ fetch('https://ipapi.co/json/')
     console.error('Erro ao obter o código do país:', error);
   });
 
-// var inputBirthdate = document.getElementById('birthdate');
-// var inputMaskDate = new Inputmask("99/99/9999");
-// inputMaskDate.mask(inputBirthdate);
+const formRegistro = document.getElementById('formRegistro');
+const divConcluido = document.getElementById('divConcluido');
 
 const registerButton = document.getElementById("registerButton");
+const inputEmail = document.getElementById("email");
+const inputPassword = document.getElementById("password");
+const inputPasswordConfirm = document.getElementById("passwordConfirm");
+const inputPhone = document.getElementById('phone');
+const inputBirthdate = document.getElementById('birthdate');
+
+const emailError = document.getElementById('emailError');
+const phoneError = document.getElementById('phoneError');
+const passwordError = document.getElementById("passwordError");
+
 // Evento de clique no botão de registro
 registerButton.addEventListener("click", (e) => {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-  const passwordConfirm = document.getElementById("passwordConfirm").value;
+  var email = inputEmail.value;
+  var password = inputPassword.value;
+  var passwordConfirm = inputPasswordConfirm.value;
   // Dados adicionais do usuário
   const userData = {
-    name: document.getElementById('name').value,
-    phone: document.getElementById('phone').value,
-    birthdate: document.getElementById('birthdate').value,
+    name: inputEmail.value,
+    phone: inputPhone.value,
+    birthdate: inputBirthdate.value,
   };
-
-  const emailError = document.getElementById('emailError');
-  const phoneError = document.getElementById('phoneError');
-  const passwordError = document.getElementById("passwordError");
-
-  emailError.innerText = '';
-  phoneError.innerText = '';
-  passwordError.innerText = '';
   e.preventDefault(); // Impede o comportamento padrão do formulário
   validarCampos(email, password, passwordConfirm, userData)
-    .then(() => {
-      registerUser(email, password, emailError, passwordError, userData);
-    })
-    .catch((error) => {
-      console.log("Erro: " + error.message);
-    });
 });
 
 function validarCampos(email, password, passwordConfirm, userData) {
@@ -135,40 +55,35 @@ function validarCampos(email, password, passwordConfirm, userData) {
 
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Expressão regular básica para validar o email
   const phonePattern = /^\(\d{2}\) \d{5}-\d{4}$/;
-  const emailError = document.getElementById('emailError');
-  const phoneError = document.getElementById('phoneError');
-  const passwordError = document.getElementById("passwordError");
 
   emailError.innerText = '';
   phoneError.innerText = '';
   passwordError.innerText = '';
 
-  return new Promise((resolve, reject) => {
-    if (!emailPattern.test(email)) {
-      emailError.innerText = 'Verifique seu email!';
-      reject(new Error('Email inválido'));
-      return;
-    }
+  if (!emailPattern.test(email)) {
+    emailError.innerText = 'Verifique seu email!';
+    return;
+  }
 
-    if (countryCode === '+55' && !phonePattern.test(userData.phone)) {
-      phoneError.innerText = 'Verifique seu telefone!';
-      reject(new Error('Telefone inválido'));
-      return;
-    }
+  if (countryCode === '+55' && !phonePattern.test(userData.phone)) {
+    phoneError.innerText = 'Verifique seu telefone!';
+    return;
+  }
 
-    if (password !== passwordConfirm) {
-      passwordError.innerText = 'Senhas divergentes!';
-      reject(new Error('Senhas não coincidem'));
-      return;
-    }
+  if (password !== passwordConfirm) {
+    passwordError.innerText = 'Senhas divergentes!';
+    return;
+  }
 
-    if (!email || !password || !userData.name || !userData.phone || !userData.birthdate) {
-      reject(new Error("Todos os campos devem ser preenchidos"));
-      return;
+  if (!email || !password || !userData.name || !userData.phone || !userData.birthdate) {
+    alert("Todos os campos devem ser preenchidos");
+    return;
+  }
+  if (scriptFirebase.register(email, password, userData))
+    if (scriptFirebase.logout()) {
+      formRegistro.style.setProperty('display', 'none');
+      divConcluido.style.setProperty('display', 'flex');
     }
-
-    resolve(); // Tudo está válido, resolvendo a Promise
-  });
 }
 
 
