@@ -88,7 +88,7 @@ button:disabled {
 
 /* |-myHeader */
 #myHeader {
-  display: flex;
+  /* display: flex; será definido após o carregamento da página*/
   height: var(--headerHeigth);
   background-color: var(--backColor1);
   align-items: center;
@@ -184,7 +184,7 @@ button:disabled {
 #myFooter {
   height: calc(var(--footerHeigth) + env(safe-area-inset-bottom));
   background-color: var(--backColor1);
-  display: flex;
+  /* display: flex; será definido após o carregamento da página*/
   justify-content: center;
   align-items: center;
   font-size: .8rem;
@@ -197,7 +197,7 @@ button:disabled {
   border-top: 1px solid var(--fontColor4);
   border-bottom: 1px solid var(--fontColor4);
   overflow: auto;
-  display: flex;
+  /* display: flex; será definido após o carregamento da página*/
   /*flex-direction: será definido no @media (Responsividade)*/
 }
 
@@ -312,7 +312,7 @@ button:disabled {
 /* |-divFormParent */
 #divFormParent{
   height: 100vh;
-  display: flex;
+  /* display: flex; será definido após o carregamento da página*/
   align-items: center;
   justify-content: center;
   overflow: hidden;

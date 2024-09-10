@@ -13,10 +13,52 @@
   <script src='scriptColors.js' type='text/javascript' defer></script>
   <script src="scriptPage.js" type="module" defer></script>
   <title>User page</title>
+  <style>
+    .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #212429;
+    }
+
+    .loading div {
+      display: flex;
+      gap: 20px;
+    }
+
+    .loading div div {
+      width: 20px;
+      height: 20px;
+      background-color: #3498db;
+      border-radius: 50%;
+      animation: bounce 0.6s infinite alternate;
+    }
+
+    .loading div div:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .loading div div:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes bounce {
+      to {
+        transform: translateY(-30px);
+      }
+    }
+  </style>
 </head>
 
-<body id="body" class="body">
-  <header id="myHeader"> <!-- cabeçalho -->
+<body id="body" class="loading body">
+  <div id="divLoading">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <header id="myHeader" style='display: none'> <!-- cabeçalho -->
     <!-- botão para retrair ou expandir o menu esquerdo-->
     <button id="buttonUser" class='button' type="button" title="User menu">
       <img id="imgUser" src="/Imagens/Arvore_user.jpg" />
@@ -33,7 +75,7 @@
       <i class="bi bi-layout-sidebar-inset-reverse"></i>
     </button>
   </header>
-  <div id="myDivContainer"> <!-- Container que receberá os menus e a área de conteúdo -->
+  <div id="myDivContainer" style='display: none'> <!-- Container que receberá os menus e a área de conteúdo -->
     <div id="myDivLeft" class="divMenu"> <!-- menu esquerdo -->
       <button id="btPanel6"><i class="bi bi-person-check"></i><span>Perfil</span></button>
       <button id="btPanel1"><i class="bi bi-paperclip"></i><span>Nossos serviços</span></button>
@@ -109,7 +151,8 @@
       <div id="divContent_DivRight_Child"></div>
     </div>
   </div>
-  <footer id="myFooter">&copy Amigos Lisos, uma empresa do grupo Sem Grana</footer> <!-- rodapé -->
+  <footer id="myFooter" style='display: none'>&copy Amigos Lisos, uma empresa do grupo Sem Grana</footer>
+  <!-- rodapé -->
 </body>
 
 </html>

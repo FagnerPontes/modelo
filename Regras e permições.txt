@@ -1,0 +1,59 @@
+1. Permitir leitura para usuários autenticados
+Se você deseja permitir que apenas usuários autenticados leiam os arquivos no Storage, modifique suas regras para algo assim:
+
+json
+Copiar código
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read: if request.auth != null; // Permite leitura para usuários autenticados
+      allow write: if request.auth != null; // Permite escrita para usuários autenticados (se necessário)
+    }
+  }
+}
+2. Permitir leitura e escrita pública (não recomendado para produção)
+Se você está apenas testando e quer permitir que todos, incluindo usuários não autenticados, acessem os arquivos, pode temporariamente definir as regras assim:
+
+json
+Copiar código
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write: if true; // Permite leitura e escrita para todos
+    }
+  }
+}
+Essa configuração permite acesso total, então use-a apenas durante o desenvolvimento e nunca em produção.
+
+3. Permitir leitura pública e escrita apenas para usuários autenticados
+Se o objetivo é permitir que qualquer pessoa leia os arquivos, mas apenas usuários autenticados possam fazer upload ou modificações, você pode configurar assim:
+
+json
+Copiar código
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read: if true; // Permite leitura pública
+      allow write: if request.auth != null; // Permite escrita apenas para usuários autenticados
+    }
+  }
+}
+4. Regras mais avançadas baseadas no Firestore (conforme comentado)
+Se você deseja controlar o acesso de leitura e escrita com base nos dados armazenados no Firestore (como a propriedade isAdmin), pode adaptar as regras da seguinte forma:
+
+json
+Copiar código
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write: if firestore.get(
+        /databases/(default)/documents/users/$(request.auth.uid)).data.isAdmin == true;
+    }
+  }
+}
+Esse exemplo só permitirá leitura e escrita para usuários autenticados que tenham a propriedade isAdmin definida como true no Firestore.
+
+Próximos passos:
+Ajuste suas regras conforme a lógica de segurança que você deseja implementar.
+Teste o acesso ao Storage para garantir que as permissões funcionam como esperado.
+Se as suas regras de segurança forem definidas corretamente e você ainda enfrentar problemas de CORS, configure as permissões CORS como mencionei anteriormente.

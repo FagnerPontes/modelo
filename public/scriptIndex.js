@@ -8,6 +8,11 @@ const myDivLeft = document.getElementById('myDivLeft');
 const myDivRight = document.getElementById('myDivRight');
 const buttonHedaer_DR_Child = document.getElementById('buttonHedaer_DR_Child');
 const i_DR_Child = document.getElementById("i_DR_Child");
+const myBody = document.getElementById('body');
+const myHeader = document.getElementById('myHeader');
+const myDivContainer = document.getElementById('myDivContainer');
+const myFooter = document.getElementById('myFooter');
+const divLoading = document.getElementById('divLoading');
 
 
 // |- - isMobile
@@ -19,12 +24,12 @@ if (navigator.userAgentData && navigator.userAgentData.mobile) {
 }
 
 if (isMobile) {
-  document.getElementById('body').style.setProperty('height', `${window.innerHeight}px`);
+  myBody.style.setProperty('height', `${window.innerHeight}px`);
   myDivRight.classList.add('openMyDivRight');
   checkOrientation();
 }
 else
-  document.getElementById('body').style.setProperty('height', `100vh`);
+  myBody.style.setProperty('height', `100vh`);
 
 // |- - Layout inicial
 if (window.innerWidth < 600) {
@@ -242,4 +247,13 @@ radioButtonsThemes.forEach(radio => {
   });
 });
 
-scriptTheme.getTheme();
+const activePage = () => {
+  myBody.classList.remove('loading');
+  myHeader.style.setProperty('display', 'flex');
+  myDivContainer.style.setProperty('display', 'flex');
+  myFooter.style.setProperty('display', 'flex');
+  divLoading.style.setProperty('display', 'none');
+  scriptTheme.getTheme();
+}
+
+window.onload = activePage;

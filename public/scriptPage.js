@@ -11,9 +11,14 @@ const myDivRight = document.getElementById('myDivRight');
 const buttonHedaer_DR_Child = document.getElementById('buttonHedaer_DR_Child');
 const i_DR_Child = document.getElementById("i_DR_Child");
 const buttonSair = document.getElementById('buttonSair');
+const myBody = document.getElementById('body');
+const myHeader = document.getElementById('myHeader');
+const myDivContainer = document.getElementById('myDivContainer');
+const myFooter = document.getElementById('myFooter');
+const divLoading = document.getElementById('divLoading');
 
-buttonSair.addEventListener('click', () => {
-  if (scriptFirebase.logout) {
+buttonSair.addEventListener('click', async () => {
+  if (await scriptFirebase.logout()) {
     window.location.href = 'index.html';
   }
 });
@@ -295,3 +300,14 @@ function previewImage(file) {
     imgUpload.src = "";
   }
 }
+
+const activePage = () => {
+  myBody.classList.remove('loading');
+  myHeader.style.setProperty('display', 'flex');
+  myDivContainer.style.setProperty('display', 'flex');
+  myFooter.style.setProperty('display', 'flex');
+  divLoading.style.setProperty('display', 'none');
+  scriptTheme.getTheme();
+}
+
+window.onload = activePage;

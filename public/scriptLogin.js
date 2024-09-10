@@ -1,11 +1,15 @@
 import * as scriptFirebase from './scriptFirebase.js';
 import * as scriptTheme from './scriptTheme.js';
 
-document.getElementById("loginEmailButton").addEventListener("click", (e) => {
+const myBody = document.getElementById('body');
+const divFormParent = document.getElementById('divFormParent');
+const divLoading = document.getElementById('divLoading');
+
+document.getElementById("loginEmailButton").addEventListener("click", async (e) => {
   e.preventDefault(); // Impede o refresh da página e permite o location.href = 'page.html'
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
-  scriptFirebase.login(email, password);
+  await scriptFirebase.login(email, password);
 });
 
 /* |- Configuração de layouts */
@@ -21,5 +25,11 @@ if (isMobile) {
 else
   document.getElementById('body').style.setProperty('height', `100vh`);
 
-// Aplicação de tema:
-scriptTheme.getTheme();
+const activePage = () => {
+  myBody.classList.remove('loading');
+  divFormParent.style.setProperty('display', 'flex');
+  divLoading.style.setProperty('display', 'none');
+  scriptTheme.getTheme();
+}
+
+window.onload = activePage;

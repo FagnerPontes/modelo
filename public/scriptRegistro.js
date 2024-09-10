@@ -1,6 +1,11 @@
 import * as scriptFirebase from './scriptFirebase.js';
 import * as scriptTheme from './scriptTheme.js';
 
+const myBody = document.getElementById('body');
+const divFormParent = document.getElementById('divFormParent');
+const divLoading = document.getElementById('divLoading');
+
+
 // |- Mascara para input phone
 var countryCode = '';
 fetch('https://ipapi.co/json/')
@@ -49,10 +54,7 @@ registerButton.addEventListener("click", (e) => {
   validarCampos(email, password, passwordConfirm, userData)
 });
 
-function validarCampos(email, password, passwordConfirm, userData) {
-  console.log(countryCode);
-  console.log(userData.phone);
-
+async function validarCampos(email, password, passwordConfirm, userData) {
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Expressão regular básica para validar o email
   const phonePattern = /^\(\d{2}\) \d{5}-\d{4}$/;
 
@@ -79,11 +81,12 @@ function validarCampos(email, password, passwordConfirm, userData) {
     alert("Todos os campos devem ser preenchidos");
     return;
   }
-  if (scriptFirebase.register(email, password, userData))
-    if (scriptFirebase.logout()) {
+  if (await scriptFirebase.register(email, password, userData)) {
+    if (await scriptFirebase.logout()) {
       formRegistro.style.setProperty('display', 'none');
       divConcluido.style.setProperty('display', 'flex');
     }
+  }
 }
 
 
@@ -101,4 +104,11 @@ else
   document.getElementById('body').style.setProperty('height', `100vh`);
 
 
-scriptTheme.getTheme();
+const activePage = () => {
+  myBody.classList.remove('loading');
+  divFormParent.style.setProperty('display', 'flex');
+  divLoading.style.setProperty('display', 'none');
+  scriptTheme.getTheme();
+}
+
+window.onload = activePage;
