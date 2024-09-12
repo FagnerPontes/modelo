@@ -76,62 +76,39 @@
     </button>
   </header>
   <div id="myDivContainer" style='display: none'> <!-- Container que receberá os menus e a área de conteúdo -->
+    <!-- 
+    myDivLeft
+    -->
     <div id="myDivLeft" class="divMenu"> <!-- menu esquerdo -->
-      <button id="btPanel6"><i class="bi bi-person-check"></i><span>Perfil</span></button>
-      <button id="btPanel1"><i class="bi bi-paperclip"></i><span>Nossos serviços</span></button>
-      <button id="btPanel2"><i class="bi bi-bag-check"></i><span>Nossos Planos</span></button>
-      <button id="btPanel3"><i class="bi bi-person-hearts"></i><span>Seja um parceiro</span></button>
-      <button id="btPanel4"><i class="bi bi-envelope-arrow-up"></i><span>Entre em contato</span></button>
-      <button id="btPanel5"><i class="bi bi-gear"></i><span>Configuraçõeso</span></button>
+      <button id="btOpenL1"><i class="bi bi-person-check"></i><span>Perfil</span></button>
+      <button id="btOpenL2"><i class="bi bi-bag-check"></i><span>Meu Planos</span></button>
+      <button id="btOpenL3"><i class="bi bi-gear"></i><span>Configuraçõeso</span></button>
     </div>
+    <!-- 
+    myDivCenter
+    -->
     <div id="myDivCenter"><!-- área de conteúdo -->
       <div id="panelHome" class="divCenterContent">
         <div class="divChildTop">
           <h1>Apresentação</h1>
         </div>
       </div>
-      <div id="panel6" class="divCenterContent">
+      <!-- 
+      panelL1
+      -->
+      <div id="panelL1" class="divCenterContent perfil">
         <div class="divChildTop">
           <h1>Perfil</h1>
-          <button id="btColse6"><i class="bi bi-x"></i></button>
+          <button id="btColseL1"><i class="bi bi-x"></i></button>
         </div>
-        <form id="formUploadImage">
+        <form id="imgUserForm">
+          <p>Escolha sua imagem do perfil:</p>
           <img id="imgUpload" src="/Imagens/Arvore_user.jpg" />
           <label for="inputUploadImage" class="custom-button">Escolher arquivo</label>
           <input type="file" id="inputUploadImage" accept="image/*">
           <button id='btUploadImage'>Enviar Imagem</button>
         </form>
-      </div>
-      <div id="panel1" class="divCenterContent">
-        <div class="divChildTop">
-          <h1>Nossos serviços</h1>
-          <button id="btColse1"><i class="bi bi-x"></i></button>
-        </div>
-      </div>
-      <div id="panel2" class="divCenterContent">
-        <div class="divChildTop">
-          <h1>Nossos Planos</h1>
-          <button id="btColse2"><i class="bi bi-x"></i></button>
-        </div>
-      </div>
-      <div id="panel3" class="divCenterContent">
-        <div class="divChildTop">
-          <h1>Seja um parceiro</h1>
-          <button id="btColse3"><i class="bi bi-x"></i></button>
-        </div>
-      </div>
-      <div id="panel4" class="divCenterContent">
-        <div class="divChildTop">
-          <h1>Entre em contato</h1>
-          <button id="btColse4"><i class="bi bi-x"></i></button>
-        </div>
-      </div>
-      <div id="panel5" class="divCenterContent">
-        <div class="divChildTop">
-          <h1>Configurações</h1>
-          <button id="btColse5"><i class="bi bi-x"></i></button>
-        </div>
-        <form id="myConfigForm">
+        <form id="themeUserForm">
           <p>Escolha seu tema:</p>
           <label><input type="radio" name="options" value="dark"> Dark</label>
           <label><input type="radio" name="options" value="light"> Light</label>
@@ -139,16 +116,50 @@
           <label><input type="radio" name="options" value="solid_light"> Solid Light</label>
         </form>
       </div>
+      <!-- 
+      panelL2
+      -->
+      <div id="panelL2" class="divCenterContent">
+        <div class="divChildTop">
+          <h1>Meu Planos</h1>
+          <button id="btColseL2"><i class="bi bi-x"></i></button>
+        </div>
+      </div>
+      <!-- 
+      panelL3
+      -->
+      <div id="panelL3" class="divCenterContent">
+        <div class="divChildTop">
+          <h1>Configurações</h1>
+          <button id="btColseL3"><i class="bi bi-x"></i></button>
+        </div>
+      </div>
+      <div id="panelR1" class="divCenterContent">
+        <div class="divChildTop">
+          <h1>Seja um parceiro</h1>
+          <button id="btColseR1"><i class="bi bi-x"></i></button>
+        </div>
+      </div>
+      <div id="panelR2" class="divCenterContent">
+        <div class="divChildTop">
+          <h1>Entre em contato</h1>
+          <button id="btColseR2"><i class="bi bi-x"></i></button>
+        </div>
+      </div>
+      <div id="panelR3" class="divCenterContent">
+        <div class="divChildTop">
+          <h1>Configurações</h1>
+          <button id="btColseR3"><i class="bi bi-x"></i></button>
+        </div>
+      </div>
     </div>
+    <!-- 
+    myDivRight
+    -->
     <div id="myDivRight" class="divMenu"><!-- menu direito -->
-      <p id='pHeader_DivRight_Child'>
-        <span>Apoiadores</span>
-        <button id="buttonHedaer_DR_Child" type="button" title="Menu right">
-          <i id="i_DR_Child" class="bi bi-chevron-down"></i>
-        </button>
-      </p>
-      <div id="publicidade"></div>
-      <div id="divContent_DivRight_Child"></div>
+      <button id="btOpenR1"><i class="bi bi-paperclip"></i><span>Nossos serviços</span></button>
+      <button id="btOpenR2"><i class="bi bi-person-hearts"></i><span>Seja um parceiro</span></button>
+      <button id="btOpenR3"><i class="bi bi-envelope-arrow-up"></i><span>Entre em contato</span></button>
     </div>
   </div>
   <footer id="myFooter" style='display: none'>&copy Amigos Lisos, uma empresa do grupo Sem Grana</footer>

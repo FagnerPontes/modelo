@@ -11,6 +11,8 @@ service firebase.storage {
     }
   }
 }
+
+
 2. Permitir leitura e escrita pública (não recomendado para produção)
 Se você está apenas testando e quer permitir que todos, incluindo usuários não autenticados, acessem os arquivos, pode temporariamente definir as regras assim:
 
@@ -25,6 +27,7 @@ service firebase.storage {
 }
 Essa configuração permite acesso total, então use-a apenas durante o desenvolvimento e nunca em produção.
 
+
 3. Permitir leitura pública e escrita apenas para usuários autenticados
 Se o objetivo é permitir que qualquer pessoa leia os arquivos, mas apenas usuários autenticados possam fazer upload ou modificações, você pode configurar assim:
 
@@ -38,6 +41,8 @@ service firebase.storage {
     }
   }
 }
+
+
 4. Regras mais avançadas baseadas no Firestore (conforme comentado)
 Se você deseja controlar o acesso de leitura e escrita com base nos dados armazenados no Firestore (como a propriedade isAdmin), pode adaptar as regras da seguinte forma:
 

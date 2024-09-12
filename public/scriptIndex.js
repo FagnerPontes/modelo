@@ -6,8 +6,6 @@ const buttonMenuLeft = document.getElementById('buttonMenuLeft');
 const buttonMenuRight = document.getElementById('buttonMenuRight');
 const myDivLeft = document.getElementById('myDivLeft');
 const myDivRight = document.getElementById('myDivRight');
-const buttonHedaer_DR_Child = document.getElementById('buttonHedaer_DR_Child');
-const i_DR_Child = document.getElementById("i_DR_Child");
 const myBody = document.getElementById('body');
 const myHeader = document.getElementById('myHeader');
 const myDivContainer = document.getElementById('myDivContainer');
@@ -16,26 +14,29 @@ const divLoading = document.getElementById('divLoading');
 
 
 // |- - isMobile
-var isMobile = false;
-if (navigator.userAgentData && navigator.userAgentData.mobile) {
-  isMobile = true;
-} else if (/Mobi|Android/i.test(navigator.userAgent)) {
-  isMobile = true;
+const getMobile = () => {
+  if (navigator.userAgentData && navigator.userAgentData.mobile) {
+    return true;
+  } else if (/Mobi|Android/i.test(navigator.userAgent)) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
+var isMobile = getMobile();
+
 if (isMobile) {
-  myBody.style.setProperty('height', `${window.innerHeight}px`);
-  myDivRight.classList.add('openMyDivRight');
+  document.getElementById('body').style.setProperty('height', `${window.innerHeight}px`);
   checkOrientation();
 }
 else
-  myBody.style.setProperty('height', `100vh`);
+  document.getElementById('body').style.setProperty('height', `100vh`);
 
 // |- - Layout inicial
 if (window.innerWidth < 600) {
-  myDivRight.classList.add('openMyDivRight');
   myDivLeft.classList.add('close');
-  myDivRight.classList.add('open');
+  myDivRight.classList.add('close');
   document.documentElement.style.setProperty('--menuWidth', '100vw');
 }
 else if (window.innerWidth < 800) {
@@ -56,32 +57,23 @@ function checkOrientation() {
 window.addEventListener('orientationchange', checkOrientation);
 
 // Modificar layout da página caso seja redimencionada -> evento(resize)
+// |- - Redimencionada (onresize)
 onresize = (event) => {
   if (isMobile)
     checkOrientation();
   //caso a largura da janela seja menor que 800px (mobile) -> fechar os menus
   if (event.target.innerWidth < 600) {
-    if (myDivRight.classList.contains('closeMyDivRight'))
-      myDivRight.classList.remove('closeMyDivRight');
-    myDivRight.classList.add('openMyDivRight');
     myDivLeft.classList.replace('open', 'close'); //substituir .open por .close
+    myDivRight.classList.replace('open', 'close'); //substituir .open por .close
     document.documentElement.style.setProperty('--menuWidth', '100vw'); //variável css (--menuWidth):
   }
   else if (event.target.innerWidth < 900) {
-    if (i_DR_Child.classList.contains('rotated'))
-      i_DR_Child.classList.remove('rotated');
-    if (myDivRight.classList.contains('closeMyDivRight'))
-      myDivRight.classList.remove('closeMyDivRight');
     myDivLeft.classList.replace('open', 'close'); //substituir .close por .open
     myDivRight.classList.replace('close', 'open'); //substituir .close por .open
     document.documentElement.style.setProperty('--menuWidth', '18rem'); //variável css (--menuWidth):
   }
   //caso a largura da janela seja maoir que 800px (monitor) -> abrir os menus
   else {
-    if (i_DR_Child.classList.contains('rotated'))
-      i_DR_Child.classList.remove('rotated');
-    if (myDivRight.classList.contains('closeMyDivRight'))
-      myDivRight.classList.remove('closeMyDivRight');
     myDivLeft.classList.replace('close', 'open'); //substituir .close por .open
     myDivRight.classList.replace('close', 'open'); //substituir .close por .open
     document.documentElement.style.setProperty('--menuWidth', '18rem'); //variável css (--menuWidth):
@@ -89,6 +81,7 @@ onresize = (event) => {
 };
 
 //função para o encerramento da animação (abertura/fechamento) dos menus:
+// |- - Menus: AnimationEnd()
 function AnimationEnd(myDivMenu, myButton) {
   // se o menu foi fechado remova .closeDivMenu, se não, remova .openDivMenu:
   (myDivMenu.classList.contains('closeDivMenu')) ?
@@ -102,14 +95,21 @@ function AnimationEnd(myDivMenu, myButton) {
 }
 
 //função acionada quando os botões dos menus forem clicados
+// |- - Menus: SliceMenu()
 function SliceMenu(myDivMenu1, myDivMenu2) {
   // se o menu estiver aberto feche o menu, se não, abra o menu:
   (myDivMenu1.classList.contains('open')) ?
     myDivMenu1.classList.add('closeDivMenu') :
     myDivMenu1.classList.add('openDivMenu');
+
+  if (window.innerWidth < 800) {//se for mobile
+    if (myDivMenu2.classList.contains('open')) //verifique se o outro menu está aberto
+      myDivMenu2.classList.add('closeDivMenu'); //feche o outro menu
+  }
 }
 
-//eventos de animação para o menu esquerdo:
+
+// |- - Eventos de animação
 myDivLeft.addEventListener('animationstart', () => {
   buttonMenuLeft.disabled = true; //desativar botão do menu
 });
@@ -118,7 +118,6 @@ myDivLeft.addEventListener('animationend', () => {
   AnimationEnd(myDivLeft, buttonMenuLeft); //executar AnimationEnd()
 });
 
-//eventos de animação para o menu direito:
 myDivRight.addEventListener('animationstart', () => {
   buttonMenuRight.disabled = true; //desativar botão do menu
 });
@@ -127,125 +126,68 @@ myDivRight.addEventListener('animationend', () => {
   AnimationEnd(myDivRight, buttonMenuRight); //executar AnimationEnd()
 });
 
-//evento ao clicar no botão do menu esquerdo:
 buttonMenuLeft.addEventListener('click', () => {
-  SliceMenu(myDivLeft, myDivRight); //executar SliceMenu()
+  SliceMenu(myDivLeft, myDivRight);
 })
 
-//evento ao clicar no botão do menu direito:
 buttonMenuRight.addEventListener('click', () => {
-  SliceMenu(myDivRight, myDivLeft); //executar SliceMenu()
-})
-
-buttonHedaer_DR_Child.addEventListener('click', () => {
-  i_DR_Child.classList.toggle('rotated');
-  (myDivRight.classList.contains('openMyDivRight')) ?
-    myDivRight.classList.replace('openMyDivRight', 'closeMyDivRight') :
-    myDivRight.classList.replace('closeMyDivRight', 'openMyDivRight')
+  SliceMenu(myDivRight, myDivLeft);
 })
 
 //---------------------------------------------------------
 // Configurar demais elementos que irão compor a página:
 //---------------------------------------------------------
+
 const buttonHome = document.getElementById('buttonHome');
+const btOpenL1 = document.getElementById('btOpenL1');
+const btOpenL2 = document.getElementById('btOpenL2');
+const btOpenL3 = document.getElementById('btOpenL3');
 
-var buttonsLeftMenu = new Array();
-var divCenterContent = new Array();
-var btClosePanel = new Array();
 
-buttonsLeftMenu.push(document.getElementById('btPanel1'));
-buttonsLeftMenu.push(document.getElementById('btPanel2'));
-buttonsLeftMenu.push(document.getElementById('btPanel3'));
-buttonsLeftMenu.push(document.getElementById('btPanel4'));
-buttonsLeftMenu.push(document.getElementById('btPanel5'));
-buttonsLeftMenu.push(document.getElementById('buttonHome'));
+const panelHome = document.getElementById('panelHome');
+const panelL1 = document.getElementById('panelL1');
+const panelL2 = document.getElementById('panelL2');
+const panelL3 = document.getElementById('panelL3');
 
-divCenterContent.push(document.getElementById('panel1'));
-divCenterContent.push(document.getElementById('panel2'));
-divCenterContent.push(document.getElementById('panel3'));
-divCenterContent.push(document.getElementById('panel4'));
-divCenterContent.push(document.getElementById('panel5'));
-divCenterContent.push(document.getElementById('panelHome'));
 
-btClosePanel.push(document.getElementById('btColse1'));
-btClosePanel.push(document.getElementById('btColse2'));
-btClosePanel.push(document.getElementById('btColse3'));
-btClosePanel.push(document.getElementById('btColse4'));
-btClosePanel.push(document.getElementById('btColse5'));
+const btColseL1 = document.getElementById('btColseL1');
+const btColseL2 = document.getElementById('btColseL2');
+const btColseL3 = document.getElementById('btColseL3');
+
 
 /*função responsável por ativar painel relacionado ao botão clicado*/
-function activeContentArea(myContentArea) {
-  divCenterContent.forEach(element => {
-    element.style.setProperty('display', 'none');
-  });
-  myContentArea.style.setProperty('display', 'flex');
+function openPenel(panel) {
+  panelHome.style.setProperty('display', 'none');
+  panelL1.style.setProperty('display', 'none');
+  panelL2.style.setProperty('display', 'none');
+  panelL3.style.setProperty('display', 'none');
+
+  panel.style.setProperty('display', 'flex');
   if (window.innerWidth < 800) {
     if (myDivLeft.classList.contains('open'))
       myDivLeft.classList.add('closeDivMenu');
   }
 }
 
-/*Ações dos botões do menu esquerdo e botão home*/
-buttonsLeftMenu.forEach(element => {
-  element.addEventListener('click', () => {
-    if (element === buttonHome) {
-      window.location.reload();
-    }
-    else {
-      var i = buttonsLeftMenu.indexOf(element);
-      activeContentArea(divCenterContent[i]);
-    }
-  })
-});
-
-//-----manipulação individual dos paineis centrais-----
-//pegar variáveis individualmente para manipulação:
-var panelHome = divCenterContent[5];
-var servicos = divCenterContent[0];
-var planos = divCenterContent[1];
-var parceiros = divCenterContent[2];
-var contato = divCenterContent[3];
-var panelConfig = divCenterContent[4];
+function closePanel(panel) {
+  panel.style.setProperty('display', 'none');
+  panelHome.style.setProperty('display', 'flex');
+}
 
 
-/*Ações dos botões divChildTop_btClose*/
-btClosePanel.forEach(element => {
-  element.addEventListener('click', () => {
-    var i = btClosePanel.indexOf(element);
-    divCenterContent[i].style.setProperty('display', 'none');
-    panelHome.style.setProperty('display', 'flex');
-  })
-});
+buttonHome.addEventListener('click', () => { window.location.reload(); });
+
+btOpenL1.addEventListener('click', () => { openPenel(panelL1); });
+btOpenL2.addEventListener('click', () => { openPenel(panelL2); });
+btOpenL3.addEventListener('click', () => { openPenel(panelL3); });
+
+btColseL1.addEventListener('click', () => { closePanel(panelL1) });
+btColseL2.addEventListener('click', () => { closePanel(panelL2) });
+btColseL3.addEventListener('click', () => { closePanel(panelL3) });
+
 
 //iniciar com painel home aberto:
-activeContentArea(panelHome);
-
-// Ação dos botões de mudança de tema:
-const radioButtonsThemes = document.querySelectorAll('input[name="options"]');
-radioButtonsThemes.forEach(radio => {
-  radio.addEventListener('click', function () {
-    if (this.value) {
-      switch (this.value) {
-        case 'dark': {
-          scriptTheme.setMyTheme(dark(), 'dark');
-          break;
-        }
-        case 'light': {
-          scriptTheme.setMyTheme(light(), 'light');
-          break;
-        }
-        case 'solid_dark': {
-          scriptTheme.setMyTheme(solidDark(), 'solid_dark');
-          break;
-        }
-        case 'solid_light': {
-          scriptTheme.setMyTheme(solidLight(), 'solid_light');
-          break;
-        }
-      }
-    }
-  });
-});
+openPenel(panelHome);
 
 const activePage = () => {
   myBody.classList.remove('loading');

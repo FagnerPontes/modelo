@@ -278,35 +278,38 @@ button:disabled {
 
 /* |-myDivRight */
 #myDivRight{
-  z-index: 1;
+  z-index: 2;
   overflow-x: hidden;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  font-size: 1rem;
   align-items: center;
-  color: var(--fontColor1);
+  font-size: 1rem;
   /*width: -> largura será manipulada pelo scriptMenuAnimation.js*/
 }
 
-#myDivRight #pHeader_DivRight_Child{
+#myDivRight button {
   display: flex;
-  padding: .5rem;
-  height: 2.5rem;
-  line-height: 1.5rem;
-  font-size: 1rem;
+  align-items: center;
+  margin-top: .25rem;
+  height: var(--menuButtonHeight);
+  border-radius: 6px;
 }
 
-#myDivRight #pHeader_DivRight_Child span{
+#myDivRight button span{
+  display: flex;
   flex: 1;
+  justify-content: left;
+  text-align: left;
+  padding-left: .5rem;
 }
 
-#myDivRight #publicidade{
-  flex: 1;
-}
-
-.rotated{
-  transform: rotate(180deg);
+#myDivRight button i{
+  line-height: var(--iconSize);
+  width: var(--iconSize);
+  height: var(--iconSize);
+  border-radius: 4px;
+  font-size: 1.5rem;
 }
 
 /* |-divFormParent */
@@ -430,11 +433,6 @@ button:disabled {
 
 /*|- - MOBILE (width < 600)*/
 @media only screen and (max-width: 599px) {
-  /* |- - - buttonMenuRight */
-  #buttonMenuRight{
-    display: none;
-  }
-
   /* |- - - myDivContainer */
   #myDivContainer {
    display: flex;
@@ -476,43 +474,17 @@ button:disabled {
 
   /* |- - - myDivRight */
   #myDivRight {
-    padding-bottom: .5rem;
-    transition: min-height .3s;
-    background-color: var(--backColor1);
-    width: 100vw;
+    position: absolute;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--backColor2s);
   }
 
-  #myDivRight #pHeader_DivRight_Child{
+  #myDivRight button{
     width: calc(100vw - 2rem);
-    background-color: var(--backColor1);
-    border-top: 1px solid var(--fontColor4);
-  }
-
-  #myDivRight #pHeader_DivRight_Child #buttonHedaer_DR_Child {
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 50%;
-  }
-
-  #myDivRight #pHeader_DivRight_Child #buttonHedaer_DR_Child i{
-    display: block;
-    transition: transform 0.2s ease-in-out;
-    font-size: .6rem;
-  }
-
-  #myDivRight #publicidade{
-    width: calc(100vw - 2rem);
-    background-color: var(--backColor3);
-    border-radius: 6px;
-  }
-
-
-  .openMyDivRight{
-    min-height: 250px;
-  }
-
-  .closeMyDivRight {
-    min-height: 2.5rem;
   }
 
   /* |- - - divFormParent */
@@ -528,11 +500,6 @@ button:disabled {
 
 /* |- - MONITOR (width > 600)*/
 @media only screen and (min-width: 600px) {
-  /* |- - - buttonMenuRight */
-  #buttonMenuRight{
-    display: block;
-  }
-
    /* |- - - myDivContainer */
   #myDivContainer {
     flex-direction: row;
@@ -566,23 +533,14 @@ button:disabled {
 
    /* |- - - myDivRight */
   #myDivRight{
+    border-right: 1px solid var(--fontColor4);
+    padding-top: 1rem;
     padding-bottom: 1rem;
     background-color: var(--backColor2);
-    border-left: 1px solid var(--fontColor4);
   }
 
-  #myDivRight #pHeader_DivRight_Child{
+  #myDivRight button{
     width: calc(var(--menuWidth) - 2rem);
-  }
-
-  #myDivRight #pHeader_DivRight_Child #buttonHedaer_DR_Child{
-    display: none;
-  }
-
-  #myDivRight #publicidade{
-    width: calc(var(--menuWidth) - 2rem);
-    background-color: var(--backColor2t);
-    border-radius: 6px;
   }
 
    /* |- - - divFormParent */
@@ -653,6 +611,7 @@ button:disabled {
 
 /* |- Painel: config */
 /* variação de .divCenterContent */
+
 #panel5{
   flex-direction: column;
 }
@@ -670,12 +629,12 @@ button:disabled {
   margin-left: 1rem;
 }
 
-#panel6{
+.perfil{
   flex-direction: column;
   align-items: center;
 }
 
-#panel6 form{
+.perfil #imgUserForm{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -683,35 +642,35 @@ button:disabled {
   padding: .5rem;
   display: flex;
   line-height: 2rem;
-  border-radius: 6px;
 }
 
-#panel6 form img{
+.perfil #imgUserForm img{
   width: 200px;
   height: 200px;
   border-radius: 50%;
   border: 8px solid var(--backColor3);
 }
 
-#panel6 form label{
+.perfil #imgUserForm label{
+  color: var(--aColor);
   margin-top: .5rem;
 }
 
-#panel6 form label:hover{
+.perfil #imgUserForm label:hover{
   text-decoration: underline;
 }
 
-#panel6 form input{
+.perfil #imgUserForm input{
   display: none;
 }
 
-#panel6 form button{
+.perfil #imgUserForm button{
   margin-top: .5rem;
   width: 8rem;
   height: 2rem;
   font-size: 1rem;
   border-radius: 6px;
-  border: 2px solid var(--backColor4);
+  border: 2px solid var(--fontColor4);
 }
 
 #buttonUser img{
@@ -721,3 +680,16 @@ button:disabled {
   border: 2px solid var(--backColor3);
 }
 
+.perfil #themeUserForm {
+  margin-top: 2rem;
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--fontColor4);
+}
+
+.perfil #themeUserForm input {
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
