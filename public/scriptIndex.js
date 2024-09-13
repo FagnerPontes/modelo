@@ -27,11 +27,11 @@ const getMobile = () => {
 var isMobile = getMobile();
 
 if (isMobile) {
-  document.getElementById('body').style.setProperty('height', `${window.innerHeight}px`);
+  document.getElementById('body').style.setProperty('min-height', `${window.innerHeight}px`);
   checkOrientation();
 }
 else
-  document.getElementById('body').style.setProperty('height', `100vh`);
+  document.getElementById('body').style.setProperty('min-height', `100vh`);
 
 // |- - Layout inicial
 if (window.innerWidth < 600) {
