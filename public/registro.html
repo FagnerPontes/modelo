@@ -6,7 +6,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Adicionar cdn de ícones bootstrap -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> -->
   <link rel="stylesheet" type="text/css" href="style.css">
   <!-- Adicionar a biblioteca Inputmask antes do seu script -->
   <script src="https://cdn.jsdelivr.net/npm/inputmask@5.0.7/dist/inputmask.min.js"></script>
@@ -55,22 +56,22 @@
   </style>
 </head>
 
-<body id="body" class="loading body">
+<body id="body" class="loading">
   <div id="divLoading">
     <div></div>
     <div></div>
     <div></div>
   </div>
-  <div id="divFormParent">
+  <div id="divFormParent" style="display: none;">
     <form id="formRegistro">
       <h1>
         <span>Registre-se</span>
       </h1>
-      <p>Email:<span id="emailError"></span></p>
+      <p>Email:<span id="emailError" class="error"></span></p>
       <input type="email" id="email" placeholder="Email" required>
-      <p>Telefone:<span id="phoneError"></span></p>
+      <p>Telefone:<span id="phoneError" class="error"></span></p>
       <input type="tel" id="phone" placeholder="Digite seu telefone" required>
-      <p>Senha: <span id="passwordError"></span></p>
+      <p>Senha: <span id="passwordError" class="error"></span></p>
       <input type="password" id="password" placeholder="Senha com 6 dígitos" required>
       <p>Repita sua senha: </p>
       <input type="password" id="passwordConfirm" placeholder="Repita sua senha" required>

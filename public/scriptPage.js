@@ -281,6 +281,8 @@ function previewImage(file) {
 
 const activePage = () => {
   myBody.classList.remove('loading');
+  myBody.classList.add('body');
+  divLoading.remove();
   myHeader.style.setProperty('display', 'flex');
   myDivContainer.style.setProperty('display', 'flex');
   myFooter.style.setProperty('display', 'flex');

@@ -42,7 +42,7 @@ var dark = () => {
   buttonColor3 = '#818489';
   fontColor1 = '#eef1f6';
   fontColor2 = '#dee2e8';
-  fontColor3 = '#d1d6dd';
+  fontColor3 = '#9CAAC2';
   fontColor4 = '#515459';
   aColor = '#aa99ff';
   backgroundImage = "url('Imagens/Arvore_Original.jpg')";
@@ -64,7 +64,7 @@ var light = () => {
   buttonColor3 = '#6e7176';
   fontColor1 = '#010409';
   fontColor2 = '#0d1117';
-  fontColor3 = '#161b22';
+  fontColor3 = '#17253d';
   fontColor4 = '#7e7186';
   aColor = '#2211ff';
   backgroundImage = "url('Imagens/Arvore_Original.jpg')";
@@ -86,7 +86,7 @@ var solidDark = () => {
   buttonColor3 = '#818489';
   fontColor1 = '#eef1f6';
   fontColor2 = '#dee2e8';
-  fontColor3 = '#d1d6dd';
+  fontColor3 = '#9CAAC2';
   fontColor4 = '#515459';
   aColor = '#aa99ff';
   backgroundImage = "url('Imagens/Arvore_Original.jpg')";
@@ -108,8 +108,9 @@ var solidLight = () => {
   buttonColor3 = '#6e7176';
   fontColor1 = '#010409';
   fontColor2 = '#0d1117';
-  fontColor3 = '#161b22';
+  fontColor3 = '#17253d';
   fontColor4 = '#9e91a6';
+
   aColor = '#2211ff';
   backgroundImage = "url('Imagens/Arvore_Original.jpg')";
   return 'solid_light';

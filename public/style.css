@@ -23,7 +23,7 @@
   --backgroundImageHeader: none;
 
   /*propriedades NÃO editadas no scriptTheme*/
-  --fontSizeRoot1: 16px;
+  --fontSizeRoot1: 14px;
   --headerHeigth: 6rem;
   --footerHeigth: 2rem;
   --menuButtonHeight: 4rem;
@@ -45,15 +45,14 @@
 
 html {
   font-size: var(--fontSizeRoot1);
-  color: #212429;
-  background-color: #212429;
+  overflow: auto;
 }
 
-body {
+.body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow: auto;
   background-color: #212429;
   background-image: var(--backgroundImage);
   background-position: center;
@@ -62,7 +61,7 @@ body {
   padding-bottom: env(safe-area-inset-bottom);
 }
 
-button{
+button {
   border: 1px solid var(--backColor2t);
   background-color: var(--backColor2t);
   color: var(--fontColor1);
@@ -106,7 +105,7 @@ button:disabled {
   color: var(--fontColor1);
 }
 
-#myHeader > #buttonHome {
+#myHeader>#buttonHome {
   width: 7.5rem;
   height: 4rem;
   border: 2px solid var(--backColor1t);
@@ -120,8 +119,8 @@ button:disabled {
   transition: background-color 0.3s;
 }
 
-#myHeader > #buttonHome:hover{
- color: var(--fontColor2);
+#myHeader>#buttonHome:hover {
+  color: var(--fontColor2);
 }
 
 #myHeader button {
@@ -154,25 +153,25 @@ button:disabled {
   color: var(--fontColor3);
 }
 
-#myHeader > #buttonUser{
+#myHeader>#buttonUser {
   border-radius: 50%;
 }
 
 /* |- Botões Entrar e Inscrever */
-#myHeader > .buttonHeader {
+#myHeader>.buttonHeader {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-#myHeader > .buttonHeader i{
- font-size: 2rem;
- width: 3rem;
- height: rem;
- line-height: 2.5rem;
+#myHeader>.buttonHeader i {
+  font-size: 2rem;
+  width: 3rem;
+  height: rem;
+  line-height: 2.5rem;
 }
 
-#myHeader > .buttonHeader span{
+#myHeader>.buttonHeader span {
   flex: 1;
   height: 1rem;
   font-size: .8rem;
@@ -202,7 +201,7 @@ button:disabled {
 }
 
 /* |-myDivLeft */
-#myDivLeft{
+#myDivLeft {
   z-index: 2;
   overflow-x: hidden;
   overflow-y: auto;
@@ -218,10 +217,11 @@ button:disabled {
   align-items: center;
   margin-top: .25rem;
   height: var(--menuButtonHeight);
-  border-radius: 6px;
+  border-radius: 8px;
+  font-size: 1rem;
 }
 
-#myDivLeft button span{
+#myDivLeft button span {
   display: flex;
   flex: 1;
   justify-content: left;
@@ -229,7 +229,7 @@ button:disabled {
   padding-left: .5rem;
 }
 
-#myDivLeft button i{
+#myDivLeft button i {
   line-height: var(--iconSize);
   width: var(--iconSize);
   height: var(--iconSize);
@@ -245,30 +245,30 @@ button:disabled {
   color: var(--fontColor1);
 }
 
-#myDivCenter .divCenterContent{
+#myDivCenter .divCenterContent {
   flex: 1;
   overflow: auto;
   display: flex;
 }
 
-#myDivCenter .divCenterContent .divChildTop{
+#myDivCenter .divCenterContent .divChildTop {
   width: 100%;
   height: 3rem;
   line-height: 3rem;
   display: flex;
   flex-direction: row;
-  padding-right: .5rem; 
+  padding-right: .5rem;
   border-bottom: 1px solid var(--fontColor4);
 }
 
-.divCenterContent .divChildTop h1{
+.divCenterContent .divChildTop h1 {
   padding-left: .5rem;
   text-align: left;
   font-size: 1.5rem;
   flex: 1;
 }
 
-.divCenterContent .divChildTop button{
+.divCenterContent .divChildTop button {
   font-size: 1.5rem;
   width: 2rem;
   height: 2rem;
@@ -277,7 +277,7 @@ button:disabled {
 }
 
 /* |-myDivRight */
-#myDivRight{
+#myDivRight {
   z-index: 2;
   overflow-x: hidden;
   overflow-y: auto;
@@ -285,6 +285,7 @@ button:disabled {
   flex-direction: column;
   align-items: center;
   font-size: 1rem;
+  color: var(--fontColor1);
   /*width: -> largura será manipulada pelo scriptMenuAnimation.js*/
 }
 
@@ -293,10 +294,10 @@ button:disabled {
   align-items: center;
   margin-top: .25rem;
   height: var(--menuButtonHeight);
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
-#myDivRight button span{
+#myDivRight button span {
   display: flex;
   flex: 1;
   justify-content: left;
@@ -304,7 +305,7 @@ button:disabled {
   padding-left: .5rem;
 }
 
-#myDivRight button i{
+#myDivRight button i {
   line-height: var(--iconSize);
   width: var(--iconSize);
   height: var(--iconSize);
@@ -312,8 +313,38 @@ button:disabled {
   font-size: 1.5rem;
 }
 
+#myDivRight a {
+  display: flex;
+  align-items: center;
+  line-height: 3rem;
+  border-radius: 8px;
+  padding-left: .5rem;
+  border: 1px solid var(--backColor2t);
+}
+
+#myDivRight a:hover {
+  background-color: var(--backColor3);
+  border: 1px solid var(--aColor);
+}
+
+#myDivRight a i {
+  font-size: 1.5rem;
+  color: var(--fontColor3);
+}
+
+#myDivRight a span {
+  margin-left: .5rem;
+  color: var(--fontColor2);
+}
+
+#myDivRight a span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
 /* |-divFormParent */
-#divFormParent{
+#divFormParent {
   height: 100vh;
   /* display: flex; será definido após o carregamento da página*/
   align-items: center;
@@ -323,7 +354,7 @@ button:disabled {
   color: var(--fontColor1);
 }
 
-#divFormParent form{
+#divFormParent form {
   position: relative;
   display: block;
   padding-top: 1.5rem;
@@ -336,94 +367,100 @@ button:disabled {
   max-height: 90%;
 }
 
-#divFormParent form h1{
- display: flex;
- font-size: 2rem;
- align-items: center;
- height: var(--headerHeigth);
- margin-bottom: .5rem;
+#divFormParent form h1 {
+  display: flex;
+  font-size: 2rem;
+  align-items: center;
+  height: var(--headerHeigth);
+  margin-bottom: .5rem;
 }
 
-#divFormParent form h1 span{
- flex: 1;
+#divFormParent form h1 span {
+  flex: 1;
 }
 
-#divFormParent form p{
- width: 100%;
- height: 1.8rem;
- flex: 1;
- line-height: 1.8rem;
- display: flex;
+#divFormParent form p {
+  width: 100%;
+  height: 1.8rem;
+  flex: 1;
+  line-height: 1.8rem;
+  display: flex;
 }
 
-#divFormParent form p span{
- flex: 1;
- text-align: right;
- color: var(--fontColor2);
+#divFormParent form p span {
+  flex: 1;
+  text-align: right;
+  color: var(--fontColor2);
 }
 
-#divFormParent form input{
- width: 100%;
- flex: 1;
- margin-bottom: .8rem;
- border-radius: 6px;
- padding-left: .5rem;
- background-color: var(--backColor4);
- border: 1px solid var(--fontColor4);
- color: var(--fontColor2)
+#divFormParent form input {
+  width: 100%;
+  flex: 1;
+  margin-bottom: .8rem;
+  border-radius: 8px;
+  padding-left: .5rem;
+  background-color: var(--backColor4);
+  border: 1px solid var(--fontColor4);
+  color: var(--fontColor2)
 }
 
-#divFormParent form > button{
+#divFormParent form>button {
   margin-top: 1rem;
   width: 100%;
   height: 3rem;
   flex: 1;
   margin-bottom: 1rem;
-  border-radius: 6px;
+  border-radius: 8px;
   border: 1px solid var(--backColor2t);
   background-color: var(--buttonColor2);
   color: var(--fontColor1);
   font-size: 2rem;
 }
 
-#divFormParent form > button:hover {
+#divFormParent form>button:hover {
   border: 1px solid var(--fontColor4);
   background-color: var(--buttonColor1);
   color: var(--fontColor2);
 }
 
-#divFormParent form > button:active {
+#divFormParent form>button:active {
   border: 1px solid var(--fontColor4);
   background-color: var(--buttonColor3);
   color: var(--fontColor3);
 }
 
-#divFormParent form > #loginGoogleButton {
+#divFormParent form>#loginGoogleButton {
   margin-bottom: 2rem;
 }
 
-#divFormParent form p a{
+#divFormParent form p a {
   text-decoration: none;
   color: var(--aColor);
+
 }
 
-#divFormParent form p a:hover{
+#divFormParent form p a:hover {
   text-decoration: underline;
 }
 
-#divConcluido{
+#divConcluido {
   flex-direction: column;
   align-items: center;
   line-height: 3rem;
 }
 
-#divConcluido p a{
+#divConcluido p a {
   text-decoration: none;
   color: var(--aColor);
 }
 
-#divConcluido p a:hover{
+#divConcluido p a:hover {
   text-decoration: underline;
+}
+
+#divFormParent form p>.error {
+  color: var(--aColor);
+  font-weight: 600;
 }
 
 
@@ -433,12 +470,13 @@ button:disabled {
 
 /*|- - MOBILE (width < 600)*/
 @media only screen and (max-width: 599px) {
+
   /* |- - - myDivContainer */
   #myDivContainer {
-   display: flex;
-   position: relative;
-   flex-direction:column;
-	}
+    display: flex;
+    position: relative;
+    flex-direction: column;
+  }
 
   /* |- - - myDivLeft */
   #myDivLeft {
@@ -449,9 +487,9 @@ button:disabled {
     left: 0;
     bottom: 0;
     background-color: var(--backColor2s);
-	}
+  }
 
-  #myDivLeft button{
+  #myDivLeft button {
     width: calc(100vw - 2rem);
   }
 
@@ -464,12 +502,12 @@ button:disabled {
     width: 100vw;
   }
 
-  #myDivCenter .divCenterContent{
+  #myDivCenter .divCenterContent {
     height: 100%;
     min-width: 100%;
     background-color: var(--backColor1);
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
   }
 
   /* |- - - myDivRight */
@@ -483,16 +521,20 @@ button:disabled {
     background-color: var(--backColor2s);
   }
 
-  #myDivRight button{
+  #myDivRight button {
+    width: calc(100vw - 2rem);
+  }
+
+  #myDivRight a {
     width: calc(100vw - 2rem);
   }
 
   /* |- - - divFormParent */
-  #divFormParent form{
+  #divFormParent form {
     width: 100%;
   }
 
-  #divFormParent form input{
+  #divFormParent form input {
     height: 3rem;
     line-height: 3rem;
   }
@@ -500,56 +542,61 @@ button:disabled {
 
 /* |- - MONITOR (width > 600)*/
 @media only screen and (min-width: 600px) {
-   /* |- - - myDivContainer */
+
+  /* |- - - myDivContainer */
   #myDivContainer {
     flex-direction: row;
   }
 
-   /* |- - - myDivLeft */
-  #myDivLeft{
+  /* |- - - myDivLeft */
+  #myDivLeft {
     border-right: 1px solid var(--fontColor4);
     padding-top: 1rem;
     padding-bottom: 1rem;
     background-color: var(--backColor2);
   }
 
-  #myDivLeft button{
+  #myDivLeft button {
     width: calc(var(--menuWidth) - 2rem);
   }
 
-   /* |- - - myDivCenter */
-  #myDivCenter{
+  /* |- - - myDivCenter */
+  #myDivCenter {
     background-color: var(--backColor1);
     padding: .5rem;
     min-width: 0rem;
   }
 
-  #myDivCenter .divCenterContent{
+  #myDivCenter .divCenterContent {
     height: 100%;
     min-width: 100%;
     background-color: var(--backColor1);
-    border-radius: 6px;
+    border-radius: 8px;
   }
 
-   /* |- - - myDivRight */
-  #myDivRight{
+  /* |- - - myDivRight */
+  #myDivRight {
     border-right: 1px solid var(--fontColor4);
     padding-top: 1rem;
     padding-bottom: 1rem;
     background-color: var(--backColor2);
   }
 
-  #myDivRight button{
+  #myDivRight button {
     width: calc(var(--menuWidth) - 2rem);
   }
 
-   /* |- - - divFormParent */
-  #divFormParent form{
-   width: 25rem;
-   border: 1px solid var(--backColor2t);
+  #myDivRight a {
+    width: calc(var(--menuWidth) - 2rem);
   }
 
-  #divFormParent form input{
+  /* |- - - divFormParent */
+  #divFormParent form {
+    width: 25rem;
+    border: 1px solid var(--backColor2t);
+  }
+
+  #divFormParent form input {
     height: 2rem;
     line-height: 2rem;
   }
@@ -585,22 +632,26 @@ button:disabled {
 
 /*animação para abrir o menu*/
 @keyframes slideInMenu {
-  0% {/*início da animação*/
+  0% {
+    /*início da animação*/
     width: 0;
-	}
+  }
 
-  100% {/*fim da animação*/
+  100% {
+    /*fim da animação*/
     width: var(--menuWidth);
   }
 }
 
 /*animação para fechar o menu*/
 @keyframes slideOutMenu {
-  from {/*início da animação*/
+  from {
+    /*início da animação*/
     width: var(--menuWidth);
   }
 
-  to {/*fim da animação*/
+  to {
+    /*fim da animação*/
     width: 0;
   }
 }
@@ -611,30 +662,117 @@ button:disabled {
 
 /* |- Painel: config */
 /* variação de .divCenterContent */
-
-#panel5{
+#panelHome {
   flex-direction: column;
 }
 
-#panel5 form{
+#panelHome .divChildTop h1 {
+  flex-direction: column;
+  font-family: Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+#panelHome .divChildTop h1 span {
+  flex-direction: column;
+  font-family: Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--fontColor4);
+}
+
+#panelHome .divChildCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#panelHome .divChildCenter .pInit {
+  margin-top: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 1.5rem;
+  font-size: 1.2rem;
+  color: var(--fontColor3);
+}
+
+#panelHome .divChildCenter button {
+  display: flex;
+  flex-direction: row;
+  margin-top: 2rem;
+  height: 3rem;
+  width: auto;
+  padding-right: 1rem;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  align-items: center;
+}
+
+#panelHome .divChildCenter button i {
+  width: 3rem;
+}
+
+#panelHome .divChildCenter>.pInfo {
+  margin-top: 3rem;
+  padding: .5rem;
+  display: flex;
+  flex-direction: row;
+  height: 6rem;
+  font-size: 1rem;
+  align-items: center;
+  max-width: 30rem;
+  min-width: 18rem;
+  background-color: var(--backColor2t);
+  border-radius: 8px;
+}
+
+#panelHome .divChildCenter>.pInfo i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5rem;
+  width: 5rem;
+  font-size: 3.5rem;
+  border: 2px solid var(--fontColor4);
+  border-radius: 8px;
+  color: var(--fontColor3);
+}
+
+#panelHome .divChildCenter>.pInfo a {
+  color: var(--fontColor2);
+  padding-left: 1rem;
+  flex: 1;
+}
+
+#panelHome .divChildCenter>.pInfo a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#panel5 {
+  flex-direction: column;
+}
+
+#panel5 form {
   margin-top: .5rem;
   padding: .5rem;
   display: flex;
   flex-direction: column;
   line-height: 2rem;
-  border-radius: 6px
+  border-radius: 8px
 }
 
-#panel5 form input{
+#panel5 form input {
   margin-left: 1rem;
 }
 
-.perfil{
+.perfil {
   flex-direction: column;
   align-items: center;
 }
 
-.perfil #imgUserForm{
+.perfil #imgUserForm {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -644,36 +782,36 @@ button:disabled {
   line-height: 2rem;
 }
 
-.perfil #imgUserForm img{
+.perfil #imgUserForm img {
   width: 200px;
   height: 200px;
   border-radius: 50%;
   border: 8px solid var(--backColor3);
 }
 
-.perfil #imgUserForm label{
+.perfil #imgUserForm label {
   color: var(--aColor);
   margin-top: .5rem;
 }
 
-.perfil #imgUserForm label:hover{
+.perfil #imgUserForm label:hover {
   text-decoration: underline;
 }
 
-.perfil #imgUserForm input{
+.perfil #imgUserForm input {
   display: none;
 }
 
-.perfil #imgUserForm button{
+.perfil #imgUserForm button {
   margin-top: .5rem;
   width: 8rem;
   height: 2rem;
   font-size: 1rem;
-  border-radius: 6px;
+  border-radius: 8px;
   border: 2px solid var(--fontColor4);
 }
 
-#buttonUser img{
+#buttonUser img {
   width: 100%;
   height: 100%;
   border-radius: 50px;

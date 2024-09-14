@@ -27,11 +27,11 @@ const getMobile = () => {
 var isMobile = getMobile();
 
 if (isMobile) {
-  document.getElementById('body').style.setProperty('min-height', `${window.innerHeight}px`);
+  document.getElementById('body').style.setProperty('height', `${window.innerHeight + 500}px`);
   checkOrientation();
 }
 else
-  document.getElementById('body').style.setProperty('min-height', `100vh`);
+  document.getElementById('body').style.setProperty('height', `100vh`);
 
 // |- - Layout inicial
 if (window.innerWidth < 600) {
@@ -191,6 +191,8 @@ openPenel(panelHome);
 
 const activePage = () => {
   myBody.classList.remove('loading');
+  myBody.classList.add('body');
+  divLoading.remove();
   myHeader.style.setProperty('display', 'flex');
   myDivContainer.style.setProperty('display', 'flex');
   myFooter.style.setProperty('display', 'flex');

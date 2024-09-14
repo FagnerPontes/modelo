@@ -106,6 +106,8 @@ else
 
 const activePage = () => {
   myBody.classList.remove('loading');
+  myBody.classList.add('body');
+  divLoading.remove();
   divFormParent.style.setProperty('display', 'flex');
   divLoading.style.setProperty('display', 'none');
   scriptTheme.getTheme();
