@@ -314,18 +314,25 @@ button:disabled {
 }
 
 #myDivRight a {
+  margin-top: .25rem;
   display: flex;
   align-items: center;
-  line-height: 3rem;
+  line-height: 4rem;
   border-radius: 8px;
   padding-left: .5rem;
   border: 1px solid var(--backColor2t);
+  cursor: pointer;
 }
 
 #myDivRight a:hover {
   background-color: var(--backColor3);
   border: 1px solid var(--aColor);
 }
+
+#myDivRight a:hover span {
+  text-decoration: underline;
+}
+
 
 #myDivRight a i {
   font-size: 1.5rem;
@@ -335,11 +342,6 @@ button:disabled {
 #myDivRight a span {
   margin-left: .5rem;
   color: var(--fontColor1);
-}
-
-#myDivRight a span:hover {
-  text-decoration: underline;
-  cursor: pointer;
 }
 
 
@@ -695,6 +697,7 @@ button:disabled {
   line-height: 1.5rem;
   font-size: 1.5rem;
   color: var(--fontColor3);
+  text-align: center;
 }
 
 #panelHome .divChildCenter button {
