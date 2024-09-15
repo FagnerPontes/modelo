@@ -34,6 +34,8 @@ const inputPassword = document.getElementById("password");
 const inputPasswordConfirm = document.getElementById("passwordConfirm");
 const inputPhone = document.getElementById('phone');
 const inputBirthdate = document.getElementById('birthdate');
+var birthdateMask = new Inputmask("99/99/9999");
+birthdateMask.mask(inputBirthdate);
 
 const emailError = document.getElementById('emailError');
 const phoneError = document.getElementById('phoneError');

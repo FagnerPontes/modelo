@@ -11,7 +11,6 @@
   <!-- Adicionar a biblioteca Inputmask antes do seu script -->
   <script src="https://cdn.jsdelivr.net/npm/inputmask@5.0.7/dist/inputmask.min.js"></script>
   <!-- Adicionar arquivos de script -->
-  <script src="scriptRefresh.js" type="text/javascript" defer></script>
   <script src='scriptStrings.js' type='text/javascript' defer></script>
   <script src='scriptColors.js' type='text/javascript' defer></script>
   <script src="scriptRegistro.js" type="module" defer></script>
@@ -77,7 +76,7 @@
       <p>Nome:</p>
       <input type="text" id="name" placeholder="Nome" required>
       <p>Data de nascimento:</p>
-      <input type="date" id="birthdate" placeholder="Data de nascimento" required>
+      <input type="text" pattern="[0-9]*" inputmode="numeric" id="birthdate" placeholder="Data de nascimento" required>
       <button class='button' type="submit" id="registerButton">Registrar</button>
     </form>
     <div id="divConcluido" style='display: none'>
