@@ -41,7 +41,7 @@ var dark = () => {
   buttonColor2 = '#313439';
   buttonColor3 = '#818489';
   fontColor1 = '#eef1f6';
-  fontColor2 = '#dee2e8';
+  fontColor2 = '#00bb99';
   fontColor3 = '#9CAAC2';
   fontColor4 = '#515459';
   aColor = '#aa99ff';
@@ -63,7 +63,7 @@ var light = () => {
   buttonColor2 = '#bec1c6';
   buttonColor3 = '#6e7176';
   fontColor1 = '#010409';
-  fontColor2 = '#0d1117';
+  fontColor2 = '#004035';
   fontColor3 = '#17253d';
   fontColor4 = '#7e7186';
   aColor = '#2211ff';
@@ -85,7 +85,7 @@ var solidDark = () => {
   buttonColor2 = '#313439';
   buttonColor3 = '#818489';
   fontColor1 = '#eef1f6';
-  fontColor2 = '#dee2e8';
+  fontColor2 = '#00bb99';
   fontColor3 = '#9CAAC2';
   fontColor4 = '#515459';
   aColor = '#aa99ff';
@@ -107,7 +107,7 @@ var solidLight = () => {
   buttonColor2 = '#bec1c6';
   buttonColor3 = '#6e7176';
   fontColor1 = '#010409';
-  fontColor2 = '#0d1117';
+  fontColor2 = '#004035';
   fontColor3 = '#17253d';
   fontColor4 = '#9e91a6';
 

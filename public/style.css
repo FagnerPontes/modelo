@@ -70,7 +70,7 @@ button {
 button:hover {
   border: 1px solid var(--fontColor4);
   background-color: var(--backColor1s);
-  color: var(--fontColor2);
+  color: var(--fontColor1);
 }
 
 button:active {
@@ -120,7 +120,7 @@ button:disabled {
 }
 
 #myHeader>#buttonHome:hover {
-  color: var(--fontColor2);
+  color: var(--fontColor1);
 }
 
 #myHeader button {
@@ -140,7 +140,7 @@ button:disabled {
 #myHeader button:hover {
   background-color: var(--backColor1s);
   border: 1px solid var(--fontColor4);
-  color: var(--fontColor2);
+  color: var(--fontColor1);
 }
 
 #myHeader button:active {
@@ -334,7 +334,7 @@ button:disabled {
 
 #myDivRight a span {
   margin-left: .5rem;
-  color: var(--fontColor2);
+  color: var(--fontColor1);
 }
 
 #myDivRight a span:hover {
@@ -390,7 +390,7 @@ button:disabled {
 #divFormParent form p span {
   flex: 1;
   text-align: right;
-  color: var(--fontColor2);
+  color: var(--fontColor1);
 }
 
 #divFormParent form input {
@@ -401,7 +401,7 @@ button:disabled {
   padding-left: .5rem;
   background-color: var(--backColor4);
   border: 1px solid var(--fontColor4);
-  color: var(--fontColor2)
+  color: var(--fontColor1)
 }
 
 #divFormParent form>button {
@@ -420,7 +420,7 @@ button:disabled {
 #divFormParent form>button:hover {
   border: 1px solid var(--fontColor4);
   background-color: var(--buttonColor1);
-  color: var(--fontColor2);
+  color: var(--fontColor1);
 }
 
 #divFormParent form>button:active {
@@ -693,7 +693,7 @@ button:disabled {
   padding-left: 1rem;
   padding-right: 1rem;
   line-height: 1.5rem;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: var(--fontColor3);
 }
 
@@ -704,7 +704,7 @@ button:disabled {
   height: 3rem;
   width: auto;
   padding-right: 1rem;
-  border-radius: 10px;
+  border-radius: 8px;
   font-size: 1.5rem;
   align-items: center;
 }
@@ -718,8 +718,8 @@ button:disabled {
   padding: .5rem;
   display: flex;
   flex-direction: row;
-  height: 6rem;
-  font-size: 1rem;
+  height: 7rem;
+  font-size: 1.25rem;
   align-items: center;
   max-width: 30rem;
   min-width: 18rem;
@@ -731,16 +731,17 @@ button:disabled {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 5rem;
-  width: 5rem;
-  font-size: 3.5rem;
-  border: 2px solid var(--fontColor4);
+  height: 6rem;
+  width: 6rem;
+  font-size: 5rem;
+  border: 2px solid var(--fontColor2);
   border-radius: 8px;
-  color: var(--fontColor3);
+  color: var(--aColor);
 }
 
 #panelHome .divChildCenter>.pInfo a {
   color: var(--fontColor2);
+  font-weight: 600;
   padding-left: 1rem;
   flex: 1;
 }
