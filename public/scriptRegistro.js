@@ -64,23 +64,24 @@ async function validarCampos(email, password, passwordConfirm, userData) {
   phoneError.innerText = '';
   passwordError.innerText = '';
 
+
   if (!emailPattern.test(email)) {
-    emailError.innerText = 'Verifique seu email!';
+    let modal = new Modal('Verifique seu email!');
     return;
   }
 
   if (countryCode === '+55' && !phonePattern.test(userData.phone)) {
-    phoneError.innerText = 'Verifique seu telefone!';
+    let modal = new Modal('Verifique seu telefone!');
     return;
   }
 
   if (password !== passwordConfirm) {
-    passwordError.innerText = 'Senhas divergentes!';
+    let modal = new Modal('Senhas divergentes!');
     return;
   }
 
   if (!email || !password || !userData.name || !userData.phone || !userData.birthdate) {
-    alert("Todos os campos devem ser preenchidos");
+    let modal = new Modal("Todos os campos devem ser preenchidos");
     return;
   }
   if (await scriptFirebase.register(email, password, userData)) {
