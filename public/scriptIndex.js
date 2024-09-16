@@ -200,4 +200,14 @@ const activePage = () => {
   scriptTheme.getTheme();
 }
 
+
+const btClipboard = document.getElementsByClassName('btClipboard');
+
+Array.from(btClipboard).forEach(element => {
+  element.addEventListener('click', () => {
+    var clipBoard = new Clipboard(`${element.value}`);
+  })
+});
+
+
 window.onload = activePage;

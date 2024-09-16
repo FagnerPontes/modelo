@@ -10,6 +10,7 @@
   <!-- Adicionar arquivo style.css -->
   <link rel="stylesheet" type="text/css" href="style.css">
   <script src='scriptColors.js' type='text/javascript' defer></script>
+  <script src='scriptClipboard.js' type='text/javascript' defer></script>
   <script src="scriptIndex.js" type="module" defer></script>
   <title>Página inicial</title>
   <style>
@@ -146,34 +147,56 @@
     myDivRight
     -->
     <div id="myDivRight" class="divMenu"><!-- menu direito -->
-      <a>
+      <div class='divClipboard'>
         <i class="bi bi-facebook"></i>
-        <span>/forbysoficial</span>
-      </a>
-      <a>
+        <!--target="_blank": abrir em uma nova guia-->
+        <a href='https://www.facebook.com/login/' target="_blank">/forbysoficial</a>
+        <button class='btClipboard' title='copiar' value='/forbysoficial'>
+          <i class="bi bi-files"></i>
+        </button>
+      </div>
+      <div class='divClipboard'>
         <i class="bi bi-instagram"></i>
-        <span>@forbysoficial</span>
-      </a>
-      <a>
+        <a href='https://www.instagram.com/accounts/login/' target='_blank'>@forbysoficial</a>
+        <button class='btClipboard' title='copiar' value='@forbysoficial'>
+          <i class="bi bi-files"></i>
+        </button>
+      </div>
+      <div class='divClipboard'>
         <i class="bi bi-youtube"></i>
-        <span>Forbys oficial</span>
-      </a>
-      <a>
+        <a href='https://www.youtube.com/' target='_blank'>Forbys oficial</a>
+        <button class='btClipboard' title='copiar' value='Forbys oficial'>
+          <i class="bi bi-files"></i>
+        </button>
+      </div>
+      <div class='divClipboard'>
         <i class="bi bi-linkedin"></i>
-        <span>Forbys oficial</span>
-      </a>
-      <a>
+        <a href='https://www.linkedin.com/company/login/' target='_blank'>Forbys oficial</a>
+        <button class='btClipboard' title='copiar' value='Forbys oficial'>
+          <i class="bi bi-files"></i>
+        </button>
+      </div>
+      <div class='divClipboard'>
         <i class="bi bi-whatsapp"></i>
-        <span>+55 (81) 99999-9999</span>
-      </a>
-      <a>
+        <a href='https://web.whatsapp.com/' target='_blank'>+55 (81) 99999-9999</a>
+        <button class='btClipboard' title='copiar' value='+55 (81) 99999-9999'>
+          <i class="bi bi-files"></i>
+        </button>
+      </div>
+      <div class='divClipboard'>
         <i class="bi bi-telegram"></i>
-        <span>+55 (81) 99999-9999</span>
-      </a>
-      <a>
+        <a href='https://web.telegram.org/' target='_blank'>+55 (81) 99999-9999</a>
+        <button class='btClipboard' title='copiar' value='+55 (81) 99999-9999'>
+          <i class="bi bi-files"></i>
+        </button>
+      </div>
+      <div class='divClipboard'>
         <i class="bi bi-envelope"></i>
-        <span>forbys@gmail.com</span>
-      </a>
+        <a href='https://mail.google.com/' target='_blank'>forbys@gmail.com</a>
+        <button class='btClipboard' title='copiar' value='forbys@gmail.com'>
+          <i class="bi bi-files"></i>
+        </button>
+      </div>
     </div>
   </div>
   <footer id="myFooter" style='display: none'>&copy Amigos Lisos, uma empresa do grupo Sem Grana</footer>

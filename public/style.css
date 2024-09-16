@@ -313,9 +313,10 @@ button:disabled {
   font-size: 1.5rem;
 }
 
-#myDivRight a {
-  margin-top: .25rem;
+#myDivRight .divClipboard {
   display: flex;
+  flex-direction: row;
+  margin-top: .25rem;
   align-items: center;
   line-height: 4rem;
   border-radius: 8px;
@@ -324,24 +325,35 @@ button:disabled {
   cursor: pointer;
 }
 
-#myDivRight a:hover {
+#myDivRight .divClipboard:hover {
   background-color: var(--backColor3);
   border: 1px solid var(--aColor);
 }
 
-#myDivRight a:hover span {
+#myDivRight .divClipboard a {
+  margin-left: .5rem;
+  color: var(--fontColor1);
+  flex: 1;
+}
+
+#myDivRight .divClipboard:hover a {
   text-decoration: underline;
 }
 
-
-#myDivRight a i {
+#myDivRight .divClipboard i {
   font-size: 1.5rem;
   color: var(--fontColor3);
 }
 
-#myDivRight a span {
-  margin-left: .5rem;
+#myDivRight .divClipboard > button {
+  margin-right: .5rem;
+  width: 2rem;
+  height: 2.5rem;
+}
+
+#myDivRight .divClipboard > button i{
   color: var(--fontColor1);
+  font-size: 1.25rem;
 }
 
 
@@ -527,7 +539,7 @@ button:disabled {
     width: calc(100vw - 2rem);
   }
 
-  #myDivRight a {
+  #myDivRight .divClipboard {
     width: calc(100vw - 2rem);
   }
 
@@ -588,7 +600,7 @@ button:disabled {
     width: calc(var(--menuWidth) - 2rem);
   }
 
-  #myDivRight a {
+  #myDivRight .divClipboard {
     width: calc(var(--menuWidth) - 2rem);
   }
 

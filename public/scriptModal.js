@@ -26,7 +26,6 @@ class Modal {
   modal.style.setProperty('border', '2px solid var(--fontColor3)');
 
 
-
   // Adiciona o texto passado na criação do modal
   const modalText = document.createElement('p');
   modalText.style.setProperty('color', 'var(--fontColor3)');
