@@ -189,6 +189,8 @@ function openPenel(panel) {
   if (window.innerWidth < 800) {
     if (myDivLeft.classList.contains('open'))
       myDivLeft.classList.add('closeDivMenu');
+    if (myDivRight.classList.contains('open'))
+      myDivRight.classList.add('closeDivMenu');
   }
 }
 

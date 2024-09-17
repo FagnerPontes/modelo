@@ -1,3 +1,4 @@
+import { Clipboard } from './scriptClipboard.js';
 import * as scriptTheme from './scriptTheme.js';
 
 // |- Manipulação do layout
@@ -11,6 +12,7 @@ const myHeader = document.getElementById('myHeader');
 const myDivContainer = document.getElementById('myDivContainer');
 const myFooter = document.getElementById('myFooter');
 const divLoading = document.getElementById('divLoading');
+
 
 
 // |- - isMobile

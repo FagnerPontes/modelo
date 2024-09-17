@@ -1,4 +1,4 @@
-class Clipboard {
+export class Clipboard {
   constructor(texto) {
     this.texto = texto;
     this.modalElement = null;
@@ -23,11 +23,12 @@ class Clipboard {
       modal.style.setProperty('border-radius', '2.5rem');
       modal.style.setProperty('z-index', '1000');
       modal.style.setProperty('padding', '.5rem');
+      modal.style.setProperty('opacity', '0');
 
       // Adiciona o texto passado na criação do modal
       const modalText = document.createElement('p');
       modalText.style.setProperty('color', 'var(--fontColor1)');
-      modalText.style.setProperty('font-size', '1.5rem');
+      modalText.style.setProperty('font-size', '1.25rem');
       modalText.style.setProperty('text-align', 'center');
       modalText.style.setProperty('justify-content', 'center');
       modalText.style.setProperty('flex', '1');
@@ -42,18 +43,20 @@ class Clipboard {
       // Armazena o modal para referência futura
       this.modalElement = modal;
 
-      var opacity = 1.0;
+      var opacity = 0;
+      var graus = 0;
       // Definindo o intervalo de animação
       const intervalId = setInterval(() => {
-        opacity -= 0.025;
+        opacity = Math.sin(graus * (Math.PI / 180))
         this.modalElement.style.setProperty('opacity', `${opacity}`);
+        graus += 3.75;
       }, 50);
 
       // Interrompendo o intervalo após 5 segundos
       setTimeout(() => {
         clearInterval(intervalId);
         this.closeModal();
-      }, 2000);
+      }, 2400);
     });
   }
 
