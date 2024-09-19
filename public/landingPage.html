@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #container {
+      height: 100vh;
+      /* Definimos uma altura fixa para o container */
+      overflow: auto;
+      /* Permitimos a rolagem dentro do container */
+    }
+
+    .divLand {
+      height: 100vh;
+      width: 100vw;
+    }
+  </style>
+</head>
+
+<body id='body'>
+  <div id="container">
+    <div id='div1' class="divLand">a</div>
+    <div id='div2' class="divLand">b</div>
+    <div id='div3' class="divLand">c</div>
+    <div id='div4' class="divLand">d</div>
+  </div>
+
+  <script>
+    const scrollContainer = document.getElementById('container'); // Define o contêiner de scroll como o body
+    const targetDiv = document.getElementById('div2'); // Div que queremos verificar a visibilidade
+
+    scrollContainer.addEventListener('scroll', function () {
+      const rect = targetDiv.getBoundingClientRect();
+      const containerRect = scrollContainer.getBoundingClientRect();
+
+      // Verificar se a div alvo está visível no container de scroll
+      if (rect.top >= containerRect.top && rect.bottom <= containerRect.bottom) {
+        console.log('A div está completamente visível!');
+      } else if (rect.top < containerRect.bottom && rect.bottom > containerRect.top) {
+        console.log('A div está parcialmente visível!');
+      } else {
+        console.log('A div não está visível!');
+      }
+    });
+  </script>
+</body>
+
+</html>

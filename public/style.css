@@ -345,13 +345,13 @@ button:disabled {
   color: var(--fontColor3);
 }
 
-#myDivRight .divClipboard > button {
+#myDivRight .divClipboard>button {
   margin-right: .5rem;
   width: 2rem;
   height: 2.5rem;
 }
 
-#myDivRight .divClipboard > button i{
+#myDivRight .divClipboard>button i {
   color: var(--fontColor1);
   font-size: 1.25rem;
 }
@@ -729,7 +729,7 @@ button:disabled {
 }
 
 #panelHome .divChildCenter>.pInfo {
-  margin-top: 3rem;
+  margin-top: 2rem;
   padding: .5rem;
   display: flex;
   flex-direction: row;
@@ -764,6 +764,88 @@ button:disabled {
 #panelHome .divChildCenter>.pInfo a:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+#panelHome #homeChild_2 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  border-radius: 20px;
+  width: 100%;
+  /* Define o arredondamento das bordas */
+}
+
+#panelHome #homeChild_2 img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+  filter: grayscale(100%);
+  /* Aplica desbotamento */
+  transition: filter .5s ease;
+  /* Transição suave */
+}
+
+#panelHome #homeChild_2>img:hover {
+  filter: grayscale(0%);
+  /* Remove o desbotamento */
+}
+
+#panelHome #homeChild_2 #pHomeChild_2_1 {
+  position: absolute;
+  top: 1rem;
+  text-align: center;
+  width: calc(100% - 2rem);
+  color: var(--fontColor1);
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+  /* Sombra no texto para melhor visibilidade */
+}
+
+#panelHome #homeChild_2 #pHomeChild_2_2 {
+  position: absolute;
+  display: flex;
+  bottom: 1rem;
+  left: 1rem;
+  text-align: left;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% - 2rem);
+  color: var(--fontColor1);
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+  /* Sombra no texto para melhor visibilidade */
+}
+
+#panelHome #homeChild_2 #pHomeChild_2_2 span {
+  padding-left: .5rem;
+  /* Sombra no texto para melhor visibilidade */
+}
+
+#panelHome #homeChild_2 #pHomeChild_2_2 i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4rem;
+  width: 4rem;
+  font-size: 5rem;
+  color: #ffff33;
+}
+
+#panelHome #homeChild_3 {
+  display: flex;
+  background-image: url('Imagens/mosaico.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: 2rem;
+  border-radius: 20px;
+  min-height: 100vh;
+  /* Define o arredondamento das bordas */
 }
 
 #panel5 {
