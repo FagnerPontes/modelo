@@ -510,9 +510,6 @@ button:disabled {
   /* |- - - myDivCenter */
   #myDivCenter {
     background-color: var(--backColor1);
-    padding-left: 1rem;
-    padding-top: 1rem;
-    padding-right: 1rem;
     width: 100vw;
   }
 
@@ -552,6 +549,19 @@ button:disabled {
     height: 3rem;
     line-height: 3rem;
   }
+
+  #div1_panelHome {
+    min-height: calc(100vh - var(--headerHeigth) - var(--footerHeigth));
+  }
+
+  #div2_panelHome {
+    min-height: calc(100vh - var(--headerHeigth) - var(--footerHeigth));
+  }
+
+  #div3_panelHome {
+    min-height: calc(100vh - var(--headerHeigth) - var(--footerHeigth));
+  }
+
 }
 
 /* |- - MONITOR (width > 600)*/
@@ -614,6 +624,19 @@ button:disabled {
     height: 2rem;
     line-height: 2rem;
   }
+
+  #div1_panelHome {
+    min-height: calc(100vh - var(--headerHeigth) - var(--footerHeigth) - 1rem);
+  }
+
+  #div2_panelHome {
+    min-height: calc(100vh - var(--headerHeigth) - var(--footerHeigth) - 1rem);
+  }
+
+  #div3_panelHome {
+    min-height: calc(100vh - var(--headerHeigth) - var(--footerHeigth) - 1rem);
+  }
+
 }
 
 /*---------------------------------*/
@@ -702,56 +725,17 @@ button:disabled {
   align-items: center;
 }
 
-#panelHome .divChildCenter>.pInfo {
-  margin-top: 2rem;
-  padding: .5rem;
-  display: flex;
-  flex-direction: row;
-  height: 7rem;
-  font-size: 1.25rem;
-  align-items: center;
-  max-width: 30rem;
-  min-width: 18rem;
-  background-color: var(--backColor2t);
-  border-radius: 8px;
-}
-
-#panelHome .divChildCenter>.pInfo i {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 6rem;
-  width: 6rem;
-  font-size: 5rem;
-  border: 2px solid var(--fontColor2);
-  border-radius: 8px;
-  color: var(--aColor);
-}
-
-#panelHome .divChildCenter>.pInfo a {
-  color: var(--fontColor2);
-  font-weight: 600;
-  padding-left: 1rem;
-  flex: 1;
-}
-
-#panelHome .divChildCenter>.pInfo a:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-#panelHome #homeChild_1 {
+#div1_panelHome {
   display: flex;
   background-image: url('Imagens/mulher.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 20px;
-  min-height: calc(100vh - var(--headerHeigth) - var(--footerHeigth) - 1rem);
-  filter: grayscale(100%);
+  /* min-height -> editado no @media */
 }
 
-#panelHome #homeChild_1 div {
+#div1_panelHome div {
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -764,7 +748,7 @@ button:disabled {
 
 }
 
-#panelHome #homeChild_1 div .pInit {
+#div1_panelHome div p {
   margin-top: 2rem;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -775,7 +759,7 @@ button:disabled {
   text-shadow: 2px 2px 5px rgba(255, 255, 255, 1);
 }
 
-#panelHome #homeChild_1 div button {
+#div1_panelHome div button {
   display: flex;
   flex-direction: row;
   margin-top: 2rem;
@@ -789,19 +773,19 @@ button:disabled {
   background-color: var(--backColor2);
 }
 
-#panelHome #homeChild_1 div button:hover {
+#div1_panelHome div button:hover {
   background-color: var(--backColor1);
 }
 
-#panelHome #homeChild_1 div button:active {
+#div1_panelHome div button:active {
   background-color: var(--backColor3);
 }
 
-#panelHome #homeChild_1 div button i {
+#div1_panelHome div button i {
   width: 3rem;
 }
 
-#panelHome #homeChild_1 #pHomeChild_1_1 {
+#p1_div1_panelHome {
   margin-top: 1rem;
   text-align: center;
   width: calc(100% - 2rem);
@@ -812,7 +796,7 @@ button:disabled {
   text-shadow: 2px 2px 5px rgba(255, 255, 255, 1);
 }
 
-#panelHome #homeChild_1 #pHomeChild_1_2 {
+#p2_div1_panelHome {
   margin-top: auto;
   margin-bottom: 1rem;
   display: flex;
@@ -831,32 +815,108 @@ button:disabled {
   /* Sombra no texto para melhor visibilidade */
 }
 
-#panelHome #homeChild_1 #pHomeChild_1_2 span {
+#p2_div1_panelHome span {
   padding-left: .5rem;
   /* Sombra no texto para melhor visibilidade */
 }
 
-#panelHome #homeChild_1 #pHomeChild_1_2 i {
+#p2_div1_panelHome i {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 4rem;
   width: 4rem;
   font-size: 5rem;
-  color: white;
+  color: #cccc00;
 }
 
-#panelHome #homeChild_3 {
+#div2_panelHome {
+  flex-grow: 1;
+  /* min-height -> editado no @media */
+}
+
+#div2_panelHome .pInfo {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  min-height: 7rem;
+  font-size: 1.25rem;
+  align-items: center;
+  max-width: 36rem;
+  min-width: 18rem;
+  background-color: var(--backColor2t);
+  border-radius: 8px;
+}
+
+#div2_panelHome .pInfo i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 6rem;
+  width: 6rem;
+  font-size: 5rem;
+  border: 2px solid var(--fontColor2);
+  border-radius: 8px;
+  color: var(--aColor);
+}
+
+#div2_panelHome .pInfo a {
+  color: var(--fontColor2);
+  font-weight: 600;
+  padding-left: 1rem;
+  flex: 1;
+}
+
+#div2_panelHome .pInfo a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#div3_panelHome {
   display: flex;
   background-image: url('Imagens/mosaico.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  margin-top: 2rem;
   border-radius: 20px;
-  min-height: 100vh;
-  /* Define o arredondamento das bordas */
+  /* min-height -> editado no @media */
 }
+
+#div3_panelHome p {
+  margin-top: 1rem;
+  line-height: 2rem;
+  font-size: 1.7rem;
+  max-width: 36rem;
+  text-align: center;
+}
+
+#div3_panelHome button {
+  padding-left: .5rem;
+  display: flex;
+  height: 5rem;
+  flex-direction: row;
+  list-style: none;
+  width: 20rem;
+  font-size: 1.7rem;
+  border-radius: 2rem;
+  align-items: center;
+  text-align: left;
+  margin-top: 1rem;
+}
+
+
+#div3_panelHome button i {
+  font-size: 3.5rem;
+  color: var(--fontColor3);
+}
+
+#div3_panelHome button span {
+  padding-left: .5rem;
+  color: var(--fontColor2);
+  flex: 1;
+}
+
+
 
 #panel5 {
   flex-direction: column;

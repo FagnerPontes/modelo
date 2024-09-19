@@ -211,5 +211,9 @@ Array.from(btClipboard).forEach(element => {
   })
 });
 
+const btServicos = document.getElementsByClassName('btServicos');
+Array.from(btServicos).forEach(element => {
+  element.addEventListener('click', () => { openPenel(panelL1); });
+});
 
 window.onload = activePage;
