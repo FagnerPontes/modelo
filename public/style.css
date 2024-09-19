@@ -702,32 +702,6 @@ button:disabled {
   align-items: center;
 }
 
-#panelHome .divChildCenter .pInit {
-  margin-top: 2rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  line-height: 1.5rem;
-  font-size: 1.5rem;
-  color: var(--fontColor3);
-  text-align: center;
-}
-
-#panelHome .divChildCenter button {
-  display: flex;
-  flex-direction: row;
-  margin-top: 2rem;
-  height: 3rem;
-  width: auto;
-  padding-right: 1rem;
-  border-radius: 8px;
-  font-size: 1.5rem;
-  align-items: center;
-}
-
-#panelHome .divChildCenter button i {
-  width: 3rem;
-}
-
 #panelHome .divChildCenter>.pInfo {
   margin-top: 2rem;
   padding: .5rem;
@@ -766,46 +740,81 @@ button:disabled {
   cursor: pointer;
 }
 
-#panelHome #homeChild_2 {
-  position: relative;
+#panelHome #homeChild_1 {
   display: flex;
-  flex-direction: column;
-  margin-top: 2rem;
+  background-image: url('Imagens/mulher.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   border-radius: 20px;
-  width: 100%;
-  /* Define o arredondamento das bordas */
-}
-
-#panelHome #homeChild_2 img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 20px;
+  min-height: calc(100vh - var(--headerHeigth) - var(--footerHeigth) - 1rem);
   filter: grayscale(100%);
-  /* Aplica desbotamento */
-  transition: filter .5s ease;
-  /* Transição suave */
 }
 
-#panelHome #homeChild_2>img:hover {
-  filter: grayscale(0%);
-  /* Remove o desbotamento */
+#panelHome #homeChild_1 div {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  justify-content: center;
+
 }
 
-#panelHome #homeChild_2 #pHomeChild_2_1 {
-  position: absolute;
-  top: 1rem;
+#panelHome #homeChild_1 div .pInit {
+  margin-top: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 1.5rem;
+  font-size: 1.5rem;
+  color: black;
+  text-align: center;
+  text-shadow: 2px 2px 5px rgba(255, 255, 255, 1);
+}
+
+#panelHome #homeChild_1 div button {
+  display: flex;
+  flex-direction: row;
+  margin-top: 2rem;
+  height: 3rem;
+  width: auto;
+  padding-right: 1rem;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  align-items: center;
+  color: var(--fontColor1);
+  background-color: var(--backColor2);
+}
+
+#panelHome #homeChild_1 div button:hover {
+  background-color: var(--backColor1);
+}
+
+#panelHome #homeChild_1 div button:active {
+  background-color: var(--backColor3);
+}
+
+#panelHome #homeChild_1 div button i {
+  width: 3rem;
+}
+
+#panelHome #homeChild_1 #pHomeChild_1_1 {
+  margin-top: 1rem;
   text-align: center;
   width: calc(100% - 2rem);
-  color: var(--fontColor1);
+  color: black;
   font-size: 1.2rem;
   line-height: 1.2rem;
   font-weight: bold;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
-  /* Sombra no texto para melhor visibilidade */
+  text-shadow: 2px 2px 5px rgba(255, 255, 255, 1);
 }
 
-#panelHome #homeChild_2 #pHomeChild_2_2 {
-  position: absolute;
+#panelHome #homeChild_1 #pHomeChild_1_2 {
+  margin-top: auto;
+  margin-bottom: 1rem;
   display: flex;
   bottom: 1rem;
   left: 1rem;
@@ -813,27 +822,28 @@ button:disabled {
   justify-content: center;
   align-items: center;
   width: calc(100% - 2rem);
-  color: var(--fontColor1);
+  color: black;
   font-size: 1rem;
   line-height: 1.5rem;
   font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 1);
+  height: 5rem;
   /* Sombra no texto para melhor visibilidade */
 }
 
-#panelHome #homeChild_2 #pHomeChild_2_2 span {
+#panelHome #homeChild_1 #pHomeChild_1_2 span {
   padding-left: .5rem;
   /* Sombra no texto para melhor visibilidade */
 }
 
-#panelHome #homeChild_2 #pHomeChild_2_2 i {
+#panelHome #homeChild_1 #pHomeChild_1_2 i {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 4rem;
   width: 4rem;
   font-size: 5rem;
-  color: #ffff33;
+  color: white;
 }
 
 #panelHome #homeChild_3 {
