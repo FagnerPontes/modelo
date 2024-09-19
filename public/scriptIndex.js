@@ -29,11 +29,15 @@ const getMobile = () => {
 var isMobile = getMobile();
 
 if (isMobile) {
-  document.getElementById('body').style.setProperty('height', `${window.innerHeight + 500}px`);
+  document.getElementById('body').style.setProperty('height', `${window.innerHeight}px`);
+
   checkOrientation();
 }
-else
+else {
   document.getElementById('body').style.setProperty('height', `100vh`);
+  document.documentElement.style.setProperty('--bodyHeight', `100vh`);
+}
+
 
 // |- - Layout inicial
 if (window.innerWidth < 600) {

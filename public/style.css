@@ -28,7 +28,7 @@
   --footerHeigth: 2rem;
   --menuButtonHeight: 4rem;
   --iconSize: 3.5rem;
-
+  --bodyHeight: none;
   /*propriedade para animação dos menus*/
   --menuWidth: 18rem;
 }
@@ -551,15 +551,15 @@ button:disabled {
   }
 
   #div1_panelHome {
-    min-height: calc(100vh - var(--headerHeigth) - var(--footerHeigth));
+    min-height: calc(var(--bodyHeight) - var(--headerHeigth) - var(--footerHeigth));
   }
 
   #div2_panelHome {
-    min-height: calc(100vh - var(--headerHeigth) - var(--footerHeigth));
+    min-height: calc(var(--bodyHeight) - var(--headerHeigth) - var(--footerHeigth));
   }
 
   #div3_panelHome {
-    min-height: calc(100vh - var(--headerHeigth) - var(--footerHeigth));
+    min-height: calc(var(--bodyHeight) - var(--headerHeigth) - var(--footerHeigth));
   }
 
 }
@@ -626,15 +626,15 @@ button:disabled {
   }
 
   #div1_panelHome {
-    min-height: calc(100vh - var(--headerHeigth) - var(--footerHeigth) - 1rem);
+    min-height: calc(var(--bodyHeight) - var(--headerHeigth) - var(--footerHeigth) - 1rem);
   }
 
   #div2_panelHome {
-    min-height: calc(100vh - var(--headerHeigth) - var(--footerHeigth) - 1rem);
+    min-height: calc(var(--bodyHeight) - var(--headerHeigth) - var(--footerHeigth) - 1rem);
   }
 
   #div3_panelHome {
-    min-height: calc(100vh - var(--headerHeigth) - var(--footerHeigth) - 1rem);
+    min-height: calc(var(--bodyHeight) - var(--headerHeigth) - var(--footerHeigth) - 1rem);
   }
 
 }
@@ -883,7 +883,7 @@ button:disabled {
 }
 
 #div3_panelHome p {
-  margin-top: 1rem;
+  margin-top: 2rem;
   line-height: 2rem;
   font-size: 1.7rem;
   max-width: 36rem;
