@@ -93,6 +93,7 @@ onresize = (event) => {
   }
 };
 
+
 //função para o encerramento da animação (abertura/fechamento) dos menus:
 // |- - Menus: AnimationEnd()
 function AnimationEnd(myDivMenu, myButton) {
