@@ -30,12 +30,12 @@ var isMobile = getMobile();
 
 if (isMobile) {
   document.getElementById('body').style.setProperty('height', `${window.innerHeight}px`);
-  document.documentElement.style.setProperty('--bodyHeight', `${window.innerHeight}px`);
+  document.documentElement.style.setProperty('--mobileHeight', `${window.innerHeight}px`);
   checkOrientation();
 }
 else {
   document.getElementById('body').style.setProperty('height', `100vh`);
-  document.documentElement.style.setProperty('--bodyHeight', `100vh`);
+  document.documentElement.style.setProperty('--mobileHeight', `100vh`);
 }
 
 
@@ -57,8 +57,14 @@ else {
 }
 
 function checkOrientation() {
-  document.getElementById('body').style.setProperty('height', `${window.innerHeight}px`);
-  document.documentElement.style.setProperty('--bodyHeight', `${window.innerHeight}px`);
+  if (window.innerHeight > window.innerWidth) {
+    document.getElementById('body').style.setProperty('height', `${window.innerHeight}px`);
+    document.documentElement.style.setProperty('--mobileHeight', `${window.innerHeight}px`);
+  }
+  else {
+    document.getElementById('body').style.setProperty('height', `${window.innerHeight}px`);
+    document.documentElement.style.setProperty('--mobileHeight', `${window.innerWidth}px`);
+  }
 }
 
 window.addEventListener('orientationchange', checkOrientation);

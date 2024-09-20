@@ -561,15 +561,15 @@ button:disabled {
   }
 
   #div1_panelHome {
-    min-height: calc(var(--bodyHeight) - var(--headerHeigth) - var(--footerHeigth));
+    min-height: calc(var(--mobileHeight) - var(--headerHeigth) - var(--footerHeigth));
   }
 
   #div2_panelHome {
-    min-height: calc(var(--bodyHeight) - var(--headerHeigth) - var(--footerHeigth));
+    min-height: calc(var(--mobileHeight) - var(--headerHeigth) - var(--footerHeigth));
   }
 
   #div3_panelHome {
-    min-height: calc(var(--bodyHeight) - var(--headerHeigth) - var(--footerHeigth));
+    min-height: calc(var(--mobileHeight) - var(--headerHeigth) - var(--footerHeigth));
   }
 
 }
@@ -636,15 +636,15 @@ button:disabled {
   }
 
   #div1_panelHome {
-    min-height: calc(var(--bodyHeight) - var(--headerHeigth) - var(--footerHeigth) - 1rem);
+    min-height: calc(var(--mobileHeight) - var(--headerHeigth) - var(--footerHeigth) - 1rem);
   }
 
   #div2_panelHome {
-    min-height: calc(var(--bodyHeight) - var(--headerHeigth) - var(--footerHeigth) - 1rem);
+    min-height: calc(var(--mobileHeight) - var(--headerHeigth) - var(--footerHeigth) - 1rem);
   }
 
   #div3_panelHome {
-    min-height: calc(var(--bodyHeight) - var(--headerHeigth) - var(--footerHeigth) - 1rem);
+    min-height: calc(var(--mobileHeight) - var(--headerHeigth) - var(--footerHeigth) - 1rem);
   }
 
 }
