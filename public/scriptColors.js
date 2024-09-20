@@ -26,6 +26,8 @@ var fontColor3 = '';
 var fontColor4 = '';
 var aColor = '';
 var backgroundImage = "";
+var backgroundImage2 = "";
+var backgroundImage3 = "";
 
 // |- dark()
 var dark = () => {
@@ -46,6 +48,8 @@ var dark = () => {
   fontColor4 = '#515459';
   aColor = '#aa99ff';
   backgroundImage = "url('Imagens/Arvore_Original.jpg')";
+  backgroundImage2 = "url('Imagens/mulher.jpg')";
+  backgroundImage3 = "url('Imagens/mosaico.jpg')";
   return 'dark';
 }
 
@@ -68,6 +72,8 @@ var light = () => {
   fontColor4 = '#7e7186';
   aColor = '#2211ff';
   backgroundImage = "url('Imagens/Arvore_Original.jpg')";
+  backgroundImage2 = "url('Imagens/mulher.jpg')";
+  backgroundImage3 = "url('Imagens/mosaico.jpg')";
   return 'light';
 }
 
@@ -90,6 +96,8 @@ var solidDark = () => {
   fontColor4 = '#515459';
   aColor = '#aa99ff';
   backgroundImage = "url('Imagens/Arvore_Original.jpg')";
+  backgroundImage2 = "url('Imagens/mulher.jpg')";
+  backgroundImage3 = "url('Imagens/mosaico.jpg')";
   return 'solid_dark';
 }
 
@@ -110,8 +118,9 @@ var solidLight = () => {
   fontColor2 = '#004035';
   fontColor3 = '#17253d';
   fontColor4 = '#9e91a6';
-
   aColor = '#2211ff';
   backgroundImage = "url('Imagens/Arvore_Original.jpg')";
+  backgroundImage2 = "url('Imagens/mulher.jpg')";
+  backgroundImage3 = "url('Imagens/mosaico.jpg')";
   return 'solid_light';
 }

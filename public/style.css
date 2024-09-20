@@ -20,6 +20,8 @@
   --fontColor4: none;
   --aColor: none;
   --backgroundImage: none;
+  --backgroundImage2: none;
+  --backgroundImage3: none;
   --backgroundImageHeader: none;
 
   /*propriedades NÃO editadas no scriptTheme*/
@@ -181,7 +183,8 @@ button:disabled {
 
 /* |-myFooter */
 #myFooter {
-  height: calc(var(--footerHeigth) + env(safe-area-inset-bottom));
+  /* height: calc(var(--footerHeigth) + env(safe-area-inset-bottom)); */
+  height: var(--footerHeigth);
   background-color: var(--backColor1);
   /* display: flex; será definido após o carregamento da página*/
   justify-content: center;
@@ -703,22 +706,6 @@ button:disabled {
   flex-direction: column;
 }
 
-#panelHome .divChildTop h1 {
-  flex-direction: column;
-  font-family: Helvetica, sans-serif;
-  font-weight: 400;
-  font-size: 2rem;
-}
-
-#panelHome .divChildTop h1 span {
-  flex-direction: column;
-  font-family: Helvetica, sans-serif;
-  font-weight: 400;
-  font-size: 1rem;
-  font-style: italic;
-  color: var(--fontColor4);
-}
-
 #panelHome .divChildCenter {
   display: flex;
   flex-direction: column;
@@ -727,11 +714,10 @@ button:disabled {
 
 #div1_panelHome {
   display: flex;
-  background-image: url('Imagens/mulher.jpg');
+  background-image: var(--backgroundImage2);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  border-radius: 20px;
   /* min-height -> editado no @media */
 }
 
@@ -844,7 +830,7 @@ button:disabled {
   align-items: center;
   max-width: 36rem;
   min-width: 18rem;
-  background-color: var(--backColor2t);
+  background-color: var(--backColor1t);
   border-radius: 8px;
 }
 
@@ -874,11 +860,11 @@ button:disabled {
 
 #div3_panelHome {
   display: flex;
-  background-image: url('Imagens/mosaico.jpg');
+  background-image: var(--backgroundImage3);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  border-radius: 20px;
+
   /* min-height -> editado no @media */
 }
 
@@ -888,9 +874,10 @@ button:disabled {
   font-size: 1.7rem;
   max-width: 36rem;
   text-align: center;
+  color: #d1d6dd;
 }
 
-#div3_panelHome button {
+#div3_panelHome>button {
   padding-left: .5rem;
   display: flex;
   height: 5rem;
@@ -902,17 +889,25 @@ button:disabled {
   align-items: center;
   text-align: left;
   margin-top: 1rem;
+  background-color: #05090d;
 }
 
+#div3_panelHome button:hover {
+  background-color: #313439;
+}
+
+#div3_panelHome button:active {
+  background-color: #818489;
+}
 
 #div3_panelHome button i {
   font-size: 3.5rem;
-  color: var(--fontColor3);
+  color: #d1d6dd;
 }
 
 #div3_panelHome button span {
   padding-left: .5rem;
-  color: var(--fontColor2);
+  color: #d1d6dd;
   flex: 1;
 }
 

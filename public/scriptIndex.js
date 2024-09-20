@@ -30,7 +30,7 @@ var isMobile = getMobile();
 
 if (isMobile) {
   document.getElementById('body').style.setProperty('height', `${window.innerHeight}px`);
-
+  document.documentElement.style.setProperty('--bodyHeight', `${window.innerHeight}px`);
   checkOrientation();
 }
 else {
@@ -58,6 +58,7 @@ else {
 
 function checkOrientation() {
   document.getElementById('body').style.setProperty('height', `${window.innerHeight}px`);
+  document.documentElement.style.setProperty('--bodyHeight', `${window.innerHeight}px`);
 }
 
 window.addEventListener('orientationchange', checkOrientation);
@@ -144,22 +145,10 @@ buttonMenuRight.addEventListener('click', () => {
 // Configurar demais elementos que irão compor a página:
 //---------------------------------------------------------
 
-const buttonHome = document.getElementById('buttonHome');
-const btOpenL1 = document.getElementById('btOpenL1');
-const btOpenL2 = document.getElementById('btOpenL2');
-const btOpenL3 = document.getElementById('btOpenL3');
-
-
 const panelHome = document.getElementById('panelHome');
 const panelL1 = document.getElementById('panelL1');
 const panelL2 = document.getElementById('panelL2');
 const panelL3 = document.getElementById('panelL3');
-
-
-const btColseL1 = document.getElementById('btColseL1');
-const btColseL2 = document.getElementById('btColseL2');
-const btColseL3 = document.getElementById('btColseL3');
-
 
 /*função responsável por ativar painel relacionado ao botão clicado*/
 function openPenel(panel) {
@@ -180,18 +169,6 @@ function closePanel(panel) {
   panelHome.style.setProperty('display', 'flex');
 }
 
-
-buttonHome.addEventListener('click', () => { window.location.reload(); });
-
-btOpenL1.addEventListener('click', () => { openPenel(panelL1); });
-btOpenL2.addEventListener('click', () => { openPenel(panelL2); });
-btOpenL3.addEventListener('click', () => { openPenel(panelL3); });
-
-btColseL1.addEventListener('click', () => { closePanel(panelL1) });
-btColseL2.addEventListener('click', () => { closePanel(panelL2) });
-btColseL3.addEventListener('click', () => { closePanel(panelL3) });
-
-
 //iniciar com painel home aberto:
 openPenel(panelHome);
 
@@ -206,9 +183,30 @@ const activePage = () => {
   scriptTheme.getTheme();
 }
 
+/*|- EventsListeners */
+const buttonHome = document.getElementById('buttonHome');
+buttonHome.addEventListener('click', () => { window.location.reload(); });
+
+const btOpenL1 = document.getElementById('btOpenL1');
+btOpenL1.addEventListener('click', () => { openPenel(panelL1); });
+
+const btOpenL2 = document.getElementById('btOpenL2');
+btOpenL2.addEventListener('click', () => { openPenel(panelL2); });
+
+const btOpenL3 = document.getElementById('btOpenL3');
+btOpenL3.addEventListener('click', () => { openPenel(panelL3); });
+
+
+const btColseL1 = document.getElementById('btColseL1');
+btColseL1.addEventListener('click', () => { closePanel(panelL1) });
+
+const btColseL2 = document.getElementById('btColseL2');
+btColseL2.addEventListener('click', () => { closePanel(panelL2) });
+
+const btColseL3 = document.getElementById('btColseL3');
+btColseL3.addEventListener('click', () => { closePanel(panelL3) });
 
 const btClipboard = document.getElementsByClassName('btClipboard');
-
 Array.from(btClipboard).forEach(element => {
   element.addEventListener('click', () => {
     var clipBoard = new Clipboard(`${element.value}`);
@@ -217,7 +215,7 @@ Array.from(btClipboard).forEach(element => {
 
 const btServicos = document.getElementsByClassName('btServicos');
 Array.from(btServicos).forEach(element => {
-  element.addEventListener('click', () => { openPenel(panelL1); });
+  element.addEventListener('click', () => { openPenel(panelL3); });
 });
 
-window.onload = activePage;
+window.onload = activePage; 

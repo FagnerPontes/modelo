@@ -53,6 +53,8 @@ export function setTheme() {
   document.documentElement.style.setProperty('--fontColor4', fontColor4);
   document.documentElement.style.setProperty('--aColor', aColor);
   document.documentElement.style.setProperty('--backgroundImage', backgroundImage);
+  document.documentElement.style.setProperty('--backgroundImage2', backgroundImage2);
+  document.documentElement.style.setProperty('--backgroundImage3', backgroundImage3);
 }
 
 export function getTheme() {
