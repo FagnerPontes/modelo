@@ -51,6 +51,7 @@ export function setTheme() {
   document.documentElement.style.setProperty('--fontColor2', fontColor2);
   document.documentElement.style.setProperty('--fontColor3', fontColor3);
   document.documentElement.style.setProperty('--fontColor4', fontColor4);
+  document.documentElement.style.setProperty('--fontColor5', fontColor5);
   document.documentElement.style.setProperty('--aColor', aColor);
   document.documentElement.style.setProperty('--backgroundImage', backgroundImage);
   document.documentElement.style.setProperty('--backgroundImage2', backgroundImage2);

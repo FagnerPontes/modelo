@@ -18,6 +18,7 @@
   --fontColor2: none;
   --fontColor3: none;
   --fontColor4: none;
+  --fontColor5: none;
   --aColor: none;
   --backgroundImage: none;
   --backgroundImage2: none;
@@ -31,6 +32,7 @@
   --menuButtonHeight: 4rem;
   --iconSize: 3.5rem;
   --bodyHeight: none;
+  --mobileHeight: none;
   /*propriedade para animação dos menus*/
   --menuWidth: 18rem;
 }
@@ -69,20 +71,24 @@ button {
   color: var(--fontColor1);
 }
 
-button:hover {
-  border: 1px solid var(--fontColor4);
-  background-color: var(--backColor1s);
+button i {
   color: var(--fontColor1);
 }
 
+button:hover {
+  border: 1px solid var(--fontColor2);
+  background-color: var(--backColor1s);
+  color: var(--fontColor2);
+}
+
 button:active {
-  border: 1px solid var(--fontColor4);
+  border: 1px solid var(--fontColor3);
   background-color: var(--buttonColor3);
   color: var(--fontColor3);
 }
 
 button:disabled {
-  border: 1px solid var(--fontColor4);
+  border: 1px solid var(--fontColor3);
   background-color: var(--buttonColor3);
   color: var(--fontColor3);
 }
@@ -141,8 +147,8 @@ button:disabled {
 
 #myHeader button:hover {
   background-color: var(--backColor1s);
-  border: 1px solid var(--fontColor4);
-  color: var(--fontColor1);
+  border: 1px solid var(--fontColor2);
+  color: var(--fontColor2);
 }
 
 #myHeader button:active {
@@ -171,6 +177,7 @@ button:disabled {
   width: 3rem;
   height: rem;
   line-height: 2.5rem;
+  color: var(--fontColor1);
 }
 
 #myHeader>.buttonHeader span {
@@ -196,8 +203,8 @@ button:disabled {
 /* |-myDivContainer */
 #myDivContainer {
   flex: 1;
-  border-top: 1px solid var(--fontColor4);
-  border-bottom: 1px solid var(--fontColor4);
+  border-top: 1px solid var(--fontColor5);
+  border-bottom: 1px solid var(--fontColor5);
   overflow: auto;
   /* display: flex; será definido após o carregamento da página*/
   /*flex-direction: será definido no @media (Responsividade)*/
@@ -238,6 +245,7 @@ button:disabled {
   height: var(--iconSize);
   border-radius: 4px;
   font-size: 1.5rem;
+  color: var(--fontColor1);
 }
 
 /* |-MyDivCenter */
@@ -261,7 +269,7 @@ button:disabled {
   display: flex;
   flex-direction: row;
   padding-right: .5rem;
-  border-bottom: 1px solid var(--fontColor4);
+  border-bottom: 1px solid var(--fontColor5);
 }
 
 .divCenterContent .divChildTop h1 {
@@ -314,6 +322,7 @@ button:disabled {
   height: var(--iconSize);
   border-radius: 4px;
   font-size: 1.5rem;
+  color: var(--fontColor1);
 }
 
 #myDivRight .divClipboard {
@@ -330,12 +339,12 @@ button:disabled {
 
 #myDivRight .divClipboard:hover {
   background-color: var(--backColor3);
-  border: 1px solid var(--aColor);
+  border: 1px solid var(--fontColor1);
 }
 
 #myDivRight .divClipboard a {
   margin-left: .5rem;
-  color: var(--fontColor1);
+  color: var(--fontColor2);
   flex: 1;
 }
 
@@ -345,7 +354,7 @@ button:disabled {
 
 #myDivRight .divClipboard i {
   font-size: 1.5rem;
-  color: var(--fontColor3);
+  color: var(--fontColor1);
 }
 
 #myDivRight .divClipboard>button {
@@ -417,7 +426,7 @@ button:disabled {
   border-radius: 8px;
   padding-left: .5rem;
   background-color: var(--backColor4);
-  border: 1px solid var(--fontColor4);
+  border: 1px solid var(--fontColor1);
   color: var(--fontColor1)
 }
 
@@ -435,15 +444,14 @@ button:disabled {
 }
 
 #divFormParent form>button:hover {
-  border: 1px solid var(--fontColor4);
+  border: 1px solid var(--fontColor1);
   background-color: var(--buttonColor1);
-  color: var(--fontColor1);
 }
 
 #divFormParent form>button:active {
-  border: 1px solid var(--fontColor4);
+  border: 1px solid var(--fontColor1);
   background-color: var(--buttonColor3);
-  color: var(--fontColor3);
+  color: var(--fontColor2);
 }
 
 #divFormParent form>#loginGoogleButton {
@@ -453,7 +461,6 @@ button:disabled {
 #divFormParent form p a {
   text-decoration: none;
   color: var(--aColor);
-
 }
 
 #divFormParent form p a:hover {
@@ -577,7 +584,7 @@ button:disabled {
 
   /* |- - - myDivLeft */
   #myDivLeft {
-    border-right: 1px solid var(--fontColor4);
+    border-right: 1px solid var(--fontColor5);
     padding-top: 1rem;
     padding-bottom: 1rem;
     background-color: var(--backColor2);
@@ -603,7 +610,7 @@ button:disabled {
 
   /* |- - - myDivRight */
   #myDivRight {
-    border-right: 1px solid var(--fontColor4);
+    border-left: 1px solid var(--fontColor5);
     padding-top: 1rem;
     padding-bottom: 1rem;
     background-color: var(--backColor2);
@@ -769,6 +776,7 @@ button:disabled {
 
 #div1_panelHome div button i {
   width: 3rem;
+  color: var(--fontColor1);
 }
 
 #p1_div1_panelHome {
@@ -776,8 +784,8 @@ button:disabled {
   text-align: center;
   width: calc(100% - 2rem);
   color: black;
-  font-size: 1.2rem;
-  line-height: 1.2rem;
+  font-size: 1.25rem;
+  line-height: 1.25rem;
   font-weight: bold;
   text-shadow: 2px 2px 5px rgba(255, 255, 255, 1);
 }
@@ -793,7 +801,7 @@ button:disabled {
   align-items: center;
   width: calc(100% - 2rem);
   color: black;
-  font-size: 1rem;
+  font-size: 1.25rem;
   line-height: 1.5rem;
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(255, 255, 255, 1);
@@ -841,9 +849,8 @@ button:disabled {
   height: 6rem;
   width: 6rem;
   font-size: 5rem;
-  border: 2px solid var(--fontColor2);
   border-radius: 8px;
-  color: var(--aColor);
+  color: var(--fontColor1);
 }
 
 #div2_panelHome .pInfo a {
@@ -864,7 +871,6 @@ button:disabled {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-
   /* min-height -> editado no @media */
 }
 
@@ -874,7 +880,7 @@ button:disabled {
   font-size: 1.7rem;
   max-width: 36rem;
   text-align: center;
-  color: #d1d6dd;
+  color: #6edff6;
 }
 
 #div3_panelHome>button {
@@ -910,8 +916,6 @@ button:disabled {
   color: #d1d6dd;
   flex: 1;
 }
-
-
 
 #panel5 {
   flex-direction: column;
@@ -971,7 +975,7 @@ button:disabled {
   height: 2rem;
   font-size: 1rem;
   border-radius: 8px;
-  border: 2px solid var(--fontColor4);
+  border: 2px solid var(--fontColor1);
 }
 
 #buttonUser img {
@@ -987,7 +991,7 @@ button:disabled {
   width: 100%;
   display: flex;
   flex-direction: column;
-  border-top: 1px solid var(--fontColor4);
+  border-top: 1px solid var(--fontColor1);
 }
 
 .perfil #themeUserForm input {
