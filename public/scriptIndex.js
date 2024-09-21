@@ -14,7 +14,6 @@ const myFooter = document.getElementById('myFooter');
 const divLoading = document.getElementById('divLoading');
 
 
-
 // |- - isMobile
 const getMobile = () => {
   if (navigator.userAgentData && navigator.userAgentData.mobile) {
@@ -31,6 +30,26 @@ var isMobile = getMobile();
 if (isMobile) {
   document.getElementById('body').style.setProperty('height', `${window.innerHeight}px`);
   document.documentElement.style.setProperty('--mobileHeight', `${window.innerHeight}px`);
+
+  let startY = 0;
+  window.addEventListener('touchstart', (e) => {
+    // Armazena a posição inicial do toque
+    startY = e.touches[0].pageY;
+  });
+  window.addEventListener('touchmove', (e) => {
+    const currentY = e.touches[0].pageY;
+    const distance = currentY - startY;
+    if (distance < -15) {
+      myHeader.style.setProperty('height', '0');
+      distance = 0;
+    }
+    // Ocultar header
+    else if (distance > 15) {
+      myHeader.style.setProperty('height', 'var(--headerHeigth)');
+      distance = 0;
+    }
+    checkOrientation();
+  });
   checkOrientation();
 }
 else {
