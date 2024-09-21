@@ -3,8 +3,8 @@ import * as scriptTheme from './scriptTheme.js';
 
 // |- Manipulação do layout
 //elementos maniplados:
-const buttonMenuLeft = document.getElementById('buttonMenuLeft');
-const buttonMenuRight = document.getElementById('buttonMenuRight');
+const btMenuLeft = document.getElementById('btMenuLeft');
+const btMenuRight = document.getElementById('btMenuRight');
 const myDivLeft = document.getElementById('myDivLeft');
 const myDivRight = document.getElementById('myDivRight');
 const myBody = document.getElementById('body');
@@ -93,7 +93,6 @@ onresize = (event) => {
   }
 };
 
-
 //função para o encerramento da animação (abertura/fechamento) dos menus:
 // |- - Menus: AnimationEnd()
 function AnimationEnd(myDivMenu, myButton) {
@@ -125,26 +124,26 @@ function SliceMenu(myDivMenu1, myDivMenu2) {
 
 // |- - Eventos de animação
 myDivLeft.addEventListener('animationstart', () => {
-  buttonMenuLeft.disabled = true; //desativar botão do menu
+  btMenuLeft.disabled = true; //desativar botão do menu
 });
 
 myDivLeft.addEventListener('animationend', () => {
-  AnimationEnd(myDivLeft, buttonMenuLeft); //executar AnimationEnd()
+  AnimationEnd(myDivLeft, btMenuLeft); //executar AnimationEnd()
 });
 
 myDivRight.addEventListener('animationstart', () => {
-  buttonMenuRight.disabled = true; //desativar botão do menu
+  btMenuRight.disabled = true; //desativar botão do menu
 });
 
 myDivRight.addEventListener('animationend', () => {
-  AnimationEnd(myDivRight, buttonMenuRight); //executar AnimationEnd()
+  AnimationEnd(myDivRight, btMenuRight); //executar AnimationEnd()
 });
 
-buttonMenuLeft.addEventListener('click', () => {
+btMenuLeft.addEventListener('click', () => {
   SliceMenu(myDivLeft, myDivRight);
 })
 
-buttonMenuRight.addEventListener('click', () => {
+btMenuRight.addEventListener('click', () => {
   SliceMenu(myDivRight, myDivLeft);
 })
 
@@ -152,14 +151,14 @@ buttonMenuRight.addEventListener('click', () => {
 // Configurar demais elementos que irão compor a página:
 //---------------------------------------------------------
 
-const panelHome = document.getElementById('panelHome');
+const dHome = document.getElementById('dHome');
 const panelL1 = document.getElementById('panelL1');
 const panelL2 = document.getElementById('panelL2');
 const panelL3 = document.getElementById('panelL3');
 
 /*função responsável por ativar painel relacionado ao botão clicado*/
 function openPenel(panel) {
-  panelHome.style.setProperty('display', 'none');
+  dHome.style.setProperty('display', 'none');
   panelL1.style.setProperty('display', 'none');
   panelL2.style.setProperty('display', 'none');
   panelL3.style.setProperty('display', 'none');
@@ -173,11 +172,11 @@ function openPenel(panel) {
 
 function closePanel(panel) {
   panel.style.setProperty('display', 'none');
-  panelHome.style.setProperty('display', 'flex');
+  dHome.style.setProperty('display', 'flex');
 }
 
 //iniciar com painel home aberto:
-openPenel(panelHome);
+openPenel(dHome);
 
 const activePage = () => {
   myBody.classList.remove('loading');
@@ -191,8 +190,8 @@ const activePage = () => {
 }
 
 /*|- EventsListeners */
-const buttonHome = document.getElementById('buttonHome');
-buttonHome.addEventListener('click', () => { window.location.reload(); });
+// const buttonHome = document.getElementById('buttonHome');
+// buttonHome.addEventListener('click', () => { window.location.reload(); });
 
 const btOpenL1 = document.getElementById('btOpenL1');
 btOpenL1.addEventListener('click', () => { openPenel(panelL1); });
@@ -220,8 +219,8 @@ Array.from(btClipboard).forEach(element => {
   })
 });
 
-const btServicos = document.getElementsByClassName('btServicos');
-Array.from(btServicos).forEach(element => {
+const bt_Container = document.getElementsByClassName('bt_Container');
+Array.from(bt_Container).forEach(element => {
   element.addEventListener('click', () => { openPenel(panelL3); });
 });
 

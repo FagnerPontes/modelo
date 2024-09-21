@@ -65,32 +65,43 @@ html {
   padding-bottom: env(safe-area-inset-bottom);
 }
 
-button {
-  border: 1px solid var(--backColor2t);
-  background-color: var(--backColor2t);
-  color: var(--fontColor1);
-}
-
-button i {
-  color: var(--fontColor1);
-}
-
-button:hover {
-  border: 1px solid var(--fontColor2);
-  background-color: var(--backColor1s);
+.btMenu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: .25rem;
+  height: var(--menuButtonHeight);
+  cursor: pointer;
+  font-size: 1rem;
   color: var(--fontColor2);
+  border: 1px solid var(--backColor2t);
+  border-radius: 10px;
+  background-color: var(--backColor2t);
+  transition: background-color 0.3s;
 }
 
-button:active {
-  border: 1px solid var(--fontColor3);
-  background-color: var(--buttonColor3);
-  color: var(--fontColor3);
+.btMenu i {
+  color: var(--fontColor1);
+  font-size: 1.5rem;
+  margin-left: .5rem;
+  margin-right: .5rem;
 }
 
-button:disabled {
+.btMenu span {
+  display: flex;
+  flex: 1;
+  justify-content: left;
+  text-align: left;
+}
+
+.btMenu:hover {
   border: 1px solid var(--fontColor3);
-  background-color: var(--buttonColor3);
-  color: var(--fontColor3);
+  background-color: var(--backColor3);
+}
+
+.btMenu:active {
+  border: 1px solid var(--fontColor4);
+  background-color: var(--backColor4);
 }
 
 /* |-myHeader */
@@ -103,89 +114,69 @@ button:disabled {
   padding-right: .5rem;
 }
 
-#myHeader p {
-  margin-left: 1rem;
-  font-size: 1rem;
-  display: flex;
-  flex: 1;
-  align-items: flex-end;
-  height: 2rem;
-  color: var(--fontColor1);
-}
-
-#myHeader>#buttonHome {
+#myHeader #aHome {
   width: 7.5rem;
   height: 4rem;
+  line-height: 4rem;
   border: 2px solid var(--backColor1t);
   background-color: var(--backColor1t);
   font-size: 2rem;
   color: var(--fontColor1);
-  border-radius: 10px;
   cursor: pointer;
-  margin: .1rem;
-  line-height: 4rem;
-  transition: background-color 0.3s;
+  margin: .5rem;
 }
 
-#myHeader>#buttonHome:hover {
-  color: var(--fontColor1);
+#myHeader #aHome:hover {
+  color: var(--fontColor4);
+}
+
+#myHeader p {
+  flex: 1;
 }
 
 #myHeader button {
   width: 4rem;
   height: 4rem;
-  font-size: 2rem;
-  border-radius: 10px;
+  line-height: 4rem;
   cursor: pointer;
   margin: .1rem;
-  line-height: 4rem;
-  transition: background-color 0.3s;
-  border: 1px solid var(--backColor1t);
-  background-color: var(--backColor1t);
+  font-size: 2rem;
   color: var(--fontColor1);
+  border: 1px solid var(--backColor1t);
+  border-radius: 10px;
+  background-color: var(--backColor1t);
+  transition: background-color 0.3s;
 }
 
 #myHeader button:hover {
-  background-color: var(--backColor1s);
-  border: 1px solid var(--fontColor2);
-  color: var(--fontColor2);
+  border: 1px solid var(--fontColor3);
+  background-color: var(--backColor3);
 }
 
 #myHeader button:active {
-  background-color: var(--buttonColor3);
-  color: var(--fontColor3);
+  background-color: var(--backColor4);
 }
 
 #myHeader button:disabled {
-  background-color: var(--buttonColor3);
-  color: var(--fontColor3);
+  background-color: var(--backColor4);
+  color: var(--fontColor4);
 }
 
-#myHeader>#buttonUser {
-  border-radius: 50%;
-}
-
-/* |- Botões Entrar e Inscrever */
-#myHeader>.buttonHeader {
+/* |- Botões Texto abaixo do ícone */
+.btColumn {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-#myHeader>.buttonHeader i {
-  font-size: 2rem;
-  width: 3rem;
-  height: rem;
+.btColumn i {
   line-height: 2.5rem;
-  color: var(--fontColor1);
 }
 
-#myHeader>.buttonHeader span {
-  flex: 1;
-  height: 1rem;
+.btColumn span {
   font-size: .8rem;
-  line-height: 1rem;
-  text-align: right;
+  text-align: center;
+  line-height: 1.5rem;
 }
 
 /* |-myFooter */
@@ -222,31 +213,6 @@ button:disabled {
   /*width: -> largura será manipulada pelo scriptMenuAnimation.js*/
 }
 
-#myDivLeft button {
-  display: flex;
-  align-items: center;
-  margin-top: .25rem;
-  height: var(--menuButtonHeight);
-  border-radius: 8px;
-  font-size: 1rem;
-}
-
-#myDivLeft button span {
-  display: flex;
-  flex: 1;
-  justify-content: left;
-  text-align: left;
-  padding-left: .5rem;
-}
-
-#myDivLeft button i {
-  line-height: var(--iconSize);
-  width: var(--iconSize);
-  height: var(--iconSize);
-  border-radius: 4px;
-  font-size: 1.5rem;
-  color: var(--fontColor1);
-}
 
 /* |-MyDivCenter */
 #myDivCenter {
@@ -300,72 +266,30 @@ button:disabled {
   /*width: -> largura será manipulada pelo scriptMenuAnimation.js*/
 }
 
-#myDivRight button {
-  display: flex;
-  align-items: center;
-  margin-top: .25rem;
-  height: var(--menuButtonHeight);
-  border-radius: 8px;
-}
-
-#myDivRight button span {
-  display: flex;
-  flex: 1;
-  justify-content: left;
-  text-align: left;
-  padding-left: .5rem;
-}
-
-#myDivRight button i {
-  line-height: var(--iconSize);
-  width: var(--iconSize);
-  height: var(--iconSize);
-  border-radius: 4px;
-  font-size: 1.5rem;
-  color: var(--fontColor1);
-}
-
-#myDivRight .divClipboard {
-  display: flex;
-  flex-direction: row;
-  margin-top: .25rem;
-  align-items: center;
-  line-height: 4rem;
-  border-radius: 8px;
-  padding-left: .5rem;
-  border: 1px solid var(--backColor2t);
-  cursor: pointer;
-}
-
-#myDivRight .divClipboard:hover {
-  background-color: var(--backColor3);
-  border: 1px solid var(--fontColor1);
-}
-
-#myDivRight .divClipboard a {
-  margin-left: .5rem;
+#myDivRight .btMenu a {
   color: var(--fontColor2);
   flex: 1;
 }
 
-#myDivRight .divClipboard:hover a {
+#myDivRight .btMenu a:hover {
   text-decoration: underline;
 }
 
-#myDivRight .divClipboard i {
-  font-size: 1.5rem;
-  color: var(--fontColor1);
-}
-
-#myDivRight .divClipboard>button {
+#myDivRight .btMenu .btClipboard {
   margin-right: .5rem;
   width: 2rem;
   height: 2.5rem;
+  background-color: var(--backColor2t);
 }
 
-#myDivRight .divClipboard>button i {
-  color: var(--fontColor1);
+#myDivRight .btMenu .btClipboard i {
+  color: var(--fontColor4);
   font-size: 1.25rem;
+  cursor: pointer;
+}
+
+#myDivRight .btMenu .btClipboard i:hover {
+  color: var(--fontColor1);
 }
 
 
@@ -546,7 +470,7 @@ button:disabled {
     width: calc(100vw - 2rem);
   }
 
-  #myDivRight .divClipboard {
+  #myDivRight .btMenu {
     width: calc(100vw - 2rem);
   }
 
@@ -560,15 +484,15 @@ button:disabled {
     line-height: 3rem;
   }
 
-  #div1_panelHome {
+  #d1_dHome {
     min-height: calc(var(--mobileHeight) - var(--headerHeigth) - var(--footerHeigth));
   }
 
-  #div2_panelHome {
+  #d2_dHome {
     min-height: calc(var(--mobileHeight) - var(--headerHeigth) - var(--footerHeigth));
   }
 
-  #div3_panelHome {
+  #d3_dHome {
     min-height: calc(var(--mobileHeight) - var(--headerHeigth) - var(--footerHeigth));
   }
 
@@ -620,7 +544,7 @@ button:disabled {
     width: calc(var(--menuWidth) - 2rem);
   }
 
-  #myDivRight .divClipboard {
+  #myDivRight .btMenu {
     width: calc(var(--menuWidth) - 2rem);
   }
 
@@ -635,15 +559,15 @@ button:disabled {
     line-height: 2rem;
   }
 
-  #div1_panelHome {
+  #d1_dHome {
     min-height: calc(var(--mobileHeight) - var(--headerHeigth) - var(--footerHeigth) - 1rem);
   }
 
-  #div2_panelHome {
+  #d2_dHome {
     min-height: calc(var(--mobileHeight) - var(--headerHeigth) - var(--footerHeigth) - 1rem);
   }
 
-  #div3_panelHome {
+  #d3_dHome {
     min-height: calc(var(--mobileHeight) - var(--headerHeigth) - var(--footerHeigth) - 1rem);
   }
 
@@ -709,17 +633,17 @@ button:disabled {
 
 /* |- Painel: config */
 /* variação de .divCenterContent */
-#panelHome {
+#dHome {
   flex-direction: column;
 }
 
-#panelHome .divChildCenter {
+#dHome .divChildCenter {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-#div1_panelHome {
+#d1_dHome {
   display: flex;
   background-image: var(--backgroundImage2);
   background-position: center;
@@ -728,7 +652,7 @@ button:disabled {
   /* min-height -> editado no @media */
 }
 
-#div1_panelHome div {
+#d1_dHome div {
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -741,7 +665,7 @@ button:disabled {
 
 }
 
-#div1_panelHome div p {
+#d1_dHome div p {
   margin-top: 2rem;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -752,34 +676,34 @@ button:disabled {
   text-shadow: 2px 2px 5px rgba(255, 255, 255, 1);
 }
 
-#div1_panelHome div button {
+#btSignUp {
   display: flex;
   flex-direction: row;
   margin-top: 2rem;
   height: 3rem;
-  width: auto;
-  padding-right: 1rem;
-  border-radius: 8px;
+  padding-right: .5rem;
+  border-radius: 10px;
   font-size: 1.5rem;
   align-items: center;
   color: var(--fontColor1);
   background-color: var(--backColor2);
+  transition: background-color .3s ease;
 }
 
-#div1_panelHome div button:hover {
-  background-color: var(--backColor1);
+#btSignUp i {
+  margin-left: .5rem;
+  margin-right: .5rem;
 }
 
-#div1_panelHome div button:active {
+#btSignUp:hover {
   background-color: var(--backColor3);
 }
 
-#div1_panelHome div button i {
-  width: 3rem;
-  color: var(--fontColor1);
+#btSignUp:active {
+  background-color: var(--backColor4);
 }
 
-#p1_div1_panelHome {
+#p1_d1_dHome {
   margin-top: 1rem;
   text-align: center;
   width: calc(100% - 2rem);
@@ -790,7 +714,8 @@ button:disabled {
   text-shadow: 2px 2px 5px rgba(255, 255, 255, 1);
 }
 
-#p2_div1_panelHome {
+#p2_d1_dHome {
+  padding-left: .5rem;
   margin-top: auto;
   margin-bottom: 1rem;
   display: flex;
@@ -803,18 +728,16 @@ button:disabled {
   color: black;
   font-size: 1.25rem;
   line-height: 1.5rem;
-  font-weight: bold;
+  font-weight: 600;
   text-shadow: 2px 2px 4px rgba(255, 255, 255, 1);
   height: 5rem;
-  /* Sombra no texto para melhor visibilidade */
 }
 
-#p2_div1_panelHome span {
+#p2_d1_dHome span {
   padding-left: .5rem;
-  /* Sombra no texto para melhor visibilidade */
 }
 
-#p2_div1_panelHome i {
+#p2_d1_dHome i {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -824,12 +747,12 @@ button:disabled {
   color: #cccc00;
 }
 
-#div2_panelHome {
+#d2_dHome {
   flex-grow: 1;
   /* min-height -> editado no @media */
 }
 
-#div2_panelHome .pInfo {
+#d2_dHome .pInfo {
   flex-grow: 1;
   display: flex;
   flex-direction: row;
@@ -839,33 +762,31 @@ button:disabled {
   max-width: 36rem;
   min-width: 18rem;
   background-color: var(--backColor1t);
-  border-radius: 8px;
 }
 
-#div2_panelHome .pInfo i {
+#d2_dHome .pInfo i {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 6rem;
   width: 6rem;
   font-size: 5rem;
-  border-radius: 8px;
   color: var(--fontColor1);
 }
 
-#div2_panelHome .pInfo a {
+#d2_dHome .pInfo a {
   color: var(--fontColor2);
   font-weight: 600;
   padding-left: 1rem;
   flex: 1;
 }
 
-#div2_panelHome .pInfo a:hover {
+#d2_dHome .pInfo a:hover {
   text-decoration: underline;
   cursor: pointer;
 }
 
-#div3_panelHome {
+#d3_dHome {
   display: flex;
   background-image: var(--backgroundImage3);
   background-position: center;
@@ -874,7 +795,7 @@ button:disabled {
   /* min-height -> editado no @media */
 }
 
-#div3_panelHome p {
+#d3_dHome p {
   margin-top: 2rem;
   line-height: 2rem;
   font-size: 1.7rem;
@@ -883,35 +804,35 @@ button:disabled {
   color: #6edff6;
 }
 
-#div3_panelHome>button {
-  padding-left: .5rem;
+.bt_Container {
+  padding-left: 1rem;
   display: flex;
   height: 5rem;
   flex-direction: row;
-  list-style: none;
   width: 20rem;
-  font-size: 1.7rem;
-  border-radius: 2rem;
+  font-size: 1.5rem;
+  border-radius: 2.5rem;
   align-items: center;
   text-align: left;
   margin-top: 1rem;
   background-color: #05090d;
+  transition: background-color .3s ease;
 }
 
-#div3_panelHome button:hover {
+.bt_Container:hover {
   background-color: #313439;
 }
 
-#div3_panelHome button:active {
+.bt_Container:active {
   background-color: #818489;
 }
 
-#div3_panelHome button i {
+.bt_Container i {
   font-size: 3.5rem;
   color: #d1d6dd;
 }
 
-#div3_panelHome button span {
+.bt_Container span {
   padding-left: .5rem;
   color: #d1d6dd;
   flex: 1;

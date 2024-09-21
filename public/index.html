@@ -63,18 +63,18 @@
   -->
   <header id="myHeader" style='display: none'> <!-- cabeçalho -->
     <!-- botão para retrair ou expandir o menu esquerdo-->
-    <button id="buttonMenuLeft" class='button' type="button" title="Menu left">
+    <button id="btMenuLeft" class='button' type="button" title="Menu">
       <i class="bi bi-layout-sidebar-inset"></i> <!-- ícone importado do bootstrap -->
     </button>
-    <button id="buttonHome" type="button" title="bHome">Forbys.</button>
+    <a id="aHome" href="index.html">Forbys.</a>
     <p id='pHeader'></p>
     <!-- Botão para entrar no perfil -->
-    <button id="buttonLogin" class='buttonHeader' type='button' title='Entrar' onclick="location.href='login.html';">
+    <button id="btLogin" class='btColumn' type='button' title='Entrar' onclick="location.href='login.html';">
       <i class="bi bi-person-up"></i><!-- ícone importado do bootstrap -->
       <span>Entrar</span>
     </button>
     <!-- botão para retrair ou expandir o menu direito-->
-    <button id="buttonMenuRight" type="button" title="Menu right">
+    <button id="btMenuRight" type="button" title="Menu">
       <i class="bi bi-chat-right-heart"></i>
     </button>
   </header>
@@ -83,9 +83,9 @@
     myDivLeft
     -->
     <div id="myDivLeft" class="divMenu"> <!-- menu esquerdo -->
-      <button id="btOpenL1"><i class="bi bi-paperclip"></i><span>Nossos serviços</span></button>
-      <button id="btOpenL2"><i class="bi bi-bag-check"></i><span>Nossos planos</span></button>
-      <button id="btOpenL3"><i class="bi bi-person-hearts"></i><span>Nossos parceiros</span></button>
+      <button id="btOpenL1" class="btMenu"><i class="bi bi-paperclip"></i><span>Nossos serviços</span></button>
+      <button id="btOpenL2" class="btMenu"><i class="bi bi-bag-check"></i><span>Nossos planos</span></button>
+      <button id="btOpenL3" class="btMenu"><i class="bi bi-person-hearts"></i><span>Nossos parceiros</span></button>
     </div>
     <!--
     myDivCenter
@@ -94,30 +94,29 @@
       <!--
       panelHome
       -->
-      <div id="panelHome" class="divCenterContent">
+      <div id="dHome" class="divCenterContent">
         <!-- <div class="divChildTop">
           <h1>Forbys <span>forever by your side.</span></h1>
         </div> -->
-        <div id='div1_panelHome' class="divChildCenter">
+        <div id='d1_dHome' class="divChildCenter">
           <!-- <img src="/Imagens/mulher.jpg" /> -->
-          <p id="p1_div1_panelHome">Imagine poder transmitir a memória dos seus antepassados aos filhos, netos,
+          <p id="p1_d1_dHome">Imagine poder transmitir a memória dos seus antepassados aos filhos, netos,
             bisnetos... </p>
-          <div id='div1_div1_panelHome'>
+          <div>
             <p>Eternize seus momentos mais importantes!</p>
             <p>Ainda não tem um conta?</p>
-            <button id="buttonCreateProfile" type='button' title='Create Profile'
-              onclick="location.href='registro.html';">
+            <button id="btSignUp" type='button' title='Create Profile' onclick="location.href='registro.html';">
               <i class="bi bi-person-plus"></i><!-- ícone importado do bootstrap -->
               <span>Inscreva-se</span>
             </button>
           </div>
-          <p id="p2_div1_panelHome">
+          <p id="p2_d1_dHome">
             <i class="bi bi-lightbulb"></i>
             <span> Nossa plataforma oferece um espaço onde as memórias podem ser preservadas, através de fotos, vídeos e
               depoimentos. </span>
           </p>
         </div>
-        <div id='div2_panelHome' class="divChildCenter">
+        <div id='d2_dHome' class="divChildCenter">
           <p class="pInfo">
             <i class="bi bi-person-vcard"></i>
             <a href="login.html">Crie uma página de memória e mantenha viva uma história!</a>
@@ -135,22 +134,22 @@
             <a href="login.html">Registre mensagens, depoimentos e histórias no memorial!</a>
           </p>
         </div>
-        <div id='div3_panelHome' class="divChildCenter">
-          <p id="pHomeChild_3_1"> Consiga todo apoio necessário nos momentos de maior necessidade com nossos parceiros!
+        <div id='d3_dHome' class="divChildCenter">
+          <p> Consiga todo apoio necessário nos momentos de maior necessidade com nossos parceiros!
           </p>
-          <button class="btServicos">
+          <button class="bt_Container">
             <i class="bi bi-wechat"></i>
             <span>Apoio psicológico</span>
           </button>
-          <button class="btServicos">
+          <button class="bt_Container">
             <i class="bi bi-umbrella"></i>
             <span>Assistência funeral</span>
           </button>
-          <button class="btServicos">
+          <button class="bt_Container">
             <i class="bi bi-journal-plus"></i>
             <span>Planos funerários</span>
           </button>
-          <button class="btServicos">
+          <button class="bt_Container">
             <i class="bi bi-shield-plus"></i>
             <span>Seguro de vida</span>
           </button>
@@ -179,50 +178,50 @@
     myDivRight
     -->
     <div id="myDivRight" class="divMenu"><!-- menu direito -->
-      <div class='divClipboard'>
+      <div class='btMenu'>
         <i class="bi bi-facebook"></i>
         <!--target="_blank": abrir em uma nova guia-->
-        <a href='https://www.facebook.com/login/' target="_blank">/forbysoficial</a>
+        <a href=' https://www.facebook.com/login/' target="_blank">/forbysoficial</a>
         <button class='btClipboard' title='copiar' value='/forbysoficial'>
           <i class="bi bi-files"></i>
         </button>
       </div>
-      <div class='divClipboard'>
+      <div class='btMenu'>
         <i class="bi bi-instagram"></i>
-        <a href='https://www.instagram.com/accounts/login/' target='_blank'>@forbysoficial</a>
+        <a href=' https://www.instagram.com/accounts/login/' target='_blank'>@forbysoficial</a>
         <button class='btClipboard' title='copiar' value='@forbysoficial'>
           <i class="bi bi-files"></i>
         </button>
       </div>
-      <div class='divClipboard'>
+      <div class='btMenu'>
         <i class="bi bi-youtube"></i>
-        <a href='https://www.youtube.com/' target='_blank'>Forbys oficial</a>
+        <a href=' https://www.youtube.com/' target='_blank'>Forbys oficial</a>
         <button class='btClipboard' title='copiar' value='Forbys oficial'>
           <i class="bi bi-files"></i>
         </button>
       </div>
-      <div class='divClipboard'>
+      <div class='btMenu'>
         <i class="bi bi-linkedin"></i>
-        <a href='https://www.linkedin.com/company/login/' target='_blank'>Forbys oficial</a>
+        <a href=' https://www.linkedin.com/company/login/' target='_blank'>Forbys oficial</a>
         <button class='btClipboard' title='copiar' value='Forbys oficial'>
           <i class="bi bi-files"></i>
         </button>
       </div>
-      <div class='divClipboard'>
+      <div class='btMenu'>
         <i class="bi bi-whatsapp"></i>
         <a href='https://web.whatsapp.com/' target='_blank'>+55 (81) 99999-9999</a>
         <button class='btClipboard' title='copiar' value='+55 (81) 99999-9999'>
           <i class="bi bi-files"></i>
         </button>
       </div>
-      <div class='divClipboard'>
+      <div class='btMenu'>
         <i class="bi bi-telegram"></i>
         <a href='https://web.telegram.org/' target='_blank'>+55 (81) 99999-9999</a>
         <button class='btClipboard' title='copiar' value='+55 (81) 99999-9999'>
           <i class="bi bi-files"></i>
         </button>
       </div>
-      <div class='divClipboard'>
+      <div class='btMenu'>
         <i class="bi bi-envelope"></i>
         <a href='https://mail.google.com/' target='_blank'>forbys@gmail.com</a>
         <button class='btClipboard' title='copiar' value='forbys@gmail.com'>
