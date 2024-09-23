@@ -28,7 +28,7 @@
   /*propriedades NÃO editadas no scriptTheme*/
   --fontSizeRoot1: 14px;
   --headerHeigth: 6rem;
-  --footerHeigth: 2rem;
+  --footerHeight: 2rem;
   --menuButtonHeight: 4rem;
   --iconSize: 3.5rem;
   --bodyHeight: none;
@@ -182,8 +182,8 @@ html {
 
 /* |-myFooter */
 #myFooter {
-  /* height: calc(var(--footerHeigth) + env(safe-area-inset-bottom)); */
-  height: var(--footerHeigth);
+  /* height: calc(var(--footerHeight) + env(safe-area-inset-bottom)); */
+  height: var(--footerHeight);
   background-color: var(--backColor1);
   /* display: flex; será definido após o carregamento da página*/
   justify-content: center;
@@ -225,7 +225,6 @@ html {
 
 #myDivCenter .divCenterContent {
   flex: 1;
-  overflow: auto;
   display: flex;
 }
 
@@ -486,7 +485,7 @@ html {
   }
 
   .divChildCenter {
-    min-height: calc(var(--mobileHeight) - var(--headerHeigth) - var(--footerHeigth));
+    min-height: calc(var(--mobileHeight) - var(--footerHeight));
   }
 
 }
@@ -553,7 +552,7 @@ html {
   }
 
   .divChildCenter {
-    min-height: calc(var(--mobileHeight) - var(--headerHeigth) - var(--footerHeigth) - 1rem);
+    min-height: calc(var(--mobileHeight) - var(--headerHeigth) - var(--footerHeight) - 1rem);
   }
 }
 

@@ -3,15 +3,18 @@ import * as scriptTheme from './scriptTheme.js';
 
 // |- Manipulação do layout
 //elementos maniplados:
-const btMenuLeft = document.getElementById('btMenuLeft');
-const btMenuRight = document.getElementById('btMenuRight');
-const myDivLeft = document.getElementById('myDivLeft');
-const myDivRight = document.getElementById('myDivRight');
+const divLoading = document.getElementById('divLoading');
 const myBody = document.getElementById('body');
 const myHeader = document.getElementById('myHeader');
+const btMenuLeft = document.getElementById('btMenuLeft');
+const btMenuRight = document.getElementById('btMenuRight');
 const myDivContainer = document.getElementById('myDivContainer');
+const myDivCenter = document.getElementById('myDivCenter');
+const myDivLeft = document.getElementById('myDivLeft');
+const myDivRight = document.getElementById('myDivRight');
 const myFooter = document.getElementById('myFooter');
-const divLoading = document.getElementById('divLoading');
+const divChildCenter = document.getElementsByClassName('divChildCenter');
+const divCenterContent = document.getElementsByClassName('divCenterContent');
 
 
 // |- - isMobile
@@ -30,25 +33,25 @@ var isMobile = getMobile();
 if (isMobile) {
   document.getElementById('body').style.setProperty('height', `${window.innerHeight}px`);
   document.documentElement.style.setProperty('--mobileHeight', `${window.innerHeight}px`);
-
   let startY = 0;
+  var currentY = 0;
+  var distance = 0;
   window.addEventListener('touchstart', (e) => {
     // Armazena a posição inicial do toque
     startY = e.touches[0].pageY;
   });
   window.addEventListener('touchmove', (e) => {
-    const currentY = e.touches[0].pageY;
-    const distance = currentY - startY;
-    if (distance < -15) {
+    currentY = e.touches[0].pageY;
+    distance = currentY - startY;
+    if (distance < -5) {
       myHeader.style.setProperty('height', '0');
-      distance = 0;
+      startY = currentY;
     }
     // Ocultar header
-    else if (distance > 15) {
+    else if (distance > 5) {
       myHeader.style.setProperty('height', 'var(--headerHeigth)');
-      distance = 0;
+      startY = currentY;
     }
-    checkOrientation();
   });
   checkOrientation();
 }
@@ -58,21 +61,45 @@ else {
 }
 
 
+
+
 // |- - Layout inicial
 if (window.innerWidth < 600) {
   myDivLeft.classList.add('close');
   myDivRight.classList.add('close');
   document.documentElement.style.setProperty('--menuWidth', '100vw');
+
+  //mover elementos:
+  myBody.appendChild(myDivLeft);
+  myBody.appendChild(myDivCenter);
+  myBody.appendChild(myDivRight);
+  myDivContainer.style.setProperty('display', 'none');
+  myDivCenter.style.setProperty('overflow', 'none');
+
 }
 else if (window.innerWidth < 800) {
   myDivLeft.classList.add('close');
   myDivRight.classList.add('open');
   document.documentElement.style.setProperty('--menuWidth', '18rem');
+
+  //mover elementos:
+  myDivContainer.appendChild(myDivLeft);
+  myDivContainer.appendChild(myDivCenter);
+  myDivContainer.appendChild(myDivRight);
+  myDivContainer.style.setProperty('display', 'flex');
+  myDivCenter.style.setProperty('overflow', 'auto');
 }
 else {
   myDivLeft.classList.add('open');
   myDivRight.classList.add('open');
   document.documentElement.style.setProperty('--menuWidth', '18rem');
+
+  //mover elementos:
+  myDivContainer.appendChild(myDivLeft);
+  myDivContainer.appendChild(myDivCenter);
+  myDivContainer.appendChild(myDivRight);
+  myDivContainer.style.setProperty('display', 'flex');
+  myDivCenter.style.setProperty('overflow', 'auto');
 }
 
 function checkOrientation() {
