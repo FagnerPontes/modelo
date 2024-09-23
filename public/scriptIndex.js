@@ -61,8 +61,6 @@ else {
 }
 
 
-
-
 // |- - Layout inicial
 if (window.innerWidth < 600) {
   myDivLeft.classList.add('close');
@@ -70,11 +68,11 @@ if (window.innerWidth < 600) {
   document.documentElement.style.setProperty('--menuWidth', '100vw');
 
   //mover elementos:
-  myBody.appendChild(myDivLeft);
-  myBody.appendChild(myDivCenter);
-  myBody.appendChild(myDivRight);
-  myDivContainer.style.setProperty('display', 'none');
-  myDivCenter.style.setProperty('overflow', 'none');
+  // myBody.appendChild(myDivLeft);
+  // myBody.appendChild(myDivCenter);
+  // myBody.appendChild(myDivRight);
+  // myDivContainer.style.setProperty('display', 'none');
+  // myDivCenter.style.setProperty('overflow', 'none');
 
 }
 else if (window.innerWidth < 800) {
@@ -83,11 +81,11 @@ else if (window.innerWidth < 800) {
   document.documentElement.style.setProperty('--menuWidth', '18rem');
 
   //mover elementos:
-  myDivContainer.appendChild(myDivLeft);
-  myDivContainer.appendChild(myDivCenter);
-  myDivContainer.appendChild(myDivRight);
-  myDivContainer.style.setProperty('display', 'flex');
-  myDivCenter.style.setProperty('overflow', 'auto');
+  // myDivContainer.appendChild(myDivLeft);
+  // myDivContainer.appendChild(myDivCenter);
+  // myDivContainer.appendChild(myDivRight);
+  // myDivContainer.style.setProperty('display', 'flex');
+  // myDivCenter.style.setProperty('overflow', 'auto');
 }
 else {
   myDivLeft.classList.add('open');
@@ -95,11 +93,11 @@ else {
   document.documentElement.style.setProperty('--menuWidth', '18rem');
 
   //mover elementos:
-  myDivContainer.appendChild(myDivLeft);
-  myDivContainer.appendChild(myDivCenter);
-  myDivContainer.appendChild(myDivRight);
-  myDivContainer.style.setProperty('display', 'flex');
-  myDivCenter.style.setProperty('overflow', 'auto');
+  // myDivContainer.appendChild(myDivLeft);
+  // myDivContainer.appendChild(myDivCenter);
+  // myDivContainer.appendChild(myDivRight);
+  // myDivContainer.style.setProperty('display', 'flex');
+  // myDivCenter.style.setProperty('overflow', 'auto');
 }
 
 function checkOrientation() {

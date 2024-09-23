@@ -225,6 +225,7 @@ html {
 
 #myDivCenter .divCenterContent {
   flex: 1;
+  overflow: auto;
   display: flex;
 }
 
@@ -484,7 +485,16 @@ html {
     line-height: 3rem;
   }
 
-  .divChildCenter {
+
+  #d1_dHome {
+    min-height: calc(var(--mobileHeight) - var(--headerHeigth) - var(--footerHeight));
+  }
+
+  .d2_dHome {
+    min-height: calc(var(--mobileHeight) - var(--footerHeight));
+  }
+
+  .d3_dHome {
     min-height: calc(var(--mobileHeight) - var(--footerHeight));
   }
 
@@ -551,7 +561,15 @@ html {
     line-height: 2rem;
   }
 
-  .divChildCenter {
+  #d1_dHome {
+    min-height: calc(var(--mobileHeight) - var(--headerHeigth) - var(--footerHeight) - 1rem);
+  }
+
+  .d2_dHome {
+    min-height: calc(var(--mobileHeight) - var(--headerHeigth) - var(--footerHeight) - 1rem);
+  }
+
+  .d3_dHome {
     min-height: calc(var(--mobileHeight) - var(--headerHeigth) - var(--footerHeight) - 1rem);
   }
 }
