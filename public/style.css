@@ -67,12 +67,10 @@ body {
 /* |-myHeader */
 #myHeader {
   /* display: flex; será definido após o carregamento da página*/
-  height: var(--headerHeigth);
   background-color: var(--backColor1);
   align-items: center;
   padding-left: .5rem;
   padding-right: .5rem;
-  transition: height .3s ease;
   overflow-y: hidden;
 }
 
@@ -463,10 +461,13 @@ body {
 
 /*|- - MOBILE (width < 600)*/
 @media only screen and (max-width: 599px) {
+
+  /* |- - - myHeader */
   #myHeader {
     position: sticky;
     top: 0;
     min-height: var(--headerHeigth);
+    transition: min-height .3s ease;
   }
 
   /* |- - - myDivContainer */
@@ -548,6 +549,11 @@ body {
 
 /* |- - MONITOR (width > 600)*/
 @media only screen and (min-width: 600px) {
+
+  /* |- - - myHeader */
+  #myHeader {
+    height: var(--headerHeigth);
+  }
 
   /* |- - - myDivContainer */
   #myDivContainer {

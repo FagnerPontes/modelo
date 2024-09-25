@@ -11,12 +11,9 @@ const myHeader = document.getElementById('myHeader');
 const btMenuLeft = document.getElementById('btMenuLeft');
 const btMenuRight = document.getElementById('btMenuRight');
 const myDivContainer = document.getElementById('myDivContainer');
-const myDivCenter = document.getElementById('myDivCenter');
 const myDivLeft = document.getElementById('myDivLeft');
 const myDivRight = document.getElementById('myDivRight');
 const myFooter = document.getElementById('myFooter');
-const divChildCenter = document.getElementsByClassName('divChildCenter');
-const divCenterContent = document.getElementsByClassName('divCenterContent');
 const btColseMl = document.getElementById('btColseMl');
 const btColseMr = document.getElementById('btColseMr');
 
@@ -50,12 +47,12 @@ if (isMobile) {
   window.addEventListener('touchmove', (e) => {
     currentY = e.touches[0].pageY;
     distance = currentY - startY;
-    if (distance < -5) {
+    if (distance < -10) {
       myHeader.style.setProperty('min-height', '0');
       startY = currentY;
     }
     // Ocultar header
-    else if (distance > 5) {
+    else if (distance > 10) {
       myHeader.style.setProperty('min-height', 'var(--headerHeigth)');
       startY = currentY;
     }
