@@ -21,6 +21,9 @@ const btColseMl = document.getElementById('btColseMl');
 const btColseMr = document.getElementById('btColseMr');
 
 
+const myHeight = window.innerHeight;
+const muWidth = window.innerWidth;
+
 // |- - isMobile
 const getMobile = () => {
   if (navigator.userAgentData && navigator.userAgentData.mobile) {
@@ -35,8 +38,8 @@ const getMobile = () => {
 var isMobile = getMobile();
 
 if (isMobile) {
-  document.getElementById('body').style.setProperty('min-height', `${window.innerHeight}px`);
-  document.documentElement.style.setProperty('--mobileHeight', `${window.innerHeight}px`);
+  document.getElementById('body').style.setProperty('min-height', `${myHeight}px`);
+  document.documentElement.style.setProperty('--mobileHeight', `${myHeight}px`);
   let startY = 0;
   var currentY = 0;
   var distance = 0;
@@ -48,12 +51,12 @@ if (isMobile) {
     currentY = e.touches[0].pageY;
     distance = currentY - startY;
     if (distance < -5) {
-      myHeader.style.setProperty('height', '0');
+      myHeader.style.setProperty('min-height', '0');
       startY = currentY;
     }
     // Ocultar header
     else if (distance > 5) {
-      myHeader.style.setProperty('height', 'var(--headerHeigth)');
+      myHeader.style.setProperty('min-height', 'var(--headerHeigth)');
       startY = currentY;
     }
   });
@@ -66,12 +69,12 @@ else {
 
 
 // |- - Layout inicial
-if (window.innerWidth < 600) {
+if (muWidth < 600) {
   myDivLeft.classList.add('close');
   myDivRight.classList.add('close');
   document.documentElement.style.setProperty('--menuWidth', '100vw');
 }
-else if (window.innerWidth < 800) {
+else if (muWidth < 800) {
   myDivLeft.classList.add('close');
   myDivRight.classList.add('open');
   document.documentElement.style.setProperty('--menuWidth', '18rem');
@@ -84,12 +87,12 @@ else {
 
 function checkOrientation() {
   if (window.innerHeight > window.innerWidth) {
-    document.getElementById('body').style.setProperty('min-height', `${window.innerHeight}px`);
-    document.documentElement.style.setProperty('--mobileHeight', `${window.innerHeight}px`);
+    document.getElementById('body').style.setProperty('min-height', `${myHeight}px`);
+    document.documentElement.style.setProperty('--mobileHeight', `${myHeight}px`);
   }
   else {
-    document.getElementById('body').style.setProperty('min-height', `${window.innerHeight}px`);
-    document.documentElement.style.setProperty('--mobileHeight', `${window.innerWidth}px`);
+    document.getElementById('body').style.setProperty('min-height', `${myHeight}px`);
+    document.documentElement.style.setProperty('--mobileHeight', `${muWidth}px`);
   }
 }
 
