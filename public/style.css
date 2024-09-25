@@ -51,8 +51,7 @@ html {
   font-size: var(--fontSizeRoot1);
 }
 
-
-.body {
+body {
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -62,45 +61,7 @@ html {
   background-size: cover;
   background-repeat: no-repeat;
   padding-bottom: env(safe-area-inset-bottom);
-}
-
-.btMenu {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-top: .25rem;
-  height: var(--menuButtonHeight);
-  cursor: pointer;
-  font-size: 1rem;
-  color: var(--fontColor2);
-  border: 1px solid var(--backColor2t);
-  border-radius: 10px;
-  background-color: var(--backColor2t);
-  transition: background-color 0.3s;
-}
-
-.btMenu i {
-  color: var(--fontColor1);
-  font-size: 1.5rem;
-  margin-left: .5rem;
-  margin-right: .5rem;
-}
-
-.btMenu span {
-  display: flex;
-  flex: 1;
-  justify-content: left;
-  text-align: left;
-}
-
-.btMenu:hover {
-  border: 1px solid var(--fontColor3);
-  background-color: var(--backColor3);
-}
-
-.btMenu:active {
-  border: 1px solid var(--fontColor4);
-  background-color: var(--backColor4);
+  overflow-x: hidden;
 }
 
 /* |-myHeader */
@@ -135,55 +96,11 @@ html {
   flex: 1;
 }
 
-#myHeader button {
-  width: 4rem;
-  height: 4rem;
-  line-height: 4rem;
-  cursor: pointer;
-  margin: .1rem;
-  font-size: 2rem;
-  color: var(--fontColor1);
-  border: 1px solid var(--backColor1t);
-  border-radius: 10px;
-  background-color: var(--backColor1t);
-  transition: background-color 0.3s;
-}
-
-#myHeader button:hover {
-  border: 1px solid var(--fontColor3);
-  background-color: var(--backColor3);
-}
-
-#myHeader button:active {
-  background-color: var(--backColor4);
-}
-
-#myHeader button:disabled {
-  background-color: var(--backColor4);
-  color: var(--fontColor4);
-}
-
-/* |- Botões Texto abaixo do ícone */
-.btColumn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.btColumn i {
-  line-height: 2.5rem;
-}
-
-.btColumn span {
-  font-size: .8rem;
-  text-align: center;
-  line-height: 1.5rem;
-}
-
 /* |-myFooter */
 #myFooter {
   /* height: calc(var(--footerHeight) + env(safe-area-inset-bottom)); */
   height: var(--footerHeight);
+  min-height: var(--footerHeight);
   background-color: var(--backColor1);
   /* display: flex; será definido após o carregamento da página*/
   justify-content: center;
@@ -194,10 +111,8 @@ html {
 
 /* |-myDivContainer */
 #myDivContainer {
-  flex: 1;
   border-top: 1px solid var(--fontColor5);
   border-bottom: 1px solid var(--fontColor5);
-  overflow: hidden;
   /* display: flex; será definido após o carregamento da página*/
   /*flex-direction: será definido no @media (Responsividade)*/
 }
@@ -218,40 +133,27 @@ html {
 /* |-MyDivCenter */
 #myDivCenter {
   display: flex;
-  flex: 1;
-  overflow: auto;
   color: var(--fontColor1);
 }
 
 #myDivCenter .divCenterContent {
-  flex: 1;
-  overflow: auto;
   display: flex;
 }
 
-#myDivCenter .divCenterContent .divChildTop {
+.divChildTop {
   width: 100%;
-  height: 3rem;
-  line-height: 3rem;
+  height: 4rem;
   display: flex;
   flex-direction: row;
-  padding-right: .5rem;
+  padding: .5rem;
   border-bottom: 1px solid var(--fontColor5);
+  align-items: center;
 }
 
-.divCenterContent .divChildTop h1 {
-  padding-left: .5rem;
+.divChildTop h1 {
   text-align: left;
   font-size: 1.5rem;
   flex: 1;
-}
-
-.divCenterContent .divChildTop button {
-  font-size: 1.5rem;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  margin-top: .5rem;
 }
 
 /* |-myDivRight */
@@ -292,7 +194,6 @@ html {
 #myDivRight .btMenu .btClipboard i:hover {
   color: var(--fontColor1);
 }
-
 
 /* |-divFormParent */
 #divFormParent {
@@ -412,6 +313,149 @@ html {
   font-weight: 600;
 }
 
+.buttonT {
+  background-color: var(--backColor2t);
+  border: 1px solid var(--backColor2t);
+  color: var(--fontColor2);
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+}
+
+.buttonT:hover {
+  background-color: var(--backColor3);
+  border: 1px solid var(--fontColor2);
+}
+
+.buttonT:active {
+  background-color: var(--backColor4);
+}
+
+.buttonT i {
+  color: var(--fontColor1);
+}
+
+.buttonS {
+  background-color: var(--backColor2s);
+  border: 1px solid var(--backColor2s);
+  color: var(--fontColor2);
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+}
+
+.buttonS:hover {
+  background-color: var(--backColor3);
+  border: 1px solid var(--fontColor2);
+}
+
+.buttonS:active {
+  background-color: var(--backColor4);
+}
+
+.buttonS i {
+  color: var(--fontColor1);
+}
+
+.btMenu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: .25rem;
+  height: var(--menuButtonHeight);
+  font-size: 1rem;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+}
+
+.btMenu i {
+  font-size: 1.5rem;
+  margin-left: .5rem;
+  margin-right: .5rem;
+}
+
+.btMenu span {
+  display: flex;
+  flex: 1;
+  justify-content: left;
+  text-align: left;
+}
+
+/* |- Botões Texto abaixo do ícone */
+.btColumn {
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btColumn i {
+  line-height: 2.5rem;
+  font-size: 2rem;
+}
+
+.btColumn span {
+  font-size: .8rem;
+  text-align: center;
+  line-height: 1.5rem;
+}
+
+.btHeader {
+  width: 4rem;
+  height: 4rem;
+  line-height: 4rem;
+  margin: .1rem;
+  font-size: 2rem;
+}
+
+.btClose {
+  height: 2rem;
+  min-height: 2rem;
+  max-height: 2rem;
+  width: 2rem;
+  min-width: 2rem;
+  max-width: 2rem;
+  border-radius: 50%;
+}
+
+.btClose i {
+  font-size: 1.5rem;
+}
+
+.bt_Container {
+  padding-left: 1rem;
+  display: flex;
+  height: 5rem;
+  flex-direction: row;
+  width: 20rem;
+  font-size: 1.5rem;
+  border-radius: 2.5rem;
+  align-items: center;
+  text-align: left;
+  margin-top: 1rem;
+  background-color: #05090d;
+  transition: background-color .3s ease;
+}
+
+.bt_Container:hover {
+  background-color: #313439;
+}
+
+.bt_Container:active {
+  background-color: #818489;
+}
+
+.bt_Container i {
+  font-size: 3.5rem;
+  color: #d1d6dd;
+}
+
+.bt_Container span {
+  padding-left: .5rem;
+  color: #d1d6dd;
+  flex: 1;
+}
 
 /*----------------------------------*/
 /*|-RESPONSIVIDADE*/
@@ -419,18 +463,21 @@ html {
 
 /*|- - MOBILE (width < 600)*/
 @media only screen and (max-width: 599px) {
+  #myHeader {
+    position: sticky;
+    top: 0;
+    min-height: var(--headerHeigth);
+  }
 
   /* |- - - myDivContainer */
   #myDivContainer {
     display: flex;
-    position: relative;
     flex-direction: column;
   }
 
   /* |- - - myDivLeft */
   #myDivLeft {
-    position: absolute;
-    padding-top: 1rem;
+    position: fixed;
     padding-bottom: 1rem;
     top: 0;
     left: 0;
@@ -452,14 +499,13 @@ html {
     height: 100%;
     min-width: 100%;
     background-color: var(--backColor1);
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    /* border-top-left-radius: 8px;
+    border-top-right-radius: 8px; */
   }
 
   /* |- - - myDivRight */
   #myDivRight {
-    position: absolute;
-    padding-top: 1rem;
+    position: fixed;
     padding-bottom: 1rem;
     top: 0;
     right: 0;
@@ -487,11 +533,11 @@ html {
 
 
   #d1_dHome {
-    min-height: calc(var(--mobileHeight) - var(--headerHeigth) - var(--footerHeight));
+    min-height: calc(var(--mobileHeight) - var(--headerHeigth));
   }
 
   #d2_dHome {
-    min-height: calc(var(--mobileHeight) - var(--footerHeight));
+    min-height: calc(var(--mobileHeight));
   }
 
   #d3_dHome {
@@ -506,12 +552,13 @@ html {
   /* |- - - myDivContainer */
   #myDivContainer {
     flex-direction: row;
+    flex: 1;
+    overflow: hidden;
   }
 
   /* |- - - myDivLeft */
   #myDivLeft {
     border-right: 1px solid var(--fontColor5);
-    padding-top: 1rem;
     padding-bottom: 1rem;
     background-color: var(--backColor2);
   }
@@ -523,21 +570,23 @@ html {
   /* |- - - myDivCenter */
   #myDivCenter {
     background-color: var(--backColor1);
-    padding: .5rem;
     min-width: 0rem;
+    overflow: auto;
+    flex: 1;
+
   }
 
   #myDivCenter .divCenterContent {
     height: 100%;
     min-width: 100%;
     background-color: var(--backColor1);
-    border-radius: 8px;
+    /* border-radius: 8px; */
+    flex: 1;
   }
 
   /* |- - - myDivRight */
   #myDivRight {
     border-left: 1px solid var(--fontColor5);
-    padding-top: 1rem;
     padding-bottom: 1rem;
     background-color: var(--backColor2);
   }
@@ -562,15 +611,15 @@ html {
   }
 
   #d1_dHome {
-    min-height: calc(var(--mobileHeight) - var(--headerHeigth) - var(--footerHeight) - 1rem);
+    min-height: calc(var(--mobileHeight) - var(--headerHeigth) - var(--footerHeight));
   }
 
   #d2_dHome {
-    min-height: calc(var(--mobileHeight) - var(--headerHeigth) - var(--footerHeight) - 1rem);
+    min-height: calc(var(--mobileHeight) - var(--headerHeigth) - var(--footerHeight));
   }
 
   #d3_dHome {
-    min-height: calc(var(--mobileHeight) - var(--headerHeigth) - var(--footerHeight) - 1rem);
+    min-height: calc(var(--mobileHeight) - var(--headerHeigth) - var(--footerHeight));
   }
 }
 
@@ -642,7 +691,6 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: height .3s ease;
 }
 
 #d1_dHome {
@@ -658,10 +706,10 @@ html {
   flex: 1;
   flex-direction: column;
   width: 100%;
-  height: auto;
+  /* height: auto; */
   align-items: center;
-  margin-top: auto;
-  margin-bottom: auto;
+  /* margin-top: auto;
+  margin-bottom: auto; */
   justify-content: center;
 
 }
@@ -707,7 +755,8 @@ html {
 #p1_d1_dHome {
   margin-top: 1rem;
   text-align: center;
-  width: calc(100% - 2rem);
+  max-width: 36rem;
+  min-width: 18rem;
   color: black;
   font-size: 1.25rem;
   line-height: 1.25rem;
@@ -725,7 +774,8 @@ html {
   text-align: left;
   justify-content: center;
   align-items: center;
-  width: calc(100% - 2rem);
+  max-width: 36rem;
+  min-width: 18rem;
   color: black;
   font-size: 1.25rem;
   line-height: 1.5rem;
@@ -802,40 +852,6 @@ html {
   max-width: 36rem;
   text-align: center;
   color: #6edff6;
-}
-
-.bt_Container {
-  padding-left: 1rem;
-  display: flex;
-  height: 5rem;
-  flex-direction: row;
-  width: 20rem;
-  font-size: 1.5rem;
-  border-radius: 2.5rem;
-  align-items: center;
-  text-align: left;
-  margin-top: 1rem;
-  background-color: #05090d;
-  transition: background-color .3s ease;
-}
-
-.bt_Container:hover {
-  background-color: #313439;
-}
-
-.bt_Container:active {
-  background-color: #818489;
-}
-
-.bt_Container i {
-  font-size: 3.5rem;
-  color: #d1d6dd;
-}
-
-.bt_Container span {
-  padding-left: .5rem;
-  color: #d1d6dd;
-  flex: 1;
 }
 
 #panel5 {

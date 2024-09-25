@@ -1,6 +1,8 @@
 import { Clipboard } from './scriptClipboard.js';
 import * as scriptTheme from './scriptTheme.js';
 
+scriptTheme.getTheme();
+
 // |- Manipulação do layout
 //elementos maniplados:
 const divLoading = document.getElementById('divLoading');
@@ -15,6 +17,8 @@ const myDivRight = document.getElementById('myDivRight');
 const myFooter = document.getElementById('myFooter');
 const divChildCenter = document.getElementsByClassName('divChildCenter');
 const divCenterContent = document.getElementsByClassName('divCenterContent');
+const btColseMl = document.getElementById('btColseMl');
+const btColseMr = document.getElementById('btColseMr');
 
 
 // |- - isMobile
@@ -31,7 +35,7 @@ const getMobile = () => {
 var isMobile = getMobile();
 
 if (isMobile) {
-  document.getElementById('body').style.setProperty('height', `${window.innerHeight}px`);
+  document.getElementById('body').style.setProperty('min-height', `${window.innerHeight}px`);
   document.documentElement.style.setProperty('--mobileHeight', `${window.innerHeight}px`);
   let startY = 0;
   var currentY = 0;
@@ -66,47 +70,25 @@ if (window.innerWidth < 600) {
   myDivLeft.classList.add('close');
   myDivRight.classList.add('close');
   document.documentElement.style.setProperty('--menuWidth', '100vw');
-
-  //mover elementos:
-  // myBody.appendChild(myDivLeft);
-  // myBody.appendChild(myDivCenter);
-  // myBody.appendChild(myDivRight);
-  // myDivContainer.style.setProperty('display', 'none');
-  // myDivCenter.style.setProperty('overflow', 'none');
-
 }
 else if (window.innerWidth < 800) {
   myDivLeft.classList.add('close');
   myDivRight.classList.add('open');
   document.documentElement.style.setProperty('--menuWidth', '18rem');
-
-  //mover elementos:
-  // myDivContainer.appendChild(myDivLeft);
-  // myDivContainer.appendChild(myDivCenter);
-  // myDivContainer.appendChild(myDivRight);
-  // myDivContainer.style.setProperty('display', 'flex');
-  // myDivCenter.style.setProperty('overflow', 'auto');
 }
 else {
   myDivLeft.classList.add('open');
   myDivRight.classList.add('open');
   document.documentElement.style.setProperty('--menuWidth', '18rem');
-
-  //mover elementos:
-  // myDivContainer.appendChild(myDivLeft);
-  // myDivContainer.appendChild(myDivCenter);
-  // myDivContainer.appendChild(myDivRight);
-  // myDivContainer.style.setProperty('display', 'flex');
-  // myDivCenter.style.setProperty('overflow', 'auto');
 }
 
 function checkOrientation() {
   if (window.innerHeight > window.innerWidth) {
-    document.getElementById('body').style.setProperty('height', `${window.innerHeight}px`);
+    document.getElementById('body').style.setProperty('min-height', `${window.innerHeight}px`);
     document.documentElement.style.setProperty('--mobileHeight', `${window.innerHeight}px`);
   }
   else {
-    document.getElementById('body').style.setProperty('height', `${window.innerHeight}px`);
+    document.getElementById('body').style.setProperty('min-height', `${window.innerHeight}px`);
     document.documentElement.style.setProperty('--mobileHeight', `${window.innerWidth}px`);
   }
 }
@@ -169,6 +151,10 @@ function SliceMenu(myDivMenu1, myDivMenu2) {
 // |- - Eventos de animação
 myDivLeft.addEventListener('animationstart', () => {
   btMenuLeft.disabled = true; //desativar botão do menu
+  if (myDivLeft.classList.contains('close'))
+    myBody.style.setProperty('overflow-y', 'hidden');
+  else
+    myBody.style.setProperty('overflow-y', 'auto');
 });
 
 myDivLeft.addEventListener('animationend', () => {
@@ -177,6 +163,10 @@ myDivLeft.addEventListener('animationend', () => {
 
 myDivRight.addEventListener('animationstart', () => {
   btMenuRight.disabled = true; //desativar botão do menu
+  if (myDivRight.classList.contains('close'))
+    myBody.style.setProperty('overflow-y', 'hidden');
+  else
+    myBody.style.setProperty('overflow-y', 'auto');
 });
 
 myDivRight.addEventListener('animationend', () => {
@@ -188,6 +178,14 @@ btMenuLeft.addEventListener('click', () => {
 })
 
 btMenuRight.addEventListener('click', () => {
+  SliceMenu(myDivRight, myDivLeft);
+})
+
+btColseMl.addEventListener('click', () => {
+  SliceMenu(myDivLeft, myDivRight);
+})
+
+btColseMr.addEventListener('click', () => {
   SliceMenu(myDivRight, myDivLeft);
 })
 
@@ -230,7 +228,6 @@ const activePage = () => {
   myDivContainer.style.setProperty('display', 'flex');
   myFooter.style.setProperty('display', 'flex');
   divLoading.style.setProperty('display', 'none');
-  scriptTheme.getTheme();
 }
 
 /*|- EventsListeners */
