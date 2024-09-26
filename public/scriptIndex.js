@@ -40,6 +40,7 @@ if (isMobile) {
   let startY = 0;
   var currentY = 0;
   var distance = 0;
+
   window.addEventListener('touchstart', (e) => {
     // Armazena a posição inicial do toque
     startY = e.touches[0].pageY;
@@ -47,13 +48,13 @@ if (isMobile) {
   window.addEventListener('touchmove', (e) => {
     currentY = e.touches[0].pageY;
     distance = currentY - startY;
-    if (distance < -10) {
-      myHeader.style.setProperty('min-height', '0');
+    if (distance < -25) {
+      myHeader.style.setProperty('opacity', '0');
       startY = currentY;
     }
     // Ocultar header
-    else if (distance > 10) {
-      myHeader.style.setProperty('min-height', 'var(--headerHeigth)');
+    else if (distance > 25) {
+      myHeader.style.setProperty('opacity', '1');
       startY = currentY;
     }
   });
@@ -94,6 +95,7 @@ function checkOrientation() {
 }
 
 window.addEventListener('orientationchange', checkOrientation);
+
 
 // Modificar layout da página caso seja redimencionada -> evento(resize)
 // |- - Redimencionada (onresize)
