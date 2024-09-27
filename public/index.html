@@ -55,9 +55,9 @@
 
 <body id="body" class="loading">
   <div id="divLoading">
-    <div></div>
-    <div></div>
-    <div></div>
+    <div id='d1'></div>
+    <div id='d2'></div>
+    <div id='d3'></div>
   </div>
   <!-- 
   myHeader
@@ -67,8 +67,10 @@
     <button id="btMenuLeft" class='buttonT btHeader' type="button" title="Menu">
       <i class="bi bi-layout-sidebar-inset"></i> <!-- ícone importado do bootstrap -->
     </button>
-    <a id="aHome" href="index.html">Forbys.</a>
-    <p></p>
+    <a id="aHome" href="index.html">
+      <img src="/Imagens/logo1.jpg" class='logo' />
+    </a>
+    <p>Forbys</p>
     <!-- Botão para entrar no perfil -->
     <button id="btLogin" class='buttonT btColumn' type='button' title='Entrar' onclick="location.href='login.html';">
       <i class="bi bi-person-up"></i><!-- ícone importado do bootstrap -->
@@ -92,6 +94,7 @@
       <button id="btOpenL2" class="buttonT btMenu"><i class="bi bi-bag-check"></i><span>Nossos planos</span></button>
       <button id="btOpenL3" class="buttonT btMenu"><i class="bi bi-person-hearts"></i><span>Nossos
           parceiros</span></button>
+      <button id="btOpenL4" class="buttonT btMenu"><i class="bi bi-person-hearts"></i><span>Preferências</span></button>
     </div>
     <!--
     myDivCenter
@@ -105,7 +108,6 @@
           <h1>Forbys <span>forever by your side.</span></h1>
         </div> -->
         <div id='d1_dHome' class="divChildCenter">
-          <!-- <img src="/Imagens/mulher.jpg" /> -->
           <p id="p1_d1_dHome">Imagine poder transmitir a memória dos seus antepassados aos filhos, netos, bisnetos...
           </p>
           <div>
@@ -161,23 +163,36 @@
           </button>
         </div>
       </div>
-      <div id="panelL1" class="divCenterContent">
+      <div id="panelL1" class="divCenterContent panelMenu">
         <div class="divChildTop">
           <h1>Nossos serviços</h1>
           <button id="btColseL1" class="buttonS btClose"><i class="bi bi-x"></i></button>
         </div>
       </div>
-      <div id="panelL2" class="divCenterContent">
+      <div id="panelL2" class="divCenterContent panelMenu">
         <div class="divChildTop">
           <h1>Nossos Planos</h1>
           <button id="btColseL2" class="buttonS btClose"><i class="bi bi-x"></i></button>
         </div>
       </div>
-      <div id="panelL3" class="divCenterContent">
+      <div id="panelL3" class="divCenterContent panelMenu">
         <div class="divChildTop">
           <h1>Nossos parceiros</h1>
           <button id="btColseL3" class="buttonS btClose"><i class="bi bi-x"></i></button>
         </div>
+      </div>
+      <div id="panelL4" class="divCenterContent panelMenu">
+        <div class="divChildTop">
+          <h1>Preferências</h1>
+          <button id="btColseL4" class="buttonS btClose"><i class="bi bi-x"></i></button>
+        </div>
+        <form id="themeUserForm" class="formColumn">
+          <p>Escolha seu tema:</p>
+          <label><input type="radio" name="options" value="dark"> Dark</label>
+          <label><input type="radio" name="options" value="light"> Light</label>
+          <label><input type="radio" name="options" value="solid_dark"> Solid dark</label>
+          <label><input type="radio" name="options" value="solid_light"> Solid Light</label>
+        </form>
       </div>
     </div>
     <!--
@@ -219,22 +234,22 @@
       </div>
       <div class='buttonT btMenu'>
         <i class="bi bi-whatsapp"></i>
-        <a href='https://web.whatsapp.com/' target='_blank'>+55 (81) 99999-9999</a>
-        <button class='btClipboard' title='copiar' value='+55 (81) 99999-9999'>
+        <a href='https://web.whatsapp.com/' target='_blank'>+55 (81) 98858-4789</a>
+        <button class='btClipboard' title='copiar' value='+55 (81) 98858-4789'>
           <i class="bi bi-files"></i>
         </button>
       </div>
       <div class='buttonT btMenu'>
         <i class="bi bi-telegram"></i>
-        <a href='https://web.telegram.org/' target='_blank'>+55 (81) 99999-9999</a>
-        <button class='btClipboard' title='copiar' value='+55 (81) 99999-9999'>
+        <a href='https://web.telegram.org/' target='_blank'>+55 (81) 98858-4789</a>
+        <button class='btClipboard' title='copiar' value='+55 (81) 98858-4789'>
           <i class="bi bi-files"></i>
         </button>
       </div>
       <div class='buttonT btMenu'>
         <i class="bi bi-envelope"></i>
-        <a href='https://mail.google.com/' target='_blank'>forbys@gmail.com</a>
-        <button class='btClipboard' title='copiar' value='forbys@gmail.com'>
+        <a href='https://mail.google.com/' target='_blank'>forbysmemories@gmail.com</a>
+        <button class='btClipboard' title='copiar' value='forbysmemories@gmail.com'>
           <i class="bi bi-files"></i>
         </button>
       </div>

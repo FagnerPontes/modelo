@@ -17,10 +17,6 @@ const myFooter = document.getElementById('myFooter');
 const btColseMl = document.getElementById('btColseMl');
 const btColseMr = document.getElementById('btColseMr');
 
-
-const myHeight = window.innerHeight;
-const muWidth = window.innerWidth;
-
 // |- - isMobile
 const getMobile = () => {
   if (navigator.userAgentData && navigator.userAgentData.mobile) {
@@ -35,8 +31,6 @@ const getMobile = () => {
 var isMobile = getMobile();
 
 if (isMobile) {
-  document.getElementById('body').style.setProperty('min-height', `${myHeight}px`);
-  document.documentElement.style.setProperty('--mobileHeight', `${myHeight}px`);
   let startY = 0;
   var currentY = 0;
   var distance = 0;
@@ -49,51 +43,44 @@ if (isMobile) {
     currentY = e.touches[0].pageY;
     distance = currentY - startY;
     if (distance < -25) {
-      myHeader.style.setProperty('opacity', '0');
+      myHeader.style.setProperty('height', '0');
       startY = currentY;
     }
     // Ocultar header
     else if (distance > 25) {
-      myHeader.style.setProperty('opacity', '1');
+      myHeader.style.setProperty('height', 'var(--headerHeigth)');
       startY = currentY;
     }
   });
   checkOrientation();
 }
-else {
-  document.getElementById('body').style.setProperty('height', `100vh`);
-  document.documentElement.style.setProperty('--mobileHeight', `100vh`);
-}
 
 
 // |- - Layout inicial
-if (muWidth < 600) {
+if (window.innerWidth < 600) {
+  document.documentElement.style.setProperty('--menuWidth', '100vw');
   myDivLeft.classList.add('close');
   myDivRight.classList.add('close');
-  document.documentElement.style.setProperty('--menuWidth', '100vw');
 }
-else if (muWidth < 800) {
+else if (window.innerWidth < 900) {
+  document.documentElement.style.setProperty('--menuWidth', '18rem');
   myDivLeft.classList.add('close');
   myDivRight.classList.add('open');
-  document.documentElement.style.setProperty('--menuWidth', '18rem');
 }
 else {
+  document.documentElement.style.setProperty('--menuWidth', '18rem');
   myDivLeft.classList.add('open');
   myDivRight.classList.add('open');
-  document.documentElement.style.setProperty('--menuWidth', '18rem');
 }
 
 function checkOrientation() {
   if (window.innerHeight > window.innerWidth) {
-    document.getElementById('body').style.setProperty('min-height', `${myHeight}px`);
-    document.documentElement.style.setProperty('--mobileHeight', `${myHeight}px`);
+    document.documentElement.style.setProperty('--mobileHeight', `100vh`);
   }
   else {
-    document.getElementById('body').style.setProperty('min-height', `${myHeight}px`);
-    document.documentElement.style.setProperty('--mobileHeight', `${muWidth}px`);
+    document.documentElement.style.setProperty('--mobileHeight', `100vw`);
   }
 }
-
 window.addEventListener('orientationchange', checkOrientation);
 
 
@@ -101,7 +88,8 @@ window.addEventListener('orientationchange', checkOrientation);
 // |- - Redimencionada (onresize)
 onresize = (event) => {
   if (isMobile)
-    checkOrientation();
+    checkOrientation()
+
   //caso a largura da janela seja menor que 800px (mobile) -> fechar os menus
   if (event.target.innerWidth < 600) {
     myDivLeft.classList.replace('open', 'close'); //substituir .open por .close
@@ -115,9 +103,9 @@ onresize = (event) => {
   }
   //caso a largura da janela seja maoir que 800px (monitor) -> abrir os menus
   else {
+    document.documentElement.style.setProperty('--menuWidth', '18rem'); //variável css (--menuWidth):
     myDivLeft.classList.replace('close', 'open'); //substituir .close por .open
     myDivRight.classList.replace('close', 'open'); //substituir .close por .open
-    document.documentElement.style.setProperty('--menuWidth', '18rem'); //variável css (--menuWidth):
   }
 };
 
@@ -199,6 +187,7 @@ const dHome = document.getElementById('dHome');
 const panelL1 = document.getElementById('panelL1');
 const panelL2 = document.getElementById('panelL2');
 const panelL3 = document.getElementById('panelL3');
+const panelL4 = document.getElementById('panelL4');
 
 /*função responsável por ativar painel relacionado ao botão clicado*/
 function openPenel(panel) {
@@ -206,6 +195,7 @@ function openPenel(panel) {
   panelL1.style.setProperty('display', 'none');
   panelL2.style.setProperty('display', 'none');
   panelL3.style.setProperty('display', 'none');
+  panelL4.style.setProperty('display', 'none');
 
   panel.style.setProperty('display', 'flex');
   if (window.innerWidth < 800) {
@@ -222,14 +212,45 @@ function closePanel(panel) {
 //iniciar com painel home aberto:
 openPenel(dHome);
 
+const radioButtonsThemes = document.querySelectorAll('input[name="options"]');
+radioButtonsThemes.forEach(radio => {
+  radio.addEventListener('click', function () {
+    if (this.value) {
+      switch (this.value) {
+        case 'dark': {
+          scriptTheme.setMyTheme(dark(), 'dark');
+          break;
+        }
+        case 'light': {
+          scriptTheme.setMyTheme(light(), 'light');
+          break;
+        }
+        case 'solid_dark': {
+          scriptTheme.setMyTheme(solidDark(), 'solid_dark');
+          break;
+        }
+        case 'solid_light': {
+          scriptTheme.setMyTheme(solidLight(), 'solid_light');
+          break;
+        }
+      }
+    }
+  });
+});
+
 const activePage = () => {
   myBody.classList.remove('loading');
   myBody.classList.add('body');
-  divLoading.remove();
+  var d1 = document.getElementById('d1');
+  var d2 = document.getElementById('d2');
+  var d3 = document.getElementById('d3');
+  d1.remove();
+  d2.remove();
+  d3.remove();
   myHeader.style.setProperty('display', 'flex');
   myDivContainer.style.setProperty('display', 'flex');
   myFooter.style.setProperty('display', 'flex');
-  divLoading.style.setProperty('display', 'none');
+  divLoading.classList.add('backImage');
 }
 
 /*|- EventsListeners */
@@ -245,6 +266,8 @@ btOpenL2.addEventListener('click', () => { openPenel(panelL2); });
 const btOpenL3 = document.getElementById('btOpenL3');
 btOpenL3.addEventListener('click', () => { openPenel(panelL3); });
 
+const btOpenL4 = document.getElementById('btOpenL4');
+btOpenL4.addEventListener('click', () => { openPenel(panelL4); });
 
 const btColseL1 = document.getElementById('btColseL1');
 btColseL1.addEventListener('click', () => { closePanel(panelL1) });
@@ -254,6 +277,9 @@ btColseL2.addEventListener('click', () => { closePanel(panelL2) });
 
 const btColseL3 = document.getElementById('btColseL3');
 btColseL3.addEventListener('click', () => { closePanel(panelL3) });
+
+const btColseL4 = document.getElementById('btColseL4');
+btColseL4.addEventListener('click', () => { closePanel(panelL4) });
 
 const btClipboard = document.getElementsByClassName('btClipboard');
 Array.from(btClipboard).forEach(element => {
@@ -267,4 +293,4 @@ Array.from(bt_Container).forEach(element => {
   element.addEventListener('click', () => { openPenel(panelL3); });
 });
 
-window.onload = activePage; 
+window.onload = activePage;

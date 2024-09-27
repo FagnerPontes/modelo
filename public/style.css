@@ -32,7 +32,7 @@
   --menuButtonHeight: 4rem;
   --iconSize: 3.5rem;
   --bodyHeight: none;
-  --mobileHeight: none;
+  --mobileHeight: 100vh;
   /*propriedade para animação dos menus*/
   --menuWidth: 18rem;
 }
@@ -49,19 +49,30 @@
 
 html {
   font-size: var(--fontSizeRoot1);
+  color: var(--fontColor1);
 }
 
-body {
+/* |-.body */
+.body {
   margin: 0;
   display: flex;
   flex-direction: column;
   background-color: #212429;
+
+}
+
+.backImage {
+  position: fixed;
+  min-height: 100vh;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-image: var(--backgroundImage);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  padding-bottom: env(safe-area-inset-bottom);
   overflow-x: hidden;
+  z-index: -1000;
 }
 
 /* |-myHeader */
@@ -74,7 +85,7 @@ body {
 }
 
 #myHeader #aHome {
-  width: 7.5rem;
+  width: 4rem;
   height: 4rem;
   line-height: 4rem;
   border: 2px solid var(--backColor1t);
@@ -85,12 +96,16 @@ body {
   margin: .5rem;
 }
 
-#myHeader #aHome:hover {
-  color: var(--fontColor4);
+.logo {
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
 }
 
 #myHeader p {
   flex: 1;
+  font-family: "Monotype Corsiva", cursive;
+  font-size: 3rem;
 }
 
 /* |-myFooter */
@@ -136,6 +151,7 @@ body {
 
 #myDivCenter .divCenterContent {
   display: flex;
+  flex-direction: column;
 }
 
 .divChildTop {
@@ -180,7 +196,8 @@ body {
   margin-right: .5rem;
   width: 2rem;
   height: 2.5rem;
-  background-color: var(--backColor2t);
+  background-color: #00000000;
+  border-radius: 10px;
 }
 
 #myDivRight .btMenu .btClipboard i {
@@ -312,8 +329,8 @@ body {
 }
 
 .buttonT {
-  background-color: var(--backColor2t);
-  border: 1px solid var(--backColor2t);
+  background-color: #00000000;
+  border: 1px solid #00000000;
   color: var(--fontColor2);
   cursor: pointer;
   border-radius: 10px;
@@ -361,7 +378,7 @@ body {
   align-items: center;
   margin-top: .25rem;
   height: var(--menuButtonHeight);
-  font-size: 1rem;
+  font-size: 1.0rem;
   border-radius: 10px;
   transition: background-color 0.3s;
 }
@@ -462,19 +479,19 @@ body {
 /*|- - MOBILE (width < 600)*/
 @media only screen and (max-width: 599px) {
 
+  /* |- - - body */
+  body {
+    min-height: 100vh;
+  }
+
   /* |- - - myHeader */
   #myHeader {
-    position: fixed;
+    position: sticky;
     top: 0;
-    left: 0;
-    right: 0;
     background-color: var(--backColor1s);
-    min-height: var(--headerHeigth);
-    max-height: var(--headerHeigth);
     height: var(--headerHeigth);
     overflow: hidden;
-    opacity: 1;
-    transition: opacity .3s ease;
+    transition: height .3s ease;
   }
 
   /* |- - - myDivContainer */
@@ -505,15 +522,15 @@ body {
   /* |- - - myDivCenter */
   #myDivCenter {
     background-color: var(--backColor1);
-    width: 100%;
   }
 
   #myDivCenter .divCenterContent {
-    height: 100%;
-    min-width: 100%;
-    background-color: var(--backColor1);
-    /* border-top-left-radius: 8px;
-    border-top-right-radius: 8px; */
+    min-height: calc(100vh - var(--footerHeight));
+    flex: 1;
+  }
+
+  .panelMenu {
+    background-color: var(--backColor2s);
   }
 
   /* |- - - myDivRight */
@@ -545,7 +562,7 @@ body {
   }
 
   #d1_dHome {
-    padding-top: var(--headerHeigth);
+    /* padding-top: var(--headerHeigth); */
     min-height: var(--mobileHeight);
   }
 
@@ -554,13 +571,18 @@ body {
   }
 
   #d3_dHome {
-    min-height: calc(var(--mobileHeight) + 2.5rem);
+    min-height: calc(var(--mobileHeight) - var(--footerHeight));
   }
 
 }
 
 /* |- - MONITOR (width > 600)*/
 @media only screen and (min-width: 600px) {
+
+  /* |- - - body */
+  body {
+    height: 100vh;
+  }
 
   #divTopMenuL,
   #divTopMenuR {
@@ -603,15 +625,18 @@ body {
     min-width: 0rem;
     overflow: auto;
     flex: 1;
-
   }
 
   #myDivCenter .divCenterContent {
     height: 100%;
     min-width: 100%;
-    background-color: var(--backColor1);
+    /* background-color: var(--backColor1); */
     /* border-radius: 8px; */
     flex: 1;
+  }
+
+  .panelMenu {
+    background-color: var(--backColor2s);
   }
 
   /* |- - - myDivRight */
@@ -620,8 +645,6 @@ body {
     padding-bottom: 1rem;
     background-color: var(--backColor2);
   }
-
-
 
   #myDivRight button {
     width: calc(var(--menuWidth) - 2rem);
@@ -713,8 +736,6 @@ body {
 /* |- ELEMENTOS CRIADOS POR JS*/
 /* ------------------------------------------ */
 
-/* |- Painel: config */
-/* variação de .divCenterContent */
 #dHome {
   flex-direction: column;
 }
@@ -850,11 +871,11 @@ body {
   height: 6rem;
   width: 6rem;
   font-size: 5rem;
-  color: var(--fontColor1);
+  color: var(--fontColor2);
 }
 
 #d2_dHome .pInfo a {
-  color: var(--fontColor2);
+  color: var(--fontColor1);
   font-weight: 600;
   padding-left: 1rem;
   flex: 1;
@@ -962,4 +983,24 @@ body {
 .perfil #themeUserForm input {
   margin-top: 1rem;
   margin-left: 1rem;
+}
+
+.formColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: .5rem;
+  line-height: 3rem;
+}
+
+.formColumn p {
+  padding: 1rem;
+  width: 100%;
+  font-size: 1.2rem;
+  line-height: 2.5rem;
+}
+
+.formColumn label {
+  padding-left: 2rem;
+  width: 100%;
 }
