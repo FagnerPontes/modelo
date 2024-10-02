@@ -62,7 +62,7 @@ export function getTheme() {
   myTheme = getCookie('theme');
   switch (myTheme) {
     case '':
-      myTheme = dark();
+      myTheme = light();
       setTheme()
       break;
     case 'dark':

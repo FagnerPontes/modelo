@@ -185,6 +185,17 @@ html {
 
 #myDivRight .btMenu a {
   color: var(--fontColor2);
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#myDivRight .btMenu a #prefixo {
+  max-width: fit-content;
+}
+
+#myDivRight .btMenu a #sufixo {
   flex: 1;
 }
 
@@ -563,7 +574,7 @@ html {
 
   #d1_dHome {
     /* padding-top: var(--headerHeigth); */
-    min-height: var(--mobileHeight);
+    min-height: calc(var(--mobileHeight) - var(--headerHeigth));
   }
 
   #d2_dHome {
